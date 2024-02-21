@@ -12,33 +12,39 @@
 
 #include "libft.h"
 
-size_t	strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t dst_len;
-	size_t src_len;
-	size_t total_len;
-	size_t	i = 0;
+	size_t	i;
+	size_t	j;
 
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	total_len = dst_len + src_len;
-	i =  0;
-
-    if (size ==  0) {
-        return src_len;
-    }
-
-    if (dst_len >= size) {
-        dst[size -  1] = '\0';
-        return src_len + size;
-    }
-
-    while (src[i] != '\0' && dst_len + i < size -  1) {
-        dst[dst_len + i] = src[i];
-        i++;
-    }
-    dst[dst_len + i] = '\0';
-
-    return total_len;
+	i = 0;
+	j = ft_strlen(dst);
+	if (j < size)
+	{
+		while (src[i] != '\0' && i + j < size - 1)
+		{
+			dst[j + i] = src[i];
+			i++;
+		}
+		dst[j + i] = '\0';
+		while (src[i] != '\0')
+			i++;
+	}
+	else
+	{
+		while (src[i] != '\0')
+			i++;
+		return (i + size);
+	}
+	return (i + j);
 }
-}
+/*int main()
+{
+	const char src[] = "Hello";
+	char dest [20]= "World";
+	size_t a = ft_strlcat(dest,src, 8);
+	//size_t b = strlcat(dest,src, 7);
+	
+	printf(" %ld ,\n dest = %s",a,dest);
+	return 0;
+}*/

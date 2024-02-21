@@ -14,17 +14,21 @@
 # define LIBFT_H
 
 # include <stdio.h>
-# include <ctype.h>
-# include <unistd.h>
+# include <stdlib.h>
 
-void	ft_bzero(void *s, size_t n);
+int		ft_toupper(int c);
 int		ft_isalnum(char c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(char c);
 int		ft_isprint(int c);
+int		ft_tolower(int character);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memset(void *pointer, int value, size_t count);
-size_t	ft_strlen(const char *str);z
+size_t	ft_strlen(const char *str);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
+void	ft_bzero(void *s, size_t n);
+char	*ft_strchr(const char *str, int searchChar);
+char	*ft_strrchr(const char *str, int searchChar);
 
 #endif
