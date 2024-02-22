@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrambelo <mrambelo@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,19 @@
 
 #include "libft.h"
 
-int	ft_memcmp(const void *p1, const void *p2, size_t size)
+void	*ft_calloc(size_t elementCount, size_t elementSize)
 {
-	int			delta;
-	size_t		i;
+	size_t	total_size;
+	char	*byte_ptr;
+	void	*ptr;
 
-	i = 0;
-	while (i < size)
+	total_size = elementCount * elementSize;
+	ptr = malloc(total_size);
+	if (ptr != NULL)
 	{
-		delta = *(const unsigned char *)p1++ - *(const unsigned char *)p2++;
-		if (delta)
-			return (delta);
-		i++;
+		byte_ptr = (char *)ptr;
+		while (total_size-- > 0)
+			*byte_ptr++ = 0;
 	}
-	return (0);
+	return (ptr);
 }

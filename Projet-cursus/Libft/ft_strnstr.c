@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrambelo <mrambelo@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,24 @@
 
 #include "libft.h"
 
-int	ft_memcmp(const void *p1, const void *p2, size_t size)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int			delta;
-	size_t		i;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (i < size)
+	if (*little == '\0')
+		return ((char *)big);
+	while (big[i] != '\0' && i + len > 0)
 	{
-		delta = *(const unsigned char *)p1++ - *(const unsigned char *)p2++;
-		if (delta)
-			return (delta);
+		j = 0;
+		while (big[i + j] == little[j] && i + j < len)
+		{
+			j++;
+			if (little[j] == '\0')
+				return ((char *)&big[i]);
+		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

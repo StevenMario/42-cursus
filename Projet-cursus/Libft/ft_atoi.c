@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrambelo <mrambelo@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,27 @@
 
 #include "libft.h"
 
-int	ft_memcmp(const void *p1, const void *p2, size_t size)
+int	ft_atoi(const char *str)
 {
-	int			delta;
-	size_t		i;
+	int	i;
+	int	nb;
+	int	sign;
 
 	i = 0;
-	while (i < size)
+	nb = 0;
+	sign = 1;
+	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+		i++;
+	while (str[i] != '\0' && (str[i] == '+' || str[i] == '-'))
 	{
-		delta = *(const unsigned char *)p1++ - *(const unsigned char *)p2++;
-		if (delta)
-			return (delta);
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	return (0);
+	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+	{
+		nb = nb * 10 + str[i] - '0';
+		i++;
+	}
+	return (sign * nb);
 }
