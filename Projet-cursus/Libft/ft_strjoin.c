@@ -17,23 +17,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*str;
 	size_t	s1_i;
 	size_t	s2_i;
-	
+
 	s1_i = ft_strlen(s1);
 	s2_i = ft_strlen(s2);
-	str = (char *)malloc(sizeof(char) * s1_i + s2_i + 1);
-	if (!s1 || !s2 || !str)
+	if (!s1 || !s2)
 		return (NULL);
-	ft_strlcpy(str,s1,s1_i + 1);
-	size_t i = ft_strlcat(str + (s2_i), s2, s2_i + 1);
-	printf("%ld", i);
+	str = (char *)malloc(sizeof(char) * s1_i + s2_i + 1);
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s1, s1_i + 1);
+	ft_strlcat(str, s2, s2_i + s1_i + 1);
 	return (str);
-}
-int main() {
-   const char s1[] = "akory "; 
-   const char s2[] = "iaby";
-   char *join;;
-   join = ft_strjoin(s1,s2);
-   printf("%s", join);
-
-    return 0;
 }

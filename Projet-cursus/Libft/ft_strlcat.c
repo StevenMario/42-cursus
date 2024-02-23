@@ -40,7 +40,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 }
 /*int main()
 {
-	const char src[] = "Hello";
+	const char src[] = "Helo";
 	char dest [20]= "World";
 	size_t a = ft_strlcat(dest,src, 8);
 	//size_t b = strlcat(dest,src, 7);
