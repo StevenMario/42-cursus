@@ -32,4 +32,5 @@ char	*ft_strchr(const char *str, int searchChar);
 char	*ft_strrchr(const char *str, int searchChar);
 char	*ft_strdup(const char *src);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+char	*ft_strtrim(char const *s1, char const *set);
 #endif
