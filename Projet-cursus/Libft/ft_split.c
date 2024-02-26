@@ -12,111 +12,64 @@
 
 #include "libft.h"
 
-char *rm_end_start_c(char const *s, char c)
+static int	count_words(const char *str, char c)
 {
-	char	a[2];
-	char	*str;
-	
-	a[0] = c;
-	a[1] = '\0';
-	str = ft_strtrim(s,a);
-	
-	return (str);
-	
+	int i;
+	int trigger;
+
+	i = 0;
+	trigger = 0;
+	while (*str)
+	{
+		if (*str != c && trigger == 0)
+		{
+			trigger = 1;
+			i++;
+		}
+		else if (*str == c)
+			trigger = 0;
+		str++;
+	}
+	return (i);
 }
 
-int	col_len(char *str,char c)
+char	**stock_world(char const *s, char c,char **result)
 {
 	int	i;
-	int	len;
-	
-	i = 0;
-	len = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == c && str[i + 1] != c)
-			len++;
-		i++;
-	}
-	return (len + 1);
-}
-char	**ft_fill(char *str,char c,char **result)
-{
-	int	i;
-	int	o;
 	int	j;
+	int	k;
 	
 	i = 0;
-	o = 0;
 	j = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] != c)
-		{
-			result[o][j] = str[i];
-			j++;
-		}	
-		else if (str[i] == c && str[i + 1] != c)
-		{
-			result[o][j] = '\0'; 
-			j = 0;
-			o++;
-		}
-		i++;
-	}
-	result[o] = '\0';
-	return (result);
+	k = 0;
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int	i;
-	int	j;
-	char	*str;
+	char	**str;
 	char	**result;
-	char	**last_str;
-	int	o;
-
-	i = 0;
-	o = 0;
 	
-	str = rm_end_start_c(s,c);
-	result = (char **)malloc(sizeof(char *) * (col_len(str,c) + 1));
-	if (!result)
-		return (NULL);
-	j = 0;
-	while (str[i] != '\0')
+	str = (char **)malloc(sizeof(char *) * (count_words(s,c) + 1));
+	if (!str)
 	{
-		if(str[i] != c)
-			j++;
-			
-		else if (str[i] == c && str[i + 1] != c)
-		{
-			
-			result[o++] = (char *)malloc(sizeof(char) * j + 1);
-			j = 0;
-
-		}
-		i++;
+		free(str);
+		return (NULL);
 	}
-	last_str = ft_fill(str, c, result);
-	if (last_str)
-		printf("not OK");
-	return (last_str);
+	result = stock_world(s, c, str);
+	if (!result)
+	{
+		free(result);
+		return (NULL);
+	}
+	return (result);
 }
+
 int main()
 {
-    char const *s = "   akory iaby asdasd asdasd rerze ";
+    char const *s = "   asdasd asdasd   ";
     char c = ' ';
-    char **str = ft_split(s, c);
-    int i =  0;
-
-    while (str[i]) {
-        printf("%s\n", str[i]);
-        free(str[i]); // Libérer chaque sous-chaîne
-        i++;
-    }
-    free(str); // Libérer le tableau de pointeurs
+    int i = count_words(s, c);
+    printf("%d",i);
 
     return  0;
 }
