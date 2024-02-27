@@ -18,13 +18,13 @@ void	*ft_memchr(const void *mem_block, int search_value, size_t size)
 	char		c;
 	size_t		i;
 
-	cmem_block = (const char *)mem_lock;
+	cmem_block = (const char *)mem_block;
 	c = (char)search_value;
 	i = 0;
 	while (i < size)
 	{
-		if (cmemBlock[i] == c)
-			return ((char *)cmemBlock + i);
+		if (cmem_block[i] == c)
+			return ((char *)cmem_block + i);
 		i++;
 	}
 	return ((char *) NULL);

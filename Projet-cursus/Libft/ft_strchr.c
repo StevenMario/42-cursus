@@ -25,5 +25,7 @@ char	*ft_strchr(const char *str, int searchChar)
 			return ((char *)str + i);
 		i++;
 	}
+	if (str[i] == '\0' && searchChar == '\0')
+		return ((char *)str + i);
 	return ((char *) NULL);
 }
