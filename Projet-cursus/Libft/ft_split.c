@@ -14,8 +14,8 @@
 
 static int	count_words(const char *str, char c)
 {
-	int i;
-	int trigger;
+	size_t	i;
+	size_t	trigger;
 
 	i = 0;
 	trigger = 0;
@@ -33,23 +33,52 @@ static int	count_words(const char *str, char c)
 	return (i);
 }
 
-char	**stock_world(char const *s, char c,char **result)
+static char	*fill_word(char const *s, size_t len)
 {
-	int	i;
-	int	j;
-	int	k;
-	
+	char	*dest;
+
+	dest = (char *)malloc(sizeof(char) * len + 1);
+	if (!dest)
+	{
+		free(dest);
+		return (NULL);
+	}
+	ft_strlcpy(dest, s, len + 1);
+	return (dest);
+}
+
+static char	**stock_world(char const *s, char c, char **result)
+{
+	size_t	i;
+	size_t	j;
+	size_t	k;
+
 	i = 0;
 	j = 0;
 	k = 0;
+	while (s[i] != '\0')
+	{
+		while (s[i] == c)
+			i++;
+		j = i;
+		while (s[i] != c && s[i] != '\0')
+			i++;
+		if (i - j > 0)
+		{
+			result[k] = fill_word(s + j, i - j);
+			k++;
+		}
+	}
+	result[k] = '\0';
+	return (result);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
 	char	**result;
-	
-	str = (char **)malloc(sizeof(char *) * (count_words(s,c) + 1));
+
+	str = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!str)
 	{
 		free(str);
@@ -62,14 +91,4 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	}
 	return (result);
-}
-
-int main()
-{
-    char const *s = "   asdasd asdasd   ";
-    char c = ' ';
-    int i = count_words(s, c);
-    printf("%d",i);
-
-    return  0;
 }

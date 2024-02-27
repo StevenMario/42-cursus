@@ -10,28 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.c"
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
-
-	if (nb == -2147483648)
+	if (n == -2147483648)
 	{
-		ft_putchar('-',fd);
-		ft_putchar('2'),fd;
-		ft_putnbr(147483648,fd);
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		ft_putnbr_fd(147483648, fd);
 	}
-	else if (nb < 0)
+	else if (n < 0)
 	{
-		ft_putchar('-',fd);
-		nb = -nb;
-		ft_putnbr(nb,fd);
+		ft_putchar_fd('-', fd);
+		n = -n;
+		ft_putnbr_fd(n, fd);
 	}
 	else if (nb >= 10)
 	{
-		ft_putnbr(nb / 10,fd);
-		ft_putnbr(nb % 10,fd);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
 	else
-		ft_putchar(nb + '0',fd);
+		ft_putchar_fd(n + '0', fd);
 }
