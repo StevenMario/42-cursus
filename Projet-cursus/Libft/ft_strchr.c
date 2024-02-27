@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <string.h>
+#include <stdio.h>
 char	*ft_strchr(const char *str, int searchChar)
 {
 	int		i;
@@ -27,5 +28,5 @@ char	*ft_strchr(const char *str, int searchChar)
 	}
 	if (str[i] == '\0' && searchChar == '\0')
 		return ((char *)str + i);
-	return ((char *) NULL);
+	return 0;
 }

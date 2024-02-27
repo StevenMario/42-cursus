@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 size_t	get_number(int n)
 {
 	size_t	i;
@@ -33,8 +33,6 @@ char	*ft_itoa(int n)
 
 	num = n;
 	digits = get_number(n);
-	//if (n == 0)
-		//return ("0");
 	if (n < 0)
 	{
 		num *= -1;
@@ -43,6 +41,11 @@ char	*ft_itoa(int n)
 	str_num = (char *)malloc(sizeof(char) * (digits + 1));
 	if (!(str_num))
 		return (NULL);
+	if (n == 0)
+	{
+		str_num = "0";
+		return (str_num);
+	}
 	*(str_num + digits) = 0;
 	while (digits--)
 	{
@@ -52,10 +55,4 @@ char	*ft_itoa(int n)
 	if (n < 0)
 		*(str_num) = '-';
 	return (str_num);
-}
-int main()
-{
-	int i = 0123;
-	printf("ft_itoa = %s",ft_itoa(i));
-	return 0;
 }
