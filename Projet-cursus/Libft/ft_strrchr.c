@@ -16,15 +16,20 @@ char	*ft_strrchr(const char *str, int searchChar)
 {
 	int		i;
 	char	letter;
+	char	*s;
+	char	*result;
 
-	i = ft_strlen(str);
-	i--;
+	i = 0;
 	letter = (char)searchChar;
-	while (str[i] != '\0')
+	s = (char *)str ;
+	result = NULL;
+	if (letter == '\0')
+		return (s + ft_strlen(s));
+	while (s[i] != '\0')
 	{
-		if (str[i] == letter)
-			return ((char *)str + i);
-		i--;
+		if (s[i] == letter)
+			result = &s[i];
+		i++;
 	}
-	return ((char *) NULL);
+	return (result);
 }

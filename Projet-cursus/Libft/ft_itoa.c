@@ -17,6 +17,8 @@ size_t	get_number(int n)
 	size_t	i;
 
 	i = 0;
+	if (n == 0)
+		return (1);
 	while (n != 0)
 	{
 		n /= 10;
@@ -28,6 +30,7 @@ size_t	get_number(int n)
 char	*is_zero(char *str)
 {
 	*str = '0';
+	*(str + 1) = '\0';
 	return (str);
 }
 
@@ -49,7 +52,7 @@ char	*ft_itoa(int n)
 		return (is_zero(str_num));
 	if (!(str_num))
 		return (NULL);
-	*(str_num + digits) = 0;
+	*(str_num + digits) = '\0';
 	while (digits--)
 	{
 		*(str_num + digits) = num % 10 + '0';

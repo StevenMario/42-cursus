@@ -19,13 +19,13 @@ char	*ft_strchr(const char *str, int searchChar)
 
 	i = 0;
 	letter = (char)searchChar;
-	while (str[i] != '\0')
+	while (((char *)str)[i] != '\0')
 	{
-		if (str[i] == letter)
+		if (((char *)str)[i] == letter)
 			return ((char *)str + i);
 		i++;
 	}
-	if (str[i] == '\0' && searchChar == '\0')
+	if (((char *)str)[i] == '\0' && searchChar == '\0')
 		return ((char *)str + i);
 	return (0);
 }
