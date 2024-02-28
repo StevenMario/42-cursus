@@ -25,6 +25,12 @@ size_t	get_number(int n)
 	return (i);
 }
 
+char	*is_zero(char *str)
+{
+	*str = '0';
+	return (str);
+}
+
 char	*ft_itoa(int n)
 {
 	char		*str_num;
@@ -39,13 +45,10 @@ char	*ft_itoa(int n)
 		digits++;
 	}
 	str_num = (char *)malloc(sizeof(char) * (digits + 1));
+	if (n == 0)
+		return (is_zero(str_num));
 	if (!(str_num))
 		return (NULL);
-	if (n == 0)
-	{
-		str_num = "0";
-		return (str_num);
-	}
 	*(str_num + digits) = 0;
 	while (digits--)
 	{
