@@ -12,6 +12,8 @@
 
 #include "ft_printf.h"
 
+
+
 int	ft_printf(const char *format, ...)
 {
 	int		i;
@@ -26,7 +28,7 @@ int	ft_printf(const char *format, ...)
 			format[i]++;
 			if (ft_strchr("cspdiuxX",format[i]))
 			{
-				
+				check += 
 			}
 		}
 		else
