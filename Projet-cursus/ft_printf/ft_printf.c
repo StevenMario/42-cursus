@@ -12,27 +12,37 @@
 
 #include "ft_printf.h"
 
-
+int check_type(const char c, void  *arg)
+{
+	int	i;
+	
+	i = 0;
+	if (c == 'c')
+		i = i + ft_print_char((char)arg);
+}
 
 int	ft_printf(const char *format, ...)
 {
 	int		i;
-	unsigned int	check;
-	va_list	args;
+	int	check;
+	va_list	arg;
 	
-	va_start(args,format);
+	check = 0;
+	va_start(arg,format);
 	while (format[i] != '\0')
 	{
 		if(format[i] == %)
 		{
 			format[i]++;
+			if (format[i] == '\0')
+				break;
 			if (ft_strchr("cspdiuxX",format[i]))
-			{
-				check += 
-			}
+				check += check_type(format[i],va_arg(arg, void *));
+			else if (format[i] == '%')
+				check += check + ft_print_char('%');
 		}
 		else
-			ft_print_char(format[i]);
+			check = check + ft_print_char(format[i]);
 		i++;	
 	}
 	va_end(args);
