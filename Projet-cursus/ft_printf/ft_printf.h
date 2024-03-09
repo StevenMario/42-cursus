@@ -15,9 +15,12 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "./libft/libft.h"
+# include <stdio.h>
+# include <stdint.h>
 
 int	ft_printf(const char *format, ...);
 int	ft_print_char(char c);
+int print_str(char *str);
+int print_int(int nbr);
 
 #endif

@@ -11,52 +11,58 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
-int check_type(const char c, void  *arg)
+int check_type(const char *c, void * arg)
 {
 	int	i;
 	
 	i = 0;
-	if (c == 'c')
-		i = i + ft_print_char((char)arg);
-	else if (c == 's')
+	if (*c == 's')
 		i = i + print_str((char *)arg);
-	else if (c == 'p')
-		i = i + print_hex((void *)arg)
-	else if (c == 'd' || c == 'i')
-		i = i + print_int((int)arg);
-	else if (c == 'u')
-		i = i + print_unsigned_dec((unsigned long int)arg);
+	/*else if (c == 'p')
+		i = i + print_hex((void *)arg)*/
+	else if (*c == 'd' || *c == 'i')
+		i = i + print_int((intptr_t)arg);
+	/*else if (c == 'u')
+		i = i + print_unsigned_dec((unsigned long)arg);
 	else if (c == 'x')
 		i = i + print_hex_min((unsigned int)arg);
 	else if (c == 'x')
-		i = i + print_hex_maj((unsigned int)arg);
+		i = i + print_hex_maj((unsigned int)arg);*/
+	return i;
 }
 
 int	ft_printf(const char *format, ...)
 {
-	int		i;
 	int	check;
 	va_list	arg;
 	
 	check = 0;
 	va_start(arg,format);
-	while (format[i] != '\0')
+	while (*format != '\0')
 	{
-		if(format[i] == %)
+		if(*format == '%')
 		{
-			format[i]++;
-			if (format[i] == '\0')
+			format++;
+			if (*format == '\0')
 				break;
-			if (ft_strchr("cspdiuxX",format[i]))
-				check += check_type(format[i],va_arg(arg, void *));
-			else if (format[i] == '%')
+			if (*format == 'c')
+				check = check + ft_print_char(va_arg(arg, int));
+			if (ft_strchr("spdiuxX",*format))
+				check += check_type(format,va_arg(arg, void *));
+			if (*format == '%')
 				check += check + ft_print_char('%');
 		}
 		else
-			check = check + ft_print_char(format[i]);
-		i++;	
+			check = check + ft_print_char(*format);
+		format++;	
 	}
-	va_end(args);
+	va_end(arg);
 	return (check);
+}
+int main()
+{
+	ft_printf("ceci et %d \n", 234);
+	return 0;
 }
