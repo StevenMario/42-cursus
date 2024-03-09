@@ -19,6 +19,18 @@ int check_type(const char c, void  *arg)
 	i = 0;
 	if (c == 'c')
 		i = i + ft_print_char((char)arg);
+	else if (c == 's')
+		i = i + print_str((char *)arg);
+	else if (c == 'p')
+		i = i + print_hex((void *)arg)
+	else if (c == 'd' || c == 'i')
+		i = i + print_int((int)arg);
+	else if (c == 'u')
+		i = i + print_unsigned_dec((unsigned long int)arg);
+	else if (c == 'x')
+		i = i + print_hex_min((unsigned int)arg);
+	else if (c == 'x')
+		i = i + print_hex_maj((unsigned int)arg);
 }
 
 int	ft_printf(const char *format, ...)
