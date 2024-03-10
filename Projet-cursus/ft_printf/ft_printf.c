@@ -13,23 +13,25 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-int check_type(const char *c, void * arg)
+int check_type(const char *c, va_list arg)
 {
 	int	i;
 	
 	i = 0;
-	if (*c == 's')
-		i = i + print_str((char *)arg);
+	if (*c == 'c')
+		i = i + ft_print_char(va_arg(arg, int));
+	else if (*c == 's')
+		i = i + print_str(va_arg(arg, char *));
 	/*else if (c == 'p')
-		i = i + print_hex((void *)arg)*/
+		i = i + print_hex(va_arg(arg, void * *))*/
 	else if (*c == 'd' || *c == 'i')
-		i = i + print_int((intptr_t)arg);
+		i = i + print_int(va_arg(arg, int));
 	/*else if (c == 'u')
-		i = i + print_unsigned_dec((unsigned long)arg);
+		i = i + print_unsigned_dec(va_arg(arg, unsigned long));
 	else if (c == 'x')
-		i = i + print_hex_min((unsigned int)arg);
+		i = i + print_hex_min(va_arg(arg, unsigned int));
 	else if (c == 'x')
-		i = i + print_hex_maj((unsigned int)arg);*/
+		i = i + print_hex_maj(va_arg(arg, unsigned int));*/
 	return i;
 }
 
@@ -47,10 +49,9 @@ int	ft_printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 				break;
-			if (*format == 'c')
-				check = check + ft_print_char(va_arg(arg, int));
-			if (ft_strchr("spdiuxX",*format))
-				check += check_type(format,va_arg(arg, void *));
+			
+			if (ft_strchr("cspdiuxX",*format))
+				check += check_type(format,arg);
 			if (*format == '%')
 				check += check + ft_print_char('%');
 		}
@@ -63,6 +64,6 @@ int	ft_printf(const char *format, ...)
 }
 int main()
 {
-	ft_printf("ceci et %d \n", 234);
+	ft_printf("ceci est un caractère %c et ceci chiffre %d ceci str %s \n",'t' , 26765, "akory");
 	return 0;
 }
