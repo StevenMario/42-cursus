@@ -1,5 +1,5 @@
 NAME = libft.a
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 CFILES =	ft_isalnum.c \
 		ft_isalpha.c \
