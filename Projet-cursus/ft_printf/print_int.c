@@ -11,13 +11,12 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 int	print_int(int nbr)
 {
-	int	len;
+	int		len;
 	char	*str;
-	
+
 	str = ft_itoa(nbr);
 	print_str(str);
 	len = ft_strlen(str);

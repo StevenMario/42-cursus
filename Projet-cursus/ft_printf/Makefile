@@ -1,16 +1,17 @@
 NAME = libftprintf.a
 CC = cc
 LIBFT_N = libft.a
-LIBFT_D = ./libft
 CFLAGS = -Wall -Werror -Wextra
-SRCS = 		ft_printf.c\
+SRC = 		ft_printf.c\
 		ft_print_char.c\
-		#print_hex.c\
 		print_int.c\
-		print_str.c
-		#print_maj_hex.c\
-		#print_min_hex.c\
-OBJ = $(SRCS:.c=.o)
+		print_str.c\
+		print_unsigned_dec.c\
+		print_hex.c\
+		print_adress_hex.c
+		
+LIBFT_D = ./libft
+OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
@@ -19,11 +20,11 @@ makelibft :
 	cp $(LIBFT_D)/$(LIBFT_N) .
 	mv $(LIBFT_N) $(NAME)
 	
-$(NAME) : makelibft $(OBJ) 
-	ar -rcs $(NAME) $(OBJ)
-	
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
+$(NAME) : makelibft $(OBJ) 
+	ar rcs $(NAME) $(OBJ)
 
 clean:
 	make clean -C $(LIBFT_D)
