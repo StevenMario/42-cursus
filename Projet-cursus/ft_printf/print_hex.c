@@ -17,7 +17,7 @@ int	nbr_len(unsigned long long nbr)
 	int	len;
 
 	len = 0;
-	while (len != 0)
+	while (nbr != 0)
 	{
 		len++;
 		nbr /= 16;

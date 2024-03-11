@@ -19,6 +19,8 @@ int	print_adress_hex(void *adress)
 	unsigned long	nbr;	
 
 	nbr = (unsigned long)adress;
+	if (!adress)
+		return (0);
 	i = 0;
 	j = 0;
 	i = print_str("0x");

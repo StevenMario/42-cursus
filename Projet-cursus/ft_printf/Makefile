@@ -21,7 +21,7 @@ makelibft :
 	mv $(LIBFT_N) $(NAME)
 	
 %.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 $(NAME) : makelibft $(OBJ) 
 	ar rcs $(NAME) $(OBJ)
