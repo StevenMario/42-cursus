@@ -44,6 +44,8 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			while (*format == ' ')
+				format ++;
 			if (*format == '\0')
 				break ;
 			if (ft_strchr("cspdiuxX",*format))
