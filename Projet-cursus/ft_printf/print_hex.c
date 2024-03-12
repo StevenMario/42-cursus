@@ -12,11 +12,13 @@
 
 #include "ft_printf.h"
 
-int	nbr_len(unsigned long long nbr)
+int	nbr_len(unsigned int nbr)
 {
 	int	len;
 
 	len = 0;
+	if (nbr == 0)
+		len = 1;
 	while (nbr != 0)
 	{
 		len++;
@@ -25,7 +27,7 @@ int	nbr_len(unsigned long long nbr)
 	return (len);
 }
 
-static void	ft_putnbr_base_16(unsigned long long nbr, char *base)
+static void	ft_putnbr_base_16(unsigned int nbr, char *base)
 {
 	if (nbr >= 16)
 	{
@@ -36,14 +38,16 @@ static void	ft_putnbr_base_16(unsigned long long nbr, char *base)
 		ft_print_char(base[nbr]);
 }
 
-int	print_hex(unsigned long long nbr, char c)
+int	print_hex(int nbr, char c)
 {
-	char	*base;
+	char			*base;
+	unsigned int	n;
 
+	n = (unsigned int)nbr;
 	if (c == 'x')
 		base = "0123456789abcdef";
 	else
 		base = "0123456789ABCDEF";
-	ft_putnbr_base_16(nbr, base);
-	return (nbr_len(nbr));
+	ft_putnbr_base_16(n, base);
+	return (nbr_len(n));
 }

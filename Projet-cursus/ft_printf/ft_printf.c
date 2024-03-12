@@ -26,9 +26,9 @@ int	check_type(const char *c, va_list arg)
 	else if (*c == 'd' || *c == 'i')
 		i = i + print_int(va_arg(arg, int));
 	else if (*c == 'u')
-		i = i + print_unsigned_dec(va_arg(arg, unsigned long int));
+		i = i + print_unsigned_dec(va_arg(arg, unsigned int));
 	else if (*c == 'X' || *c == 'x')
-		i = i + print_hex(va_arg(arg, unsigned long long), *c);
+		i = i + print_hex(va_arg(arg, unsigned int), *c);
 	return (i);
 }
 
@@ -49,7 +49,7 @@ int	ft_printf(const char *format, ...)
 			if (ft_strchr("cspdiuxX",*format))
 				check += check_type(format, arg);
 			if (*format == '%')
-				check += check + ft_print_char('%');
+				check += ft_print_char('%');
 		}
 		else
 			check = check + ft_print_char(*format);

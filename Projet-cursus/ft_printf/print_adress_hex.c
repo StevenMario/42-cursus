@@ -12,6 +12,44 @@
 
 #include "ft_printf.h"
 
+static int	nbr_len_p(unsigned long nbr)
+{
+	int	len;
+
+	len = 0;
+	if (nbr == 0)
+		len = 1;
+	while (nbr != 0)
+	{
+		len++;
+		nbr /= 16;
+	}
+	return (len);
+}
+
+static void	ft_putnbr_base_16_p(unsigned long nbr, char *base)
+{
+	if (nbr >= 16)
+	{
+		ft_putnbr_base_16_p(nbr / 16, base);
+		ft_putnbr_base_16_p(nbr % 16, base);
+	}
+	else
+		ft_print_char(base[nbr]);
+}
+
+static int	print_hex_p(unsigned long nbr, char c)
+{
+	char			*base;
+
+	if (c == 'x')
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	ft_putnbr_base_16_p(nbr, base);
+	return (nbr_len_p(nbr));
+}
+
 int	print_adress_hex(void *adress)
 {
 	int				i;
@@ -19,11 +57,14 @@ int	print_adress_hex(void *adress)
 	unsigned long	nbr;	
 
 	nbr = (unsigned long)adress;
-	if (!adress)
-		return (0);
 	i = 0;
 	j = 0;
+	if (nbr == 0)
+	{
+		i = print_str("(nil)");
+		return (i);
+	}
 	i = print_str("0x");
-	j = print_hex(nbr, 'x');
+	j = print_hex_p(nbr, 'x');
 	return (i + j);
 }
