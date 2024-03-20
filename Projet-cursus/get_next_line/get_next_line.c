@@ -54,11 +54,13 @@ char	*fill_line_buffer(int fd, char *buffer, char *line_static)
 		if (nbyte == 0)
 		{
 			free(buffer);
+			free(line_static);
 			return (NULL);
 		}	
 		else if (nbyte == -1)
 		{
 			free(buffer);
+			free(line_static);
 			return (NULL);
 		}
 		buffer[nbyte] = '\0';
@@ -116,7 +118,7 @@ char	*new_line_static(char *line_static)
 		new_line[i] = line_static[len + i];
 		i++;
 	}
-	new_line[i] = '\0';
 	free(line_static);
+	new_line[i] = '\0';
 	return (new_line);
 }

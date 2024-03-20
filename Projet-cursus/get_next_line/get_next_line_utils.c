@@ -52,7 +52,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	str = (char *)malloc(sizeof(char) * s1_i + s2_i + 1);
 	if (!str)
+	{
+		free(str);
 		return (NULL);
+	}
 	ft_strlcpy(str, s1, s1_i + 1);
 	ft_strlcat(str, s2, s2_i + s1_i + 1);
 	return (str);
