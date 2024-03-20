@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h" 
+#include "get_next_line.h"
+
 size_t	ft_strlen(const char *str)
 {
 	size_t	len;
@@ -20,6 +21,7 @@ size_t	ft_strlen(const char *str)
 		len++;
 	return (len);
 }
+
 char	*ft_strchr(const char *str, int searchChar)
 {
 	int		i;
@@ -104,26 +106,4 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		return (i + size);
 	}
 	return (i + j);
-}
-char	*ft_strdup(const char *src)
-{
-	int		i;
-	char	*dup_src;
-	char	*csrc;
-
-	csrc = (char *)src;
-	dup_src = malloc(sizeof(char) *(ft_strlen(csrc) + 1));
-	if (!dup_src)
-	{
-		dup_src = NULL;
-		return (0);
-	}
-	i = 0;
-	while (csrc[i] != '\0')
-	{
-		dup_src[i] = csrc[i];
-		i++;
-	}
-	dup_src[i] = '\0';
-	return (dup_src);
 }
