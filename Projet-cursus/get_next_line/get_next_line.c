@@ -12,73 +12,59 @@
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+char	*helper(char *stat, char *buff)
 {
-	static char	*line_static;
-	char		*line;
-	char		*buffer;
-
-	line = NULL;
-	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buffer)
-		return (NULL);
-	if (fd < 0 || BUFFER_SIZE <= 0)
-	{
-		free(buffer);
-		free(line_static);
-		buffer = NULL;
-		line_static = NULL;
-		return (NULL);
-	}
-	line_static = fill_line_buffer(fd, buffer, line_static);
-	if (line_static == NULL)
-	{
-		free(line_static);
-		return (NULL);
-	}
-	line = extract_line(line, line_static);
-	line_static = new_line_static(line_static);
-	return (line);
+	char	*join;
+	
+	join = ft_strjoin(stat, buff);
+	free(stat);
+	return (join);
 }
 
-char	*fill_line_buffer(int fd, char *buffer, char *line_static)
+char	*fill_line_buffer(int fd, char *line_static)
 {
 	ssize_t	nbyte;
+	char	*buffer;
 
-	nbyte = 1;
 	if (!line_static)
-		line_static = "";
-	while (nbyte > 0)
+		line_static = ft_calloc(1,sizeof(char));
+	if (!line_static)
+		return (NULL);
+	buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (!buffer)
+	{
+		free(line_static);
+		return (NULL);
+	}
+	nbyte = 1;
+	while (nbyte)
 	{
 		nbyte = read(fd, buffer, BUFFER_SIZE);
-		if (nbyte == 0)
-		{
-			free(buffer);
-			free(line_static);
-			return (NULL);
-		}	
-		else if (nbyte == -1)
+		if (nbyte < 0)
 		{
 			free(buffer);
 			free(line_static);
 			return (NULL);
 		}
 		buffer[nbyte] = '\0';
-		line_static = ft_strjoin(line_static, buffer);
-		if (ft_strchr(buffer, '\n'))
+		line_static = helper(line_static, buffer);
+		if (ft_strchr(line_static, '\n'))
 			break ;
 	}
 	free(buffer);
 	return (line_static);
 }
 
-char	*extract_line(char *line, char *line_static)
+char	*extract_line(char *line_static)
 {
-	int	len;
 	int	i;
+	int	len;
+	char	*line;
 
+	i = -1;
 	len = 0;
-	i = 0;
+	if (!line_static || !(*line_static))
+		return (NULL);
 	while (line_static[len] && line_static[len] != '\n')
 		len++;
 	if (line_static[len] == '\n')
@@ -86,23 +72,27 @@ char	*extract_line(char *line, char *line_static)
 	line = (char *)malloc(sizeof(char) * (len + 1));
 	if (!line)
 		return (NULL);
-	while (i < len)
-	{
+	while (++i < len)
 		line[i] = line_static[i];
-		i++;
-	}
 	line[i] = '\0';
 	return (line);
 }
 
 char	*new_line_static(char *line_static)
 {
-	int		len;
 	int		i;
-	char	*new_line;
+	int		len;
+	char		*new_line;
 
-	len = 0;
 	i = 0;
+	len = 0;
+	if (!line_static)
+		return (NULL);
+	if (!*line_static)
+	{
+		free(line_static);
+		return (NULL);
+	}
 	while (line_static[len] != '\n' && line_static[len] != '\0')
 		len++;
 	if (line_static[len] == '\n')
@@ -118,7 +108,29 @@ char	*new_line_static(char *line_static)
 		new_line[i] = line_static[len + i];
 		i++;
 	}
-	free(line_static);
 	new_line[i] = '\0';
+	if (new_line[0] == '\0')
+	{
+		free(line_static);
+		free(new_line);
+		return (NULL);
+	}
+	free(line_static);
 	return (new_line);
 }
+
+char	*get_next_line(int fd)
+{
+	char		*line;
+	static char	*line_static;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	line_static = fill_line_buffer(fd, line_static);
+	if (!line_static)
+		return (NULL);
+	line = extract_line(line_static);
+	line_static = new_line_static(line_static);
+	return (line);
+}
+

@@ -40,73 +40,46 @@ char	*ft_strchr(const char *str, int searchChar)
 	return (0);
 }
 
+void	*ft_calloc(size_t elementCount, size_t elementSize)
+{
+	size_t	total_size;
+	char	*byte_ptr;
+	void	*ptr;
+
+	total_size = elementCount * elementSize;
+	ptr = malloc(total_size);
+	if (ptr != NULL)
+	{
+		byte_ptr = (char *)ptr;
+		while (total_size-- > 0)
+			*byte_ptr++ = 0;
+	}
+	return (ptr);
+}
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
+	int	i;
+	int	j;
 	size_t	s1_i;
 	size_t	s2_i;
 
+	i = 0;
+	j = 0;
 	s1_i = ft_strlen(s1);
 	s2_i = ft_strlen(s2);
 	if (!s1 || !s2)
 		return (NULL);
 	str = (char *)malloc(sizeof(char) * s1_i + s2_i + 1);
 	if (!str)
-	{
-		free(str);
 		return (NULL);
-	}
-	ft_strlcpy(str, s1, s1_i + 1);
-	ft_strlcat(str, s2, s2_i + s1_i + 1);
+	while (s1[i])
+		str[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		str[j++] = s2[i++];
+	str[j] = '\0';
 	return (str);
 }
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-{
-	unsigned int	i;
-	size_t			len;
-
-	i = 0;
-	len = 0;
-	while (src[len] != '\0')
-		len++;
-	if (size == 0)
-		return (len);
-	else
-	{
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-	}
-	dest[i] = '\0';
-	return (len);
-}
-
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = ft_strlen(dst);
-	if (j < size)
-	{
-		while (src[i] != '\0' && i + j < size - 1)
-		{
-			dst[j + i] = src[i];
-			i++;
-		}
-		dst[j + i] = '\0';
-		while (src[i] != '\0')
-			i++;
-	}
-	else
-	{
-		while (src[i] != '\0')
-			i++;
-		return (i + size);
-	}
-	return (i + j);
-}
