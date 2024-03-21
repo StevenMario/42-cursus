@@ -40,28 +40,62 @@ char	*ft_strchr(const char *str, int searchChar)
 	return (0);
 }
 
-void	*ft_calloc(size_t elementCount, size_t elementSize)
+char	*fill_line_static(char *line_static, int fd, char *buffer)
 {
-	size_t	total_size;
-	char	*byte_ptr;
-	void	*ptr;
+	int		nbyte;
 
-	total_size = elementCount * elementSize;
-	ptr = malloc(total_size);
-	if (ptr != NULL)
+	nbyte = 1;
+	while (nbyte)
 	{
-		byte_ptr = (char *)ptr;
-		while (total_size-- > 0)
-			*byte_ptr++ = 0;
+		nbyte = read(fd, buffer, BUFFER_SIZE);
+		if (nbyte < 0)
+		{
+			free(buffer);
+			free(line_static);
+			return (NULL);
+		}
+		buffer[nbyte] = '\0';
+		line_static = helper(line_static, buffer);
+		if (ft_strchr(line_static, '\n'))
+			break ;
 	}
-	return (ptr);
+	free(buffer);
+	return (line_static);
+}
+
+char	*check_and_fill_new_line(char *line_static, int len)
+{
+	int		i;
+	char	*new_line;
+
+	i = 0;
+	new_line = (char *)malloc(sizeof(char) *(ft_strlen(line_static) - len + 1));
+	if (!new_line)
+	{
+		free(line_static);
+		return (NULL);
+	}
+	while (line_static[len + i] != '\0')
+	{
+		new_line[i] = line_static[len + i];
+		i++;
+	}
+	new_line[i] = '\0';
+	if (new_line[0] == '\0')
+	{
+		free(line_static);
+		free(new_line);
+		return (NULL);
+	}
+	free(line_static);
+	return (new_line);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
+	int		i;
+	int		j;
 	char	*str;
-	int	i;
-	int	j;
 	size_t	s1_i;
 	size_t	s2_i;
 
@@ -82,4 +116,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[j] = '\0';
 	return (str);
 }
-

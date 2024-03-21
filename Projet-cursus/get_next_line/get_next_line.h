@@ -20,9 +20,12 @@
 # include <fcntl.h>
 
 char	*get_next_line(int fd);
-size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *str, int searchChar);
+char	*check_and_fill_new_line(char *line_static, int len);
+char	*fill_line_static(char *line_static, int fd, char *buffer);
+char	*helper(char *stat, char *buff);
 char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *str);
 void	*ft_calloc(size_t elementCount, size_t elementSize);
 
 #endif

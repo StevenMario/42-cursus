@@ -15,7 +15,7 @@
 char	*helper(char *stat, char *buff)
 {
 	char	*join;
-	
+
 	join = ft_strjoin(stat, buff);
 	free(stat);
 	return (join);
@@ -23,11 +23,13 @@ char	*helper(char *stat, char *buff)
 
 char	*fill_line_buffer(int fd, char *line_static)
 {
-	ssize_t	nbyte;
 	char	*buffer;
 
 	if (!line_static)
-		line_static = ft_calloc(1,sizeof(char));
+	{
+		line_static = (char *)malloc(sizeof(char) * 1);
+		*line_static = '\0';
+	}
 	if (!line_static)
 		return (NULL);
 	buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
@@ -36,29 +38,14 @@ char	*fill_line_buffer(int fd, char *line_static)
 		free(line_static);
 		return (NULL);
 	}
-	nbyte = 1;
-	while (nbyte)
-	{
-		nbyte = read(fd, buffer, BUFFER_SIZE);
-		if (nbyte < 0)
-		{
-			free(buffer);
-			free(line_static);
-			return (NULL);
-		}
-		buffer[nbyte] = '\0';
-		line_static = helper(line_static, buffer);
-		if (ft_strchr(line_static, '\n'))
-			break ;
-	}
-	free(buffer);
+	line_static = fill_line_static(line_static, fd, buffer);
 	return (line_static);
 }
 
 char	*extract_line(char *line_static)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 	char	*line;
 
 	i = -1;
@@ -80,11 +67,9 @@ char	*extract_line(char *line_static)
 
 char	*new_line_static(char *line_static)
 {
-	int		i;
 	int		len;
-	char		*new_line;
+	char	*new_line;
 
-	i = 0;
 	len = 0;
 	if (!line_static)
 		return (NULL);
@@ -97,25 +82,7 @@ char	*new_line_static(char *line_static)
 		len++;
 	if (line_static[len] == '\n')
 		len++;
-	new_line = (char *)malloc(sizeof(char) *(ft_strlen(line_static) - len + 1));
-	if (!new_line)
-	{
-		free(line_static);
-		return (NULL);
-	}
-	while (line_static[len + i] != '\0')
-	{
-		new_line[i] = line_static[len + i];
-		i++;
-	}
-	new_line[i] = '\0';
-	if (new_line[0] == '\0')
-	{
-		free(line_static);
-		free(new_line);
-		return (NULL);
-	}
-	free(line_static);
+	new_line = check_and_fill_new_line(line_static, len);
 	return (new_line);
 }
 
@@ -133,4 +100,3 @@ char	*get_next_line(int fd)
 	line_static = new_line_static(line_static);
 	return (line);
 }
-
