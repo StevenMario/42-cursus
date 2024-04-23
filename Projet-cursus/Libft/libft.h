@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42antanana      +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:31:40 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/02/19 11:41:36 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:22:09 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,19 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+typedef struct s_list
+{
+    void            *content;
+    struct  s_list  *next;
+}   t_list;
+
 int		ft_toupper(int c);
 int		ft_isalnum(char c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+int     ft_lstsize(t_list *lst);
 int		ft_atoi(const char *str);
 int		ft_tolower(int character);
 char	*ft_itoa(int n);
@@ -50,5 +57,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	*ft_memchr(const void *mem_block, int search_value, size_t size);
+void    ft_lstadd_front(t_list **lst, t_list *new);
+t_list  *ft_lstnew(void *content);
+
 
 #endif
