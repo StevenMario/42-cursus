@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:31:40 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/04/23 19:22:09 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/04/24 13:55:44 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	*ft_memchr(const void *mem_block, int search_value, size_t size);
+void    ft_lstadd_back(t_list **lst, t_list *new);
 void    ft_lstadd_front(t_list **lst, t_list *new);
+void    ft_lstdelone(t_list *lst, void (*del)(void*));
 t_list  *ft_lstnew(void *content);
 
 
