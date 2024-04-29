@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/04/29 14:40:07 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/04/29 22:11:56 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,36 @@
 
 int main(int argc, char **argv)
 {
-    t_stack *a;
-    t_stack *b;
+    //t_stack *a;
+    //t_stack *b;
     int i;
-    char **str;
+    int j;
+    char *str;
 
+    i = 0;
+    j = 2;
     if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
         return (1);
     else 
     {
-        if (argc == 2 ||(argv[1][0] != '\0'))
-            str = ft_split(argv[1], ' ');
-        a = 
-        /*i = checker(str);
-        if (!i)
+        if (argc > 1)
         {
-            print_error();
-            return (1);
-        }
-        if (argc > 2)
-        {
-            while (argv[i] != NULL)
+            i= checker(argv);
+            if (!i)
+                print_error();
+            else
             {
+                str = ft_strdup(argv[1]);
+                while (argv[j] != NULL)
+                {
+                    str = ft_strjoin(str," ");
+                    str = ft_strjoin(str,argv[j++]);
+                }
+                    
 
+                printf("%s",str);
             }
-        }*/
+        }
     }
     return (0);
 }
