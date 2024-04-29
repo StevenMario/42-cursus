@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/04/29 13:34:38 by mrambelo         ###   ########.fr       */
+/*   Created: 2024/04/29 10:10:13 by mrambelo          #+#    #+#             */
+/*   Updated: 2024/04/29 12:59:21 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-#include <stdlib.h>
-#include "./ft_printf/ft_printf.h"
-
-typedef struct s_stack
+int checker(char **str)
 {
-    int nbr;
-    int index;
+    int i;
+    int j;
 
-    struct s_stack *target;
-    struct s_stack *next;
-    struct s_stack *prev;
-}   t_stack;
-
-int checker(char **str);
-void print_error(void);
-
-#endif
+    i = 0;
+    j = 0;
+    while (str[i] != NULL)
+    {
+        while (str[i][j] != '\0')
+        {
+            if ((str[i][j] >= '0' && str[i][j] <= '9') || str[i][j] == '-')
+                j++;
+            else
+                return (0);
+        }
+        j = 0;
+        i++;
+    }
+    return (1);
+}

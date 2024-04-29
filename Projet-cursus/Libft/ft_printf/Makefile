@@ -1,23 +1,29 @@
-NAME = push_swap.a
+NAME = libftprintf.a
 CC = cc
-FT_PRINTF_N = libftprintf.a
+LIBFT_N = libft.a
 CFLAGS = -Wall -Werror -Wextra
-SRC = 		push_swap.c
+SRC = 		ft_printf.c\
+		ft_print_char.c\
+		print_int.c\
+		print_str.c\
+		print_unsigned_dec.c\
+		print_hex.c\
+		print_adress_hex.c
 		
-LIBFT_D = ./ft_printf
+LIBFT_D = ./libft
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-makeftprintf :
+makelibft :
 	make -C $(LIBFT_D)
-	cp $(LIBFT_D)/$(FT_PRINTF_N) .
-	mv $(FT_PRINTF_N) $(NAME)
+	cp $(LIBFT_D)/$(LIBFT_N) .
+	mv $(LIBFT_N) $(NAME)
 	
 %.o: %.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 	
-$(NAME) : makeftprintf $(OBJ) 
+$(NAME) : makelibft $(OBJ) 
 	ar rcs $(NAME) $(OBJ)
 
 clean:
