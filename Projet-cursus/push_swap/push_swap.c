@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/04/29 22:11:56 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/04/30 13:57:46 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main(int argc, char **argv)
     int i;
     int j;
     char *str;
+    char **new_str;                                                                                 
 
     i = 0;
     j = 2;
@@ -40,9 +41,13 @@ int main(int argc, char **argv)
                     str = ft_strjoin(str," ");
                     str = ft_strjoin(str,argv[j++]);
                 }
-                    
-
-                printf("%s",str);
+                i = 0;
+                new_str = ft_split(str,' ');
+                while (new_str[i] != NULL)
+                {
+                    printf("%s\n",new_str[i]);
+                    i++;
+                }
             }
         }
     }
