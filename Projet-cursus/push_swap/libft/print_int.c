@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_double_lstnew.c                                 :+:      :+:    :+:   */
+/*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 12:54:13 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/04/30 21:11:29 by mariosteven      ###   ########.fr       */
+/*   Created: 2024/03/07 10:26:02 by mrambelo          #+#    #+#             */
+/*   Updated: 2024/04/30 19:19:37 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_stack *ft_double_lstnew(t_stack **stack,void *data)
+int	print_int(int nbr)
 {
-    t_stack   *new_stack;
-    new_stack = malloc(sizeof(t_stack));
-    if (!new_stack)
-    {
-        return (NULL);
-    }
-    new_stack->prev= NULL;
-    new_stack->data = data;
-    new_stack->next= NULL;
-    if (*stack != NULL) {
-        (*stack)->prev = new_stack;
-    }
-    *stack = new_stack;
-    return (new_stack);
+	int		len;
+	char	*str;
+
+	str = ft_itoa(nbr);
+	print_str(str);
+	len = ft_strlen(str);
+	free(str);
+	return (len);
 }

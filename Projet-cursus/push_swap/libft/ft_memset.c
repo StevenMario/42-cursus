@@ -1,17 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_input.c                                  :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 14:40:34 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/04/29 14:56:39 by mrambelo         ###   ########.fr       */
+/*   Created: 2024/02/19 13:30:28 by mrambelo          #+#    #+#             */
+/*   Updated: 2024/02/19 14:50:11 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_stack *push_swap_input(char **argv)
+#include "libft.h"
+
+void	*ft_memset(void *pointer, int value, size_t count)
 {
-    t_stack *new;
-    
+	char		*str;
+	size_t		i;
+
+	str = (char *)pointer;
+	i = 0;
+	while (count-- != 0)
+	{
+		str[i] = (unsigned char)value;
+		i++;
+	}
+	return (pointer);
 }

@@ -1,12 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_new.c                                        :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 14:42:11 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/04/29 14:56:41 by mrambelo         ###   ########.fr       */
+/*   Created: 2024/03/07 10:24:51 by mrambelo          #+#    #+#             */
+/*   Updated: 2024/04/30 19:19:46 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+int	print_str(char *str)
+{
+	if (!str)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	else
+		ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
+}

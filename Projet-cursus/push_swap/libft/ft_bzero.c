@@ -1,12 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_swap.c                                   :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42antanana      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 21:21:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/04/30 21:21:35 by mariosteven      ###   ########.fr       */
+/*   Created: 2024/02/19 14:50:40 by mrambelo          #+#    #+#             */
+/*   Updated: 2024/02/19 15:37:41 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+	char	*c;
+
+	i = 0;
+	c = (char *)s;
+	while (i < n)
+	{
+		c[i] = 0;
+		i++;
+	}
+}

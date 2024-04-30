@@ -14,8 +14,7 @@
 # define PUSH_SWAP_H
 
 #include <stdlib.h>
-#include "./ft_printf/ft_printf.h"
-
+#include "./libft/libft.h"
  typedef struct s_stack
 {
     struct s_stack  *prev;    

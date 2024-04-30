@@ -1,24 +1,27 @@
 NAME = push_swap.a
 CC = cc
-FT_PRINTF_N = libftprintf.a
-CFLAGS = -Wall -Werror -Wextra
-SRC = 		push_swap.c
-		
-LIBFT_D = ./ft_printf
+LIBFT_N = libft.a
+EXECUTABLE = push_swap
+CFLAGS = -Wall -Werror -Wextra 
+SRC = 		checker.c\
+		print_error.c\
+		push_swap.c
+LIBFT_D = ./libft
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-makeftprintf :
+makelibft :
 	make -C $(LIBFT_D)
-	cp $(LIBFT_D)/$(FT_PRINTF_N) .
-	mv $(FT_PRINTF_N) $(NAME)
+	cp $(LIBFT_D)/$(LIBFT_N) .
+	mv $(LIBFT_N) $(NAME)
 	
 %.o: %.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 	
-$(NAME) : makeftprintf $(OBJ) 
+$(NAME) : makelibft $(OBJ) 
 	ar rcs $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -L. -lft -o $(EXECUTABLE)
 
 clean:
 	make clean -C $(LIBFT_D)

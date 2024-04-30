@@ -1,15 +1,12 @@
-NAME = libftprintf.a
+NAME = push_swap.a
 CC = cc
 LIBFT_N = libft.a
-CFLAGS = -Wall -Werror -Wextra
-SRC = 		ft_printf.c\
-		ft_print_char.c\
-		print_int.c\
-		print_str.c\
-		print_unsigned_dec.c\
-		print_hex.c\
-		print_adress_hex.c
-		
+EXECUTABLE = push_swap
+EXECUTABLE = push_swap
+CFLAGS = -Wall -Werror -Wextra 
+SRC = 		checker.c\
+		print_error.c\
+		push_swap.c
 LIBFT_D = ./libft
 OBJ = $(SRC:.c=.o)
 
@@ -24,7 +21,7 @@ makelibft :
 	$(CC) $(CFLAGS) -c $^ -o $@
 	
 $(NAME) : makelibft $(OBJ) 
-	ar rcs $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -L. -lft -o $(EXECUTABLE)
 
 clean:
 	make clean -C $(LIBFT_D)
