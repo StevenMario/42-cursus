@@ -1,7 +1,6 @@
-NAME = push_swap.a
+NAME = push_swap
 CC = cc
 LIBFT_N = libft.a
-EXECUTABLE = push_swap
 CFLAGS = -Wall -Werror -Wextra 
 SRC = 		checker.c\
 		print_error.c\
@@ -20,8 +19,7 @@ makelibft :
 	$(CC) $(CFLAGS) -c $^ -o $@
 	
 $(NAME) : makelibft $(OBJ) 
-	ar rcs $(NAME) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -L. -lft -o $(EXECUTABLE)
+	$(CC) $(CFLAGS) $(OBJ) -L $(LIBFT_D) -l ft -o $(NAME)
 
 clean:
 	make clean -C $(LIBFT_D)

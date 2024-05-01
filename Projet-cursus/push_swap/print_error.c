@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:08:58 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/04/29 13:47:18 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/01 10:47:04 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void print_error(void)
 {
-    ft_printf("Error \n");
+	ft_printf("Error \n");
 }
