@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 10:10:13 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/01 12:11:51 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/02 20:18:24 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,27 @@ int checker(char **str)
 				return 0;
 			j = 0;
 			i++;
+	}
+	return (1);
+}
+
+int check_double(int *nbr)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 1;
+	while (nbr[i] != '\0')
+	{
+		while (nbr[j] != '\0')
+		{
+			if (nbr[i] == nbr[j])
+				return (0);
+			j++;
+		}
+		i++;
+		j = i + 1;
 	}
 	return (1);
 }
