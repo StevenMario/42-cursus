@@ -6,23 +6,36 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/03 11:56:31 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/03 13:40:19 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-// t_stack *fill_stack_a(char **str)
-// {
-//     int i;
-//     i = 0;
+t_stack *fill_stack(t_stack **a, int *nbr)
+{
+    int i;
+	t_stack *new;
 
-//     while (str[i] != NULL)
-//     {
-		
-//     }
-// }
+    i = 0;
+	ft_double_lstnew(&a,int *data)
+    while (i < size_new_str(check_arg(argv)))
+    {
+		new = ft_double_lstnew(&a,nbr[i])
+		new->data[2] = i;
+		if (new->next == NULL)
+			ft
+    }
+}
+void fill_stack_a(int *new_arg)
+{
+	int i;
+	t_stack *a;
+
+	*a = NULL;
+	
+}
 int	*convert_str(char **str)
 {
 	int i;

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
+
 void ft_lstadd_back(t_list **lst, t_list *new)
 {
     t_list  *temp;
@@ -29,22 +29,3 @@ void ft_lstadd_back(t_list **lst, t_list *new)
 
     }
 }
-/*int main()
-{
-    t_list *list1 = ft_lstnew((void *)4);
-    t_list *list2 = ft_lstnew((void *)5);
-    t_list *list3 = ft_lstnew((void *)9);
-    int i;
-
-    list1->next = list2;
-    i = ft_lstsize(list1);
-    printf("%d\n",i);
-    ft_lstadd_back(&list1, list3);
-    
-    i = ft_lstsize(list1);
-    printf("%d",i);
-    free(list1);
-    free(list2);
-    free(list3);
-    return 0;
-}*/
