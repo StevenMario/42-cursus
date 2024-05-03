@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 10:10:13 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/02 20:18:24 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/03 10:32:35 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
 
 int ft_ispace(char *str)
 {
@@ -56,16 +58,27 @@ int checker(char **str)
 	return (1);
 }
 
-int check_double(int *nbr)
+int size_new_str(char **new_str)
+{
+	int k;
+
+	k = 0;
+	while (new_str[k] != NULL)
+		k++;
+	return (k);
+}
+
+int check_double(int *nbr , char **new_str)
 {
 	int i;
 	int j;
+	
 
 	i = 0;
 	j = 1;
-	while (nbr[i] != '\0')
+	while (i < size_new_str(new_str))
 	{
-		while (nbr[j] != '\0')
+		while (j < size_new_str(new_str))
 		{
 			if (nbr[i] == nbr[j])
 				return (0);

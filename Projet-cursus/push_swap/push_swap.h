@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/02 13:23:49 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/03 10:28:39 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 int checker(char **str);
 void print_error(void);
 int ft_ispace(char *str);
-int check_double(int *nbr);
+int check_double(int *nbr,char **new_str);
+int size_new_str(char **new_str);
 
 #endif
