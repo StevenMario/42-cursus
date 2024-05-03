@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/03 10:34:48 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/03 11:56:31 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,42 @@ int	*convert_str(char **str)
 	return (nbr);
 }
 
-int main(int argc, char **argv)
+int *char_to_int(char **new_str)
 {
-	//t_stack *a;
-	//t_stack *b;
-	int j;
-	int i;
 	int	*new_arg;
+	
+	new_arg = convert_str(new_str);
+	if (new_arg == NULL || check_double(new_arg,new_str) == 0)
+	{
+		return (NULL);
+	}
+	return (new_arg);
+}
+
+char **check_arg(char **argv)
+{
+	int j;
 	char *str;
 	char **new_str;  
-	                                                                              
 
 	j = 2;
+	str = ft_strdup(argv[1]);
+	while (argv[j] != NULL)
+	{			
+		str = ft_strjoin(str," ");
+		str = ft_strjoin(str,argv[j++]);
+	}
+	new_str = ft_split(str,' ');
+	return (new_str);
+
+}
+
+int main(int argc, char **argv)
+{
+	int i;
+	int	*new_arg;  
+	                                                                              
+
 	i = 0;
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
@@ -69,26 +93,17 @@ int main(int argc, char **argv)
 			}
 			else
 			{
-				str = ft_strdup(argv[1]);
-				while (argv[j] != NULL)
-				{
-					str = ft_strjoin(str," ");
-					str = ft_strjoin(str,argv[j++]);
-				}
-				new_str = ft_split(str,' ');
-				new_arg = convert_str(new_str);
-				if (new_arg == NULL || check_double(new_arg,new_str) == 0)
+				new_arg = char_to_int(check_arg(argv));
+				if (new_arg == NULL)
 				{
 					print_error();
 					return (1);
 				}
-				while(i < size_new_str(new_str))
+				while(i < size_new_str(check_arg(argv)))
 				{
 					printf("%d \n",new_arg[i]);
 					i++;
 				}
-				free(str);
-				free(new_str);
 			}
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/03 10:28:39 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/03 11:54:08 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ void print_error(void);
 int ft_ispace(char *str);
 int check_double(int *nbr,char **new_str);
 int size_new_str(char **new_str);
+char **check_arg(char **argv);
+int *char_to_int(char **new_str);
 
 #endif
