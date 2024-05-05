@@ -3,38 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/03 13:40:19 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/05 22:10:56 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-t_stack *fill_stack(t_stack **a, int *nbr)
-{
-    int i;
-	t_stack *new;
-
-    i = 0;
-	ft_double_lstnew(&a,int *data)
-    while (i < size_new_str(check_arg(argv)))
-    {
-		new = ft_double_lstnew(&a,nbr[i])
-		new->data[2] = i;
-		if (new->next == NULL)
-			ft
-    }
-}
-void fill_stack_a(int *new_arg)
+void fill_stack_a(int *new_arg,char **argv)
 {
 	int i;
 	t_stack *a;
 
-	*a = NULL;
-	
+	i = 1;
+	a = ft_double_lstnew(new_arg[0]);
+	while (i <= size_new_str(argv))
+	{
+
+		ft_lstadd_back(&a, ft_double_lstnew(new_arg[i]));
+		i++;
+	}
 }
 int	*convert_str(char **str)
 {
@@ -88,11 +79,9 @@ char **check_arg(char **argv)
 
 int main(int argc, char **argv)
 {
-	int i;
 	int	*new_arg;  
-	                                                                              
+	int i = 0;                                                                            
 
-	i = 0;
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
 	else 
@@ -117,6 +106,7 @@ int main(int argc, char **argv)
 					printf("%d \n",new_arg[i]);
 					i++;
 				}
+				fill_stack_a(new_arg,check_arg(argv));
 			}
 		}
 	}
