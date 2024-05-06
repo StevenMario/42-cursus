@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/05 22:10:56 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/06 13:47:57 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,26 @@ void fill_stack_a(int *new_arg,char **argv)
 {
 	int i;
 	t_stack *a;
-
+	t_stack	*temp;
+	
 	i = 1;
 	a = ft_double_lstnew(new_arg[0]);
-	while (i <= size_new_str(argv))
+	//ft_lstdelone(a, &free);
+	//printf("size = %d\n",a->nbr);
+	i = 1;
+	while (i < size_new_str(argv))
 	{
 
 		ft_lstadd_back(&a, ft_double_lstnew(new_arg[i]));
 		i++;
 	}
+	temp = a;
+	while (temp)
+	{
+		printf("[%d]\n", temp->nbr);
+		temp = temp->next;
+	}
+	ft_lstclear(&a, &free);
 }
 int	*convert_str(char **str)
 {
@@ -79,8 +90,7 @@ char **check_arg(char **argv)
 
 int main(int argc, char **argv)
 {
-	int	*new_arg;  
-	int i = 0;                                                                            
+	int	*new_arg;                                                                             
 
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
@@ -100,11 +110,6 @@ int main(int argc, char **argv)
 				{
 					print_error();
 					return (1);
-				}
-				while(i < size_new_str(check_arg(argv)))
-				{
-					printf("%d \n",new_arg[i]);
-					i++;
 				}
 				fill_stack_a(new_arg,check_arg(argv));
 			}

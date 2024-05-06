@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/05 22:00:40 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/06 10:59:28 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,19 @@
 	struct s_stack  *next;
 }   t_stack;
 
-int checker(char **str);
-void print_error(void);
+int	checker(char **str);
 int ft_ispace(char *str);
-int check_double(int *nbr,char **new_str);
 int size_new_str(char **new_str);
-char **check_arg(char **argv);
 int *char_to_int(char **new_str);
-void ft_lstadd_back(t_stack **lst, t_stack *new);
+int check_double(int *nbr,char **new_str);
+char **check_arg(char **argv);
 t_stack *ft_double_lstnew(int nbr);
 t_stack *ft_lstlast(t_stack *lst);
+void print_error(void);
+void fill_stack_a(int *new_arg,char **argv);
+
+void ft_lstadd_back(t_stack **lst, t_stack *new);
+void ft_lstdelone(t_stack *lst, void (*del)(void *));
+void ft_lstclear(t_stack **lst, void (*del)(void *));
 
 #endif

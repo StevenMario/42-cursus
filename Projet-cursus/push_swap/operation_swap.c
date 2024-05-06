@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:21:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/05 22:04:46 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/06 13:45:35 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void ft_lstadd_back(t_stack **lst, t_stack *new)
     temp = *lst;
     while(temp)
     {
-        temp = temp->next;
         if (temp->next == NULL)
         {
             
@@ -28,6 +27,7 @@ void ft_lstadd_back(t_stack **lst, t_stack *new)
             new->next = NULL;
             break;
         }
+        temp = temp->next;
     }
 }
 t_stack *ft_double_lstnew(int nbr)
@@ -35,10 +35,26 @@ t_stack *ft_double_lstnew(int nbr)
 	t_stack   *new_stack;
 
 	new_stack = malloc(sizeof(t_stack));
-	if (!new_stack || !nbr)
+	if (!new_stack)
 		return (NULL);
 	new_stack->prev= NULL;
 	new_stack->nbr = nbr;
 	new_stack->next= NULL;
 	return (new_stack);
+}
+
+void ft_lstdelone(t_stack *lst, void (*del)(void *))
+{
+    del((void *)&lst->nbr);
+   // free(lst);
+}
+
+void ft_lstclear(t_stack **lst, void (*del)(void *))
+{
+    if (!lst || !(*lst))
+        return ;
+    if ((*lst)->next)
+        ft_lstclear(&(*lst)->next, del);
+    ft_lstdelone(*lst, del);
+    *lst = NULL;
 }
