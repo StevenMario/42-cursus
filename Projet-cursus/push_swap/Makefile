@@ -3,8 +3,9 @@ CC = cc
 LIBFT_N = libft.a
 CFLAGS = -Wall -Werror -Wextra 
 SRC = 		checker.c\
-			operation_swap.c\
+			swap_utils.c\
 			print_error.c\
+			operation_swap.c\
 			push_swap.c
 LIBFT_D = ./libft
 OBJ = $(SRC:.c=.o)

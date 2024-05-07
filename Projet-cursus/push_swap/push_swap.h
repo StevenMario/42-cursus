@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/06 10:59:28 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/06 20:48:12 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int check_double(int *nbr,char **new_str);
 char **check_arg(char **argv);
 t_stack *ft_double_lstnew(int nbr);
 t_stack *ft_lstlast(t_stack *lst);
+t_stack *ft_lstlast(t_stack *lst);
 void print_error(void);
 void fill_stack_a(int *new_arg,char **argv);
-
 void ft_lstadd_back(t_stack **lst, t_stack *new);
 void ft_lstdelone(t_stack *lst, void (*del)(void *));
 void ft_lstclear(t_stack **lst, void (*del)(void *));
