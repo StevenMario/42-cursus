@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/06 13:47:57 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/07 20:29:41 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,15 @@ void fill_stack_a(int *new_arg,char **argv)
 		printf("[%d]\n", temp->nbr);
 		temp = temp->next;
 	}
+	swap(&a);
+	/*printf("Version swwaper :");
+	temp = a;
+	while (i < 5)
+	{
+		printf("[%d]\n", temp->nbr);
+		temp = temp->next;
+	}*/
+
 	ft_lstclear(&a, &free);
 }
 int	*convert_str(char **str)
