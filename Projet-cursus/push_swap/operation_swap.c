@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 19:20:25 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/09 13:33:51 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/09 15:16:26 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,8 @@ void push(t_stack **lst, t_stack **new)
 	}
 	(*new)->prev = NULL;
 }
+
+// void rotate(t_stack **lst)
+// {
+// 	t_stack *temp;
+// }

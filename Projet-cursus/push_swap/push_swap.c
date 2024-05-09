@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/09 13:32:50 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/09 13:43:51 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int	*convert_str(char **str)
 		nbr[i] = (int)ft_atoi(str[i]);
 		i++;
 	}
+	free(str);
 	return (nbr);
 }
 
@@ -105,6 +106,7 @@ char **check_arg(char **argv)
 		str = ft_strjoin(str,argv[j++]);
 	}
 	new_str = ft_split(str,' ');
+	free(str);
 	return (new_str);
 
 }
@@ -133,6 +135,7 @@ int main(int argc, char **argv)
 					return (1);
 				}
 				fill_stack_a(new_arg,check_arg(argv));
+				free(new_arg);
 			}
 		}
 	}
