@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/07 20:29:41 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/09 13:32:50 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void fill_stack_a(int *new_arg,char **argv)
 	int i;
 	t_stack *a;
 	t_stack	*temp;
+	t_stack	*temp1;
+	t_stack *b;
 	
 	i = 1;
 	a = ft_double_lstnew(new_arg[0]);
@@ -36,17 +38,27 @@ void fill_stack_a(int *new_arg,char **argv)
 		printf("[%d]\n", temp->nbr);
 		temp = temp->next;
 	}
-	swap(&a);
-	/*printf("Version swwaper :");
-	temp = a;
-	while (i < 5)
+	i = 0;
+	temp = NULL;
+	b = NULL;
+	push(&b,&a);
+	printf("B quand il est pusher ; \n");
+	temp = b;
+	while (temp)
 	{
 		printf("[%d]\n", temp->nbr);
 		temp = temp->next;
-	}*/
-
-	ft_lstclear(&a, &free);
+	}
+	printf("A apres avoir pusher B \n");
+	temp1 = a;
+	while (temp1)
+	{
+		printf("[%d]\n", temp1->nbr);
+		temp1 = temp1->next;
+	}
+	
 }
+
 int	*convert_str(char **str)
 {
 	int i;
