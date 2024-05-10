@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/10 12:56:08 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:58:44 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ char **check_arg(char **argv)
 {
 	int j;
 	char *str;
+	// char *tmp_1;
+	// char *tmp_2;
 	char **new_str;  
 
 	j = 2;
