@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/09 13:34:16 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:31:51 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int *char_to_int(char **new_str);
 int check_double(int *nbr,char **new_str);
 char **check_arg(char **argv);
 t_stack *ft_double_lstnew(int nbr);
-t_stack *ft_lstlast(t_stack *lst);
-t_stack *ft_lstlast(t_stack *lst);
+t_stack *ft_lstlast(t_stack **lst);
 void print_error(void);
 void swap(t_stack **a);
+void rotate(t_stack **lst);
+void reverse_rotate(t_stack **lst);
 void push(t_stack **lst, t_stack **new);
 void fill_stack_a(int *new_arg,char **argv);
 void ft_lstadd_back(t_stack **lst, t_stack *new);
-void ft_lstdelone(t_stack *lst, void (*del)(void *));
-void ft_lstclear(t_stack **lst, void (*del)(void *));
+void ft_lstclear(t_stack **lst);
 
 #endif

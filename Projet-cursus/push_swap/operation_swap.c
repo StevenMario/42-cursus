@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 19:20:25 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/09 15:16:26 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:46:53 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void push(t_stack **lst, t_stack **new)
 	(*new) = temp->next;
 	if ((*lst) == NULL)
 	{
-		*lst = temp;
+		(*lst) = temp;
 		(*lst)->next = NULL;
 		(*lst)->prev = NULL;
 	}
@@ -46,13 +46,39 @@ void push(t_stack **lst, t_stack **new)
 	{
 		temp->next = *lst;
 		(*lst)->prev = temp;
-		*lst = temp;
+		(*lst) = temp;
 		(*lst)->prev = NULL;
 	}
 	(*new)->prev = NULL;
 }
 
-// void rotate(t_stack **lst)
-// {
-// 	t_stack *temp;
-// }
+void rotate(t_stack **lst)
+{
+	t_stack *temp;
+	t_stack *last;
+
+	if (!(*lst))
+		return ;
+	last = ft_lstlast(lst);
+	*lst = (*lst)->next;
+	last->next = (*lst)->prev;
+	temp = last->next;
+	temp->prev = last;
+	temp->next = NULL;
+	(*lst)->prev = NULL;
+}
+
+void reverse_rotate(t_stack **lst)
+{
+	t_stack *temp;
+	t_stack *last;
+
+	if (!(*lst))
+		return;
+	last = ft_lstlast(lst);
+	last->next = (*lst);
+	temp = last->prev;
+	temp->next = NULL;
+	last->prev = NULL;
+	(*lst) = last;
+}

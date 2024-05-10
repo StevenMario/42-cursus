@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/09 13:43:51 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:56:08 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,10 @@ void fill_stack_a(int *new_arg,char **argv)
 {
 	int i;
 	t_stack *a;
+	t_stack *tmp;
 	t_stack	*temp;
-	t_stack	*temp1;
-	t_stack *b;
 	
-	i = 1;
 	a = ft_double_lstnew(new_arg[0]);
-	//ft_lstdelone(a, &free);
-	//printf("size = %d\n",a->nbr);
 	i = 1;
 	while (i < size_new_str(argv))
 	{
@@ -38,25 +34,27 @@ void fill_stack_a(int *new_arg,char **argv)
 		printf("[%d]\n", temp->nbr);
 		temp = temp->next;
 	}
-	i = 0;
 	temp = NULL;
-	b = NULL;
-	push(&b,&a);
-	printf("B quand il est pusher ; \n");
-	temp = b;
+	reverse_rotate(&a);
+	printf("A apres rotation; \n");
+	temp = a;
 	while (temp)
 	{
 		printf("[%d]\n", temp->nbr);
 		temp = temp->next;
 	}
-	printf("A apres avoir pusher B \n");
-	temp1 = a;
-	while (temp1)
+	while (a)
 	{
-		printf("[%d]\n", temp1->nbr);
-		temp1 = temp1->next;
+		tmp = a;
+		a = a->next;
+		if (tmp->prev)
+			free(tmp->prev);
+		if (tmp->next)
+			free(tmp->next);
+		if (tmp->target_node)
+			free(tmp->target_node);
+		free(tmp);
 	}
-	
 }
 
 int	*convert_str(char **str)
@@ -76,7 +74,6 @@ int	*convert_str(char **str)
 		nbr[i] = (int)ft_atoi(str[i]);
 		i++;
 	}
-	free(str);
 	return (nbr);
 }
 
@@ -89,6 +86,7 @@ int *char_to_int(char **new_str)
 	{
 		return (NULL);
 	}
+	free(new_str);
 	return (new_arg);
 }
 
@@ -135,7 +133,6 @@ int main(int argc, char **argv)
 					return (1);
 				}
 				fill_stack_a(new_arg,check_arg(argv));
-				free(new_arg);
 			}
 		}
 	}

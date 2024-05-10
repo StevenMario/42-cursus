@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:21:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/06 20:47:53 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/10 11:19:46 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,29 @@ t_stack *ft_double_lstnew(int nbr)
 	return (new_stack);
 }
 
-void ft_lstdelone(t_stack *lst, void (*del)(void *))
+void ft_lstclear(t_stack **lst)
 {
-    del((void *)&lst->nbr);
-   // free(lst);
-}
-
-void ft_lstclear(t_stack **lst, void (*del)(void *))
-{
-    if (!lst || !(*lst))
+    if (*lst == NULL)
         return ;
-    if ((*lst)->next)
-        ft_lstclear(&(*lst)->next, del);
-    ft_lstdelone(*lst, del);
-    *lst = NULL;
+    else
+    {
+        while ((*lst) != NULL)
+        {
+            (*lst) = (*lst)->next;
+            free((*lst)->prev);
+        }
+        free((*lst));
+    }
 }
 
-t_stack *ft_lstlast(t_stack *lst)
+t_stack *ft_lstlast(t_stack **lst)
 {
     t_stack  *temp;
 
    
-    if (!lst)
+    if (!(*lst))
         return (NULL);
-    temp = lst;
+    temp = (*lst);
     while (temp)
     {
         temp = temp->next;
