@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42antanana      +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:31:40 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/02/19 11:41:36 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:03:21 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char *str);
 char	**ft_split(char const *s, char c);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char const *s2);
 char	*ft_strchr(const char *str, int searchChar);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strrchr(const char *str, int searchChar);

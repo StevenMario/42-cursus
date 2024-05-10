@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/10 12:58:44 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:01:34 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void fill_stack_a(int *new_arg,char **argv)
 {
 	int i;
 	t_stack *a;
-	t_stack *tmp;
+//	t_stack *tmp;
 	t_stack	*temp;
 	
 	a = ft_double_lstnew(new_arg[0]);
@@ -43,18 +43,22 @@ void fill_stack_a(int *new_arg,char **argv)
 		printf("[%d]\n", temp->nbr);
 		temp = temp->next;
 	}
-	while (a)
-	{
-		tmp = a;
-		a = a->next;
-		if (tmp->prev)
-			free(tmp->prev);
-		if (tmp->next)
-			free(tmp->next);
-		if (tmp->target_node)
-			free(tmp->target_node);
-		free(tmp);
-	}
+	free(new_arg);
+	free(*argv);
+	free(argv);
+	// tmp = NULL;
+	// while (a)
+	// {
+	// 	tmp = a;
+	// 	a = a->next;
+	// 	if (tmp->prev)
+	// 		free(tmp->prev);
+	// 	if (tmp->next)
+	// 		free(tmp->next);
+	// 	if (tmp->target_node)
+	// 		free(tmp->target_node);
+	// 	free(tmp);
+	// }
 }
 
 int	*convert_str(char **str)
@@ -86,7 +90,7 @@ int *char_to_int(char **new_str)
 	{
 		return (NULL);
 	}
-	free(new_str);
+	free_split(new_str);
 	return (new_arg);
 }
 
@@ -94,8 +98,6 @@ char **check_arg(char **argv)
 {
 	int j;
 	char *str;
-	// char *tmp_1;
-	// char *tmp_2;
 	char **new_str;  
 
 	j = 2;

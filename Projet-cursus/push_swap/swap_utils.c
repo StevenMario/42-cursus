@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:21:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/10 11:19:46 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:39:16 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,17 @@ t_stack *ft_lstlast(t_stack **lst)
             return (temp);
     }
     return (temp);
+}
+
+void free_split(char **str)
+{
+    int i;
+
+    i = 0;
+    while (str[i] != NULL)
+    {
+        free(str[i]);
+        i++;
+    }
+    //free(str);
 }

@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/10 11:31:51 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:33:54 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_stack *ft_lstlast(t_stack **lst);
 void print_error(void);
 void swap(t_stack **a);
 void rotate(t_stack **lst);
+void free_split(char **str);
 void reverse_rotate(t_stack **lst);
 void push(t_stack **lst, t_stack **new);
 void fill_stack_a(int *new_arg,char **argv);
