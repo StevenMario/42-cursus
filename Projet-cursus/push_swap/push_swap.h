@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/10 13:33:54 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:57:46 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_stack
 
 int	checker(char **str);
 int ft_ispace(char *str);
+int is_sort(t_stack **lst);
 int size_new_str(char **new_str);
 int *char_to_int(char **new_str);
 int check_double(int *nbr,char **new_str);

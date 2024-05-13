@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/10 14:01:34 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:16:31 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,24 @@ void fill_stack_a(int *new_arg,char **argv)
 		ft_lstadd_back(&a, ft_double_lstnew(new_arg[i]));
 		i++;
 	}
+	if (is_sort(&a) == 1)
+		printf("OK");
+	else
+		printf("KO");
 	temp = a;
 	while (temp)
 	{
 		printf("[%d]\n", temp->nbr);
 		temp = temp->next;
 	}
-	temp = NULL;
-	reverse_rotate(&a);
-	printf("A apres rotation; \n");
-	temp = a;
-	while (temp)
-	{
-		printf("[%d]\n", temp->nbr);
-		temp = temp->next;
-	}
+	// reverse_rotate(&a);
+	// printf("A apres rotation; \n");
+	// temp = a;
+	// while (temp)
+	// {
+	// 	printf("[%d]\n", temp->nbr);
+	// 	temp = temp->next;
+	// }
 	free(new_arg);
 	free_split(argv);
 	ft_lstclear(&a);

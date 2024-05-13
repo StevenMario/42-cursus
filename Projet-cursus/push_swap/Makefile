@@ -5,6 +5,7 @@ CFLAGS = -Wall -Werror -Wextra
 SRC = 		checker.c\
 			swap_utils.c\
 			print_error.c\
+			algorithm.c\
 			operation_swap.c\
 			push_swap.c
 LIBFT_D = ./libft
