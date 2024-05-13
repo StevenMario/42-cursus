@@ -45,16 +45,21 @@ t_stack *ft_double_lstnew(int nbr)
 
 void ft_lstclear(t_stack **lst)
 {
-    if (*lst == NULL)
+    t_stack *temp;
+    t_stack *next;
+
+    temp = (*lst);
+    if (temp == NULL)
         return ;
     else
     {
-        while ((*lst) != NULL)
+        while (temp != NULL)
         {
-            (*lst) = (*lst)->next;
-            free((*lst)->prev);
+            next = (temp)->next;
+            free(temp);
+            temp = next;
         }
-        free((*lst));
+        *lst = NULL;
     }
 }
 
@@ -85,5 +90,5 @@ void free_split(char **str)
         free(str[i]);
         i++;
     }
-    //free(str);
+    free(str);
 }

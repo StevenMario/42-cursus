@@ -17,7 +17,6 @@ void fill_stack_a(int *new_arg,char **argv)
 {
 	int i;
 	t_stack *a;
-//	t_stack *tmp;
 	t_stack	*temp;
 	
 	a = ft_double_lstnew(new_arg[0]);
@@ -44,21 +43,9 @@ void fill_stack_a(int *new_arg,char **argv)
 		temp = temp->next;
 	}
 	free(new_arg);
-	free(*argv);
-	free(argv);
-	// tmp = NULL;
-	// while (a)
-	// {
-	// 	tmp = a;
-	// 	a = a->next;
-	// 	if (tmp->prev)
-	// 		free(tmp->prev);
-	// 	if (tmp->next)
-	// 		free(tmp->next);
-	// 	if (tmp->target_node)
-	// 		free(tmp->target_node);
-	// 	free(tmp);
-	// }
+	free_split(argv);
+	ft_lstclear(&a);
+
 }
 
 int	*convert_str(char **str)
@@ -88,6 +75,8 @@ int *char_to_int(char **new_str)
 	new_arg = convert_str(new_str);
 	if (new_arg == NULL || check_double(new_arg,new_str) == 0)
 	{
+		free_split(new_str);
+		free(new_arg);
 		return (NULL);
 	}
 	free_split(new_str);
