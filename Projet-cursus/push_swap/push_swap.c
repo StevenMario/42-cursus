@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/13 13:16:31 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:28:07 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void fill_stack_a(int *new_arg,char **argv)
 	int i;
 	t_stack *a;
 	t_stack	*temp;
+
 	
 	a = ft_double_lstnew(new_arg[0]);
 	i = 1;
@@ -30,7 +31,14 @@ void fill_stack_a(int *new_arg,char **argv)
 	if (is_sort(&a) == 1)
 		printf("OK");
 	else
-		printf("KO");
+	{
+		if (is_three(&a) == 3)
+		{
+			while (is_sort(&a) != 1)
+				sort_three(&a);
+		}
+		
+	}
 	temp = a;
 	while (temp)
 	{

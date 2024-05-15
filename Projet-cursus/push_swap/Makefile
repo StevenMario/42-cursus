@@ -6,7 +6,11 @@ SRC = 		checker.c\
 			swap_utils.c\
 			print_error.c\
 			algorithm.c\
+			operation.c\
 			operation_swap.c\
+			operation_push.c\
+			operation_rotate.c\
+			operation_reverse_rotate.c\
 			push_swap.c
 LIBFT_D = ./libft
 OBJ = $(SRC:.c=.o)

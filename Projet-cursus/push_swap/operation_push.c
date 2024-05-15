@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_swap.c                                   :+:      :+:    :+:   */
+/*   operation_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 11:41:34 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/15 12:07:49 by mrambelo         ###   ########.fr       */
+/*   Created: 2024/05/15 11:46:31 by mrambelo          #+#    #+#             */
+/*   Updated: 2024/05/15 12:06:02 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap_a(t_stack **a)
+void push_a(t_stack **a,t_stack **b)
 {
-	swap(a);
-	ft_printf("sa\n");
+	push(a,b);
+	ft_printf("pa\n");
 }
 
-void swap_b(t_stack **b)
+void push_b(t_stack **b,t_stack **a)
 {
-	swap(b);
-	ft_printf("sb\n");
-}
-
-void swap_a_b(t_stack **a,t_stack **b)
-{
-	swap(a);
-	swap(b);
-	ft_printf("ss\n");
+	push(b,a);
+	ft_printf("pb\n");
 }
