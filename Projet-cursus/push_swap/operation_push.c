@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   operation_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:46:31 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/15 12:06:02 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/15 20:59:18 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_a(t_stack **a,t_stack **b)
+void	push_a(t_stack **a, t_stack **b)
 {
-	push(a,b);
+	push(a, b);
 	ft_printf("pa\n");
 }
 
-void push_b(t_stack **b,t_stack **a)
+void	push_b(t_stack **b, t_stack **a)
 {
-	push(b,a);
+	push(b, a);
 	ft_printf("pb\n");
 }

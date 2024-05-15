@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:31:40 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/10 13:03:21 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/15 19:01:51 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
-long		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 int		ft_tolower(int character);
-int	ft_printf(const char *format, ...);
-int	ft_print_char(char c);
-int	print_str(char *str);
-int	print_int(int nbr);
-int	print_unsigned_dec(unsigned int nbr);
-int	print_hex(int nbr, char c);
-int	print_adress_hex(void *adress);
+int		ft_printf(const char *format, ...);
+int		ft_print_char(char c);
+int		print_str(char *str);
+int		print_int(int nbr);
+int		print_unsigned_dec(unsigned int nbr);
+int		print_hex(int nbr, char c);
+int		print_adress_hex(void *adress);
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *src);
 void	ft_putchar_fd(char c, int fd);

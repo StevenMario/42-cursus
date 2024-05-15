@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:08:58 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/01 10:47:04 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/15 20:54:18 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_error(void)
+void	print_error(void)
 {
 	ft_printf("Error \n");
 }

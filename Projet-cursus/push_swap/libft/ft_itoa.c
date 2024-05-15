@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42antanana      +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 09:38:22 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/02/23 09:38:24 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/15 19:02:55 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
