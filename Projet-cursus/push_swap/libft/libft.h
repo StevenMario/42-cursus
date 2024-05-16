@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:31:40 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/15 19:01:51 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/16 13:35:53 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		ft_isprint(int c);
 long	ft_atoi(const char *str);
 int		ft_tolower(int character);
 int		ft_printf(const char *format, ...);
+int     check_valid(char **argv,int argc);
 int		ft_print_char(char c);
 int		print_str(char *str);
 int		print_int(int nbr);

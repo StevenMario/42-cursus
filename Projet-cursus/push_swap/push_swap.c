@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/15 21:30:10 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/16 13:36:15 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,15 +100,44 @@ char	**check_arg(char **argv)
 	return (new_str);
 }
 
+int	check_valid(char **argv,int argc)
+{
+	int *new_arg;
+
+	if (argc > 1)
+	{
+		if (!checker(argv))
+		{
+			print_error();
+			return (0);
+		}
+		else
+		{
+			new_arg = char_to_int(check_arg(argv));
+			if (new_arg == NULL)
+			{
+				print_error();
+				return (0);
+			}
+			fill_stack_a(new_arg, check_arg(argv));
+		}
+	}
+	return (1);
+
+}
 int	main(int argc, char **argv)
 {
-	int	*new_arg;
+	//int	*new_arg;
 
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
 	else
 	{
-		if (argc > 1)
+		
+		if (check_valid(argv,argc) == 0)
+			return (1);
+		
+		/*if (argc > 1)
 		{
 			if (!checker(argv))
 			{
@@ -125,7 +154,8 @@ int	main(int argc, char **argv)
 				}
 				fill_stack_a(new_arg, check_arg(argv));
 			}
-		}
+		}*/
+
 	}
 	return (0);
 }
