@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/15 21:24:11 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/16 21:17:39 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,14 @@ void	reverse_rotate(t_stack **lst);
 void	swap_a_b(t_stack **a, t_stack **b);
 void	push(t_stack **lst, t_stack **new);
 void	rotate_a_b(t_stack **a, t_stack **b);
-void	fill_stack_a(int *new_arg, char **argv);
 void	reverse_rotate_a_b(t_stack **a, t_stack **b);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstclear(t_stack **lst);
+void push_swap(t_stack **a);
 char	**check_arg(char **argv);
 t_stack	*ft_double_lstnew(int nbr);
 t_stack	*ft_lstlast(t_stack **lst);
+int     check_valid(char **argv,int argc);
+void	*fill_stack_a(int *new_arg, char **argv);
 
 #endif

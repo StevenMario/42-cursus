@@ -6,14 +6,14 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/16 13:36:15 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/16 21:17:30 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	fill_stack_a(int *new_arg, char **argv)
+void	*fill_stack_a(int *new_arg, char **argv)
 {
 	int		i;
 	t_stack	*a;
@@ -26,7 +26,7 @@ void	fill_stack_a(int *new_arg, char **argv)
 		ft_lstadd_back(&a, ft_double_lstnew(new_arg[i]));
 		i++;
 	}
-	if (is_sort(&a) == 1)
+		if (is_sort(&a) == 1)
 		printf("OK");
 	else
 	{
@@ -42,10 +42,34 @@ void	fill_stack_a(int *new_arg, char **argv)
 		printf("[%d]\n", temp->nbr);
 		temp = temp->next;
 	}
+	ft_lstclear(&a);
 	free(new_arg);
 	free_split(argv);
-	ft_lstclear(&a);
+	return (a);
 }
+
+/*void push_swap(t_stack **a)
+{
+	t_stack *temp;
+
+	if (is_sort(a) == 1)
+		printf("OK");
+	else
+	{
+		if (is_three(a) == 3)
+		{
+			while (is_sort(a) != 1)
+				sort_three(a);
+		}
+	}
+	temp = (*a);
+	while (temp)
+	{
+		printf("[%d]\n", temp->nbr);
+		temp = temp->next;
+	}
+	ft_lstclear(a);
+}*/
 
 int	*convert_str(char **str)
 {
@@ -82,27 +106,10 @@ int	*char_to_int(char **new_str)
 	return (new_arg);
 }
 
-char	**check_arg(char **argv)
-{
-	int		j;
-	char	*str;
-	char	**new_str;
-
-	j = 2;
-	str = ft_strdup(argv[1]);
-	while (argv[j] != NULL)
-	{
-		str = ft_strjoin(str, " ");
-		str = ft_strjoin(str, argv[j++]);
-	}
-	new_str = ft_split(str, ' ');
-	free(str);
-	return (new_str);
-}
-
 int	check_valid(char **argv,int argc)
 {
-	int *new_arg;
+	int 	*new_arg;
+	//t_stack *a;
 
 	if (argc > 1)
 	{
@@ -123,11 +130,12 @@ int	check_valid(char **argv,int argc)
 		}
 	}
 	return (1);
-
 }
+
 int	main(int argc, char **argv)
 {
 	//int	*new_arg;
+	//t_stack *a;
 
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
@@ -136,26 +144,11 @@ int	main(int argc, char **argv)
 		
 		if (check_valid(argv,argc) == 0)
 			return (1);
-		
-		/*if (argc > 1)
+		/*else
 		{
-			if (!checker(argv))
-			{
-				print_error();
-				return (1);
-			}
-			else
-			{
-				new_arg = char_to_int(check_arg(argv));
-				if (new_arg == NULL)
-				{
-					print_error();
-					return (1);
-				}
-				fill_stack_a(new_arg, check_arg(argv));
-			}
+			a = check_valid(argv,argc);
+			push_swap(&a);
 		}*/
-
 	}
 	return (0);
 }

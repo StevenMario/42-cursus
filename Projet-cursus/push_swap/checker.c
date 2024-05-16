@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 10:10:13 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/15 21:07:10 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/16 13:59:00 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,24 @@ int	checker(char **str)
 		i++;
 	}
 	return (1);
+}
+
+char	**check_arg(char **argv)
+{
+	int		j;
+	char	*str;
+	char	**new_str;
+
+	j = 2;
+	str = ft_strdup(argv[1]);
+	while (argv[j] != NULL)
+	{
+		str = ft_strjoin(str, " ");
+		str = ft_strjoin(str, argv[j++]);
+	}
+	new_str = ft_split(str, ' ');
+	free(str);
+	return (new_str);
 }
 
 int	size_new_str(char **new_str)
