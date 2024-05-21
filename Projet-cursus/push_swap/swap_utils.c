@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:21:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/15 20:53:47 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/21 13:42:51 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
@@ -90,4 +91,39 @@ void	free_split(char **str)
 		i++;
 	}
 	free(str);
+}
+
+int	*char_to_int(char **new_str)
+{
+	int	*new_arg;
+
+	new_arg = convert_str(new_str);
+	if (new_arg == NULL || check_double(new_arg, new_str) == 0)
+	{
+		free_split(new_str);
+		free(new_arg);
+		return (NULL);
+	}
+	free_split(new_str);
+	return (new_arg);
+}
+
+int	*convert_str(char **str)
+{
+	int	i;
+	int	*nbr;
+
+	i = 0;
+	while (str[i] != NULL)
+		i++;
+	nbr = malloc(sizeof(int) * i);
+	i = 0;
+	while (str[i] != NULL)
+	{
+		if (ft_atoi(str[i]) > 2147483647 || ft_atoi(str[i]) < -2147483648)
+			return (NULL);
+		nbr[i] = (int)ft_atoi(str[i]);
+		i++;
+	}
+	return (nbr);
 }

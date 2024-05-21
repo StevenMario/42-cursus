@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/16 21:17:39 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/21 13:19:42 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int		is_three(t_stack **lst);
 int		size_new_str(char **new_str);
 int		*char_to_int(char **new_str);
 int		check_double(int *nbr, char **new_str);
+int	*convert_str(char **str);
+t_stack	*check_valid(char **argv, int argc);
 void	print_error(void);
 void	swap(t_stack **a);
 void	swap_a(t_stack **a);
@@ -52,11 +54,11 @@ void	rotate_a_b(t_stack **a, t_stack **b);
 void	reverse_rotate_a_b(t_stack **a, t_stack **b);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstclear(t_stack **lst);
-void push_swap(t_stack **a);
+void	push_swap(t_stack *a);
+void sort_all(t_stack **a);
 char	**check_arg(char **argv);
 t_stack	*ft_double_lstnew(int nbr);
-t_stack	*ft_lstlast(t_stack **lst);
-int     check_valid(char **argv,int argc);
-void	*fill_stack_a(int *new_arg, char **argv);
+t_stack *ft_lstlast(t_stack **lst);
+t_stack *fill_stack_a(int *new_arg, char **argv);
 
 #endif

@@ -6,18 +6,17 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/21 09:43:02 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:54:24 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	*fill_stack_a(int *new_arg, char **argv)
+t_stack	*fill_stack_a(int *new_arg, char **argv)
 {
 	int		i;
 	t_stack	*a;
-	t_stack	*temp;
 
 	a = ft_double_lstnew(new_arg[0]);
 	i = 1;
@@ -26,6 +25,15 @@ void	*fill_stack_a(int *new_arg, char **argv)
 		ft_lstadd_back(&a, ft_double_lstnew(new_arg[i]));
 		i++;
 	}
+	free(new_arg);
+	free_split(argv);
+	return (a);
+}
+
+void push_swap(t_stack *a)
+{
+	t_stack *temp;
+
 	if (is_sort(&a) == 1)
 		printf("OK");
 	else
@@ -35,6 +43,10 @@ void	*fill_stack_a(int *new_arg, char **argv)
 			while (is_sort(&a) != 1)
 				sort_three(&a);
 		}
+		else 
+		{
+			sort_all(&a);
+		}
 	}
 	temp = a;
 	while (temp)
@@ -43,73 +55,28 @@ void	*fill_stack_a(int *new_arg, char **argv)
 		temp = temp->next;
 	}
 	ft_lstclear(&a);
-	free(new_arg);
-	free_split(argv);
-	return (a);
 }
 
-/*void push_swap(t_stack **a)
+void sort_all(t_stack **a)
 {
+	t_stack *b;
 	t_stack *temp;
 
-	if (is_sort(a) == 1)
-		printf("OK");
-	else
-	{
-		if (is_three(a) == 3)
-		{
-			while (is_sort(a) != 1)
-				sort_three(a);
-		}
-	}
-	temp = (*a);
+	b = NULL;
+	push_b(&b,a);
+	temp = b;
 	while (temp)
 	{
-		printf("[%d]\n", temp->nbr);
+		printf(" Voici B[%d]\n", temp->nbr);
 		temp = temp->next;
 	}
-	ft_lstclear(a);
-}*/
-
-int	*convert_str(char **str)
-{
-	int	i;
-	int	*nbr;
-
-	i = 0;
-	while (str[i] != NULL)
-		i++;
-	nbr = malloc(sizeof(int) * i);
-	i = 0;
-	while (str[i] != NULL)
-	{
-		if (ft_atoi(str[i]) > 2147483647 || ft_atoi(str[i]) < -2147483648)
-			return (NULL);
-		nbr[i] = (int)ft_atoi(str[i]);
-		i++;
-	}
-	return (nbr);
+	ft_lstclear(&b);
 }
 
-int	*char_to_int(char **new_str)
-{
-	int	*new_arg;
-
-	new_arg = convert_str(new_str);
-	if (new_arg == NULL || check_double(new_arg, new_str) == 0)
-	{
-		free_split(new_str);
-		free(new_arg);
-		return (NULL);
-	}
-	free_split(new_str);
-	return (new_arg);
-}
-
-int	check_valid(char **argv,int argc)
+t_stack	*check_valid(char **argv,int argc)
 {
 	int 	*new_arg;
-	//t_stack *a;
+	t_stack *a;
 
 	if (argc > 1)
 	{
@@ -126,29 +93,26 @@ int	check_valid(char **argv,int argc)
 				print_error();
 				return (0);
 			}
-			fill_stack_a(new_arg, check_arg(argv));
+			a = fill_stack_a(new_arg, check_arg(argv));
+			
 		}
 	}
-	return (1);
+	return (a);
 }
 
 int	main(int argc, char **argv)
 {
-	//int	*new_arg;
-	//t_stack *a;
+	t_stack *a;
 
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
 	else
 	{
-		
-		if (check_valid(argv,argc) == 0)
+		a = check_valid(argv,argc);
+		if (a == NULL)
 			return (1);
-		/*else
-		{
-			a = check_valid(argv,argc);
-			push_swap(&a);
-		}*/
+		else
+			push_swap(a);
 	}
 	return (0);
 }
