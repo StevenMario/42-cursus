@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/16 21:17:30 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/21 09:43:02 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*fill_stack_a(int *new_arg, char **argv)
 		ft_lstadd_back(&a, ft_double_lstnew(new_arg[i]));
 		i++;
 	}
-		if (is_sort(&a) == 1)
+	if (is_sort(&a) == 1)
 		printf("OK");
 	else
 	{
