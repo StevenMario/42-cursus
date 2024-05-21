@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:21:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/21 13:00:07 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:42:51 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	ft_lstclear(t_stack **lst)
 		while (temp != NULL)
 		{
 			next = (temp)->next;
-			printf("free = {%d} {%p}\n",temp->nbr,temp);
 			free(temp);
 			temp = next;
 		}
