@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/21 09:38:53 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:48:03 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_stack	*fill_stack_a(int *new_arg, char **argv)
 {
 	int		i;
 	t_stack	*a;
-	//t_stack	*temp;
 
 	a = ft_double_lstnew(new_arg[0]);
 	i = 1;
@@ -61,6 +60,10 @@ void push_swap(t_stack **a)
 			while (is_sort(a) != 1)
 				sort_three(a);
 		}
+		// else 
+		// {
+		// 	sort_all(a);
+		// }
 	}
 	temp = (*a);
 	while (temp)
@@ -70,6 +73,23 @@ void push_swap(t_stack **a)
 	}
 	ft_lstclear(a);
 }
+
+// void sort_all(t_stack **a)
+// {
+// 	t_stack *b;
+// 	t_stack *temp;
+
+// 	b = NULL;
+// 	push_b(&b,a);
+// 	push_b(&b,a);
+// 	temp = b;
+// 	while (temp)
+// 	{
+// 		printf(" Voici B[%d]\n", temp->nbr);
+// 		temp = temp->next;
+// 	}
+// 	ft_lstclear(&b);
+// }
 
 t_stack	*check_valid(char **argv,int argc)
 {

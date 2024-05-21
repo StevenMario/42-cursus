@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/21 09:17:38 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:17:08 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ void	reverse_rotate_a_b(t_stack **a, t_stack **b);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstclear(t_stack **lst);
 void	push_swap(t_stack **a);
+void sort_all(t_stack **a);
 char	**check_arg(char **argv);
 t_stack	*ft_double_lstnew(int nbr);
-t_stack	*ft_lstlast(t_stack **lst);
-t_stack	*fill_stack_a(int *new_arg, char **argv);
+t_stack *ft_lstlast(t_stack **lst);
+t_stack *fill_stack_a(int *new_arg, char **argv);
 
 #endif
