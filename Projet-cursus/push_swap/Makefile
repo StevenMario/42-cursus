@@ -2,7 +2,9 @@ NAME = push_swap
 CC = cc
 LIBFT_N = libft.a
 CFLAGS = -Wall -Werror -Wextra 
-SRC = 		checker.c\
+SRC = 		main_utils.c\
+			algorithm_utils.c\
+			checker.c\
 			swap_utils.c\
 			print_error.c\
 			algorithm.c\

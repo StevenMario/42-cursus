@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 10:10:13 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/21 09:16:28 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:18:43 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_ispace(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == ' ')
-			i++;
-		else
-			return (1);
-	}
-	return (0);
-}
 
 int	checker(char **str)
 {
@@ -73,16 +58,6 @@ char	**check_arg(char **argv)
 	return (new_str);
 }
 
-int	size_new_str(char **new_str)
-{
-	int	k;
-
-	k = 0;
-	while (new_str[k] != NULL)
-		k++;
-	return (k);
-}
-
 int	check_double(int *nbr, char **new_str)
 {
 	int	i;
@@ -102,4 +77,30 @@ int	check_double(int *nbr, char **new_str)
 		j = i + 1;
 	}
 	return (1);
+}
+
+t_stack	*check_valid(char **argv, int argc)
+{
+	int		*new_arg;
+	t_stack	*a;
+
+	if (argc > 1)
+	{
+		if (!checker(argv))
+		{
+			print_error();
+			return (0);
+		}
+		else
+		{
+			new_arg = char_to_int(check_arg(argv));
+			if (new_arg == NULL)
+			{
+				print_error();
+				return (0);
+			}
+			a = fill_stack_a(new_arg, check_arg(argv));
+		}
+	}
+	return (a);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 21:21:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/21 13:42:51 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:21:45 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,19 +80,6 @@ t_stack	*ft_lstlast(t_stack **lst)
 	return (temp);
 }
 
-void	free_split(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != NULL)
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
-
 int	*char_to_int(char **new_str)
 {
 	int	*new_arg;
@@ -106,24 +93,4 @@ int	*char_to_int(char **new_str)
 	}
 	free_split(new_str);
 	return (new_arg);
-}
-
-int	*convert_str(char **str)
-{
-	int	i;
-	int	*nbr;
-
-	i = 0;
-	while (str[i] != NULL)
-		i++;
-	nbr = malloc(sizeof(int) * i);
-	i = 0;
-	while (str[i] != NULL)
-	{
-		if (ft_atoi(str[i]) > 2147483647 || ft_atoi(str[i]) < -2147483648)
-			return (NULL);
-		nbr[i] = (int)ft_atoi(str[i]);
-		i++;
-	}
-	return (nbr);
 }
