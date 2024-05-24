@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/24 11:09:56 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:50:32 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ typedef struct s_stack
 {
 	int				nbr;
 	int				index;
+	int				above_median;
+	int				current_position;
+	int				cheapest;
+	int				push_price;
 	struct s_stack	*target_node;
 	struct s_stack	*prev;
 	struct s_stack	*next;
