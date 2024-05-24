@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/23 21:24:06 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/24 11:09:56 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stack
 int		checker(char **str);
 int		ft_ispace(char *str);
 int		is_sort(t_stack **lst);
-int		is_three(t_stack **lst);
+int		stack_len(t_stack **lst);
 int		*convert_str(char **str);
 int		size_new_str(char **new_str);
 int		*char_to_int(char **new_str);
@@ -37,8 +37,8 @@ void	print_error(void);
 void	swap(t_stack **a);
 void	swap_a(t_stack **a);
 void	swap_b(t_stack **b);
-void	push_swap(t_stack *a);
-void	sort_all(t_stack **a);
+void	push_swap(t_stack **a, t_stack **b);
+void	sort_all(t_stack **a, t_stack **b);
 void	rotate_a(t_stack **a);
 void	rotate_b(t_stack **b);
 void	rotate(t_stack **lst);
@@ -53,11 +53,13 @@ void	push_b(t_stack **b, t_stack **a);
 void	swap_a_b(t_stack **a, t_stack **b);
 void	push(t_stack **lst, t_stack **new);
 void	rotate_a_b(t_stack **a, t_stack **b);
+void set_target_node_b(t_stack *a, t_stack *b);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	reverse_rotate_a_b(t_stack **a, t_stack **b);
 char	**check_arg(char **argv);
 t_stack	*ft_double_lstnew(int nbr);
 t_stack	*ft_lstlast(t_stack **lst);
+t_stack *find_smallest(t_stack *stack);
 t_stack	*check_valid(char **argv, int argc);
 t_stack	*fill_stack_a(int *new_arg, char **argv);
 

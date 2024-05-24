@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 21:12:39 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/23 21:22:02 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/24 11:10:47 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_sort(t_stack **lst)
 	return (1);
 }
 
-int	is_three(t_stack **lst)
+int	stack_len(t_stack **lst)
 {
 	int		i;
 	t_stack	*temp;
@@ -43,4 +43,21 @@ int	is_three(t_stack **lst)
 		temp = temp->next;
 	}
 	return (i);
+}
+
+t_stack *find_smallest(t_stack *stack)
+{
+	t_stack *smallest;
+	t_stack *current;
+
+	smallest = stack;
+	current = stack->next;
+	while (current != NULL)
+	{
+		if (smallest->nbr > current->nbr)
+			smallest = current;
+		else
+			current = current->next;
+	}
+	return smallest;
 }

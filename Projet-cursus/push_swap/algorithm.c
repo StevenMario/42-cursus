@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:56:53 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/23 21:37:53 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/24 11:11:11 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,45 +33,51 @@ void	sort_three(t_stack **lst)
 		reverse_rotate_a(lst);
 }
 
-void	sort_all(t_stack **a)
+void	sort_all(t_stack **a, t_stack **b)
 {
-	t_stack	*b;
 	t_stack	*temp;
 
-	b = NULL;
-	push_b(&b, a);
-	temp = b;
+	push_b(b, a);
+	temp = (*b);
 	while (temp)
 	{
 		printf(" Voici B[%d]\n", temp->nbr);
 		temp = temp->next;
 	}
-	ft_lstclear(&b);
+	ft_lstclear(b);
 }
 
-void	push_swap(t_stack *a)
+void	push_swap(t_stack **a, t_stack **b)
 {
 	t_stack	*temp;
+	t_stack	*smalest;
 
-	if (is_sort(&a) == 1)
+	if (is_sort(a) == 1)
 		printf("OK");
 	else
 	{
-		if (is_three(&a) == 3)
+		if (stack_len(a) == 2)
 		{
-			while (is_sort(&a) != 1)
-				sort_three(&a);
+			if (is_sort(a) != 1)
+				swap_a(a);
+		}
+		else if (stack_len(a) == 3)
+		{
+			while (is_sort(a) != 1)
+				sort_three(a);
 		}
 		else
 		{
-			sort_all(&a);
+			sort_all(a,b);
 		}
 	}
-	temp = a;
+	temp = (*a);
 	while (temp)
 	{
 		printf("[%d]\n", temp->nbr);
 		temp = temp->next;
 	}
-	ft_lstclear(&a);
+	smalest = find_smallest((*a));
+	printf("Le plus petit dans stack a est {%d}\n",smalest->nbr);
+	ft_lstclear(a);
 }

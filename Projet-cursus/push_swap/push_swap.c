@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/23 21:17:07 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/24 10:03:11 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ t_stack	*fill_stack_a(int *new_arg, char **argv)
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
+	t_stack	*b;
 
+	b = NULL;
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
 	else
@@ -42,7 +44,7 @@ int	main(int argc, char **argv)
 		if (a == NULL)
 			return (1);
 		else
-			push_swap(a);
+			push_swap(&a,&b);
 	}
 	return (0);
 }
