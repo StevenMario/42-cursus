@@ -6,13 +6,13 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:33:38 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/27 14:42:06 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:16:00 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void set_target_node_a(t_stack *a, t_stack *b)
+/*void set_target_node(t_stack *a, t_stack *b)
 {
 	t_stack *current_b;
 	t_stack *target_node;
@@ -38,9 +38,9 @@ void set_target_node_a(t_stack *a, t_stack *b)
 			a->target_node = target_node;
 		a = a->next;
 	}
-}
+}*/
 
-void set_target_node_b(t_stack *a, t_stack *b)
+void set_target_node(t_stack *a, t_stack *b)
 {
 	t_stack *current_a;
 	t_stack *target_node;

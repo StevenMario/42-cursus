@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/27 13:44:25 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:17:00 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ void	swap_a_b(t_stack **a, t_stack **b);
 void	push(t_stack **lst, t_stack **new);
 void	rotate_a_b(t_stack **a, t_stack **b);
 void set_target_node_b(t_stack *a, t_stack *b);
+void set_target_node(t_stack *a, t_stack *b);
+void set_index_and_median(t_stack *stack);
+void set_price(t_stack *a, t_stack *b);
+void set_cheapest(t_stack *b);
+void init_stack(t_stack *a, t_stack *b);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	reverse_rotate_a_b(t_stack **a, t_stack **b);
 char	**check_arg(char **argv);
