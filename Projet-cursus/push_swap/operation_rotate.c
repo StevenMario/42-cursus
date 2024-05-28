@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_rotate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:48:38 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/15 20:58:11 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/28 13:26:01 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,12 @@ void	rotate_a_b(t_stack **a, t_stack **b)
 	rotate(a);
 	rotate(b);
 	ft_printf("rr\n");
+}
+
+void rotate_both(t_stack **a, t_stack **b, t_stack *cheapest)
+{
+	while ((*a) != cheapest && (*b) != cheapest->target_node)
+		rotate_a_b(a, b);
+	set_index_and_median((*a));
+	set_index_and_median((*b));
 }

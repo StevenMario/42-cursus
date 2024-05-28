@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:56:53 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/24 11:11:11 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/28 13:36:51 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,32 @@ void	sort_three(t_stack **lst)
 
 void	sort_all(t_stack **a, t_stack **b)
 {
-	t_stack	*temp;
+	int len_a;
 
-	push_b(b, a);
-	temp = (*b);
-	while (temp)
+	len_a = stack_len(a);
+	if  (len_a--> 3 && !is_sort(a))
+		push_b(b,a);
+	if  (len_a--> 3 && !is_sort(a))
+		push_b(b,a);
+	while (len_a--> 3 && !is_sort(a))
 	{
-		printf(" Voici B[%d]\n", temp->nbr);
-		temp = temp->next;
+		init_stack_a((*a),(*b));
+		move_a_to_b(a, b);
 	}
-	ft_lstclear(b);
+	sort_three(a);
+	while (*b)
+	{
+		init_stack_b((*a),(*b));
+		move_b_to_a(a, b);
+	}
+	set_index_and_median((*a));
+
 }
 
 void	push_swap(t_stack **a, t_stack **b)
 {
-	t_stack	*temp;
-	t_stack	*smalest;
+	// t_stack	*temp;
+	// t_stack	*smalest;
 
 	if (is_sort(a) == 1)
 		printf("OK");
@@ -71,13 +81,13 @@ void	push_swap(t_stack **a, t_stack **b)
 			sort_all(a,b);
 		}
 	}
-	temp = (*a);
-	while (temp)
-	{
-		printf("[%d]\n", temp->nbr);
-		temp = temp->next;
-	}
-	smalest = find_smallest((*a));
-	printf("Le plus petit dans stack a est {%d}\n",smalest->nbr);
-	ft_lstclear(a);
+	// temp = (*a);
+	// while (temp)
+	// {
+	// 	printf("[%d]\n", temp->nbr);
+	// 	temp = temp->next;
+	// }
+	// smalest = find_smallest((*a));
+	// printf("Le plus petit dans stack a est {%d}\n",smalest->nbr);
+	// ft_lstclear(a);
 }

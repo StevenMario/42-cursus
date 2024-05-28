@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_reverse_rotate.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:51:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/15 20:58:39 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/28 13:26:06 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,12 @@ void	reverse_rotate_a_b(t_stack **a, t_stack **b)
 	reverse_rotate(a);
 	reverse_rotate(b);
 	ft_printf("rrr\n");
+}
+
+void reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest)
+{
+	while ((*a) != cheapest && (*b) != cheapest->target_node)
+		reverse_rotate_a_b(a, b);
+	set_index_and_median((*a));
+	set_index_and_median((*b));
 }

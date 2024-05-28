@@ -2,17 +2,21 @@ NAME = push_swap
 CC = cc
 LIBFT_N = libft.a
 CFLAGS = -Wall -Werror -Wextra 
-SRC = 		main_utils.c\
-			algorithm_utils.c\
+SRC = 		print_error.c\
+			main_utils.c\
 			checker.c\
 			swap_utils.c\
-			print_error.c\
-			algorithm.c\
 			operation.c\
 			operation_swap.c\
 			operation_push.c\
 			operation_rotate.c\
 			operation_reverse_rotate.c\
+			algorithm_utils.c\
+			init_stack_a.c\
+			init_stack_b.c\
+			sort_utils\
+			move.c\
+			algorithm.c\
 			push_swap.c
 LIBFT_D = ./libft
 OBJ = $(SRC:.c=.o)
