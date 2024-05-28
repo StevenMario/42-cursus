@@ -14,7 +14,7 @@ SRC = 		print_error.c\
 			algorithm_utils.c\
 			init_stack_a.c\
 			init_stack_b.c\
-			sort_utils\
+			sort_utils.c\
 			move.c\
 			algorithm.c\
 			push_swap.c
@@ -33,6 +33,8 @@ makelibft :
 	
 $(NAME) : makelibft $(OBJ) 
 	$(CC) $(CFLAGS) $(OBJ) -L $(LIBFT_D) -l ft -o $(NAME)
+# $(NAME) : makelibft $(SRC) 
+# 	$(CC) $(CFLAGS) $(SRC) -L $(LIBFT_D) -l ft -o $(NAME)
 
 clean:
 	make clean -C $(LIBFT_D)
