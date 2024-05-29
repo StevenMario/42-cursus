@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:27:19 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/28 13:21:18 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/28 22:49:33 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,7 @@ void set_target_node_b(t_stack *a, t_stack *b)
 	}
 }
 
-// void set_price_b(t_stack *a, t_stack *b)
-// {
-// 	int	len_a;
-// 	int	len_b;
 
-// 	len_a = stack_len(&a);
-// 	len_b = stack_len(&b);
-// 	while (b)
-// 	{
-// 		b->push_price = b->index;
-// 		if (!(b->above_median))
-// 			b->push_price = len_b - (b->index);
-// 		if (b->target_node->above_median)
-// 			b->push_price += b->target_node->index;
-// 		else
-// 			b->push_price += len_a - (b->target_node->index);
-// 		b = b->next;
-		
-// 	}
-// }
 
 void init_stack_b(t_stack *a, t_stack *b)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:33:38 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/28 13:21:57 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/29 21:03:42 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void set_index_and_median(t_stack *stack)
 	i = 0;
 	if (stack == NULL)
 		return ;
-	median = stack_len(&stack) / 2;
-	while (stack)
+	median = stack_len(stack) / 2;
+	while (stack != NULL)
 	{
 		stack->index = i;
 		if (i <= median)
@@ -61,6 +61,7 @@ void set_index_and_median(t_stack *stack)
 		else 
 			stack->above_median = 0;
 		i++;
+		stack = stack->next;	
 	}
 }
 
@@ -72,7 +73,7 @@ void set_cheapest(t_stack *stack)
 	if (stack == NULL)
 		return ;
 	best_match_value = 2147483647;
-	while (stack)
+	while (stack != NULL)
 	{
 		if (stack->push_price < best_match_value)
 		{
@@ -86,7 +87,7 @@ void set_cheapest(t_stack *stack)
 
 t_stack *get_cheapest(t_stack *stack)
 {
-	while(stack)
+	while(stack != NULL)
 	{
 		if (stack->cheapest == 1)
 			break ;

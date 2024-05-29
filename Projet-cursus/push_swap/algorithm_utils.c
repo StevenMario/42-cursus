@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 21:12:39 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/24 11:10:47 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:13:19 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	is_sort(t_stack **lst)
 	return (1);
 }
 
-int	stack_len(t_stack **lst)
+int	stack_len(t_stack *lst)
 {
 	int		i;
 	t_stack	*temp;
 
 	i = 0;
-	temp = (*lst);
+	temp = lst;
 	while (temp)
 	{
 		i++;

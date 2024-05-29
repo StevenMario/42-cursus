@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/28 13:55:15 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/28 22:51:31 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stack
 int		checker(char **str);
 int		ft_ispace(char *str);
 int		is_sort(t_stack **lst);
-int		stack_len(t_stack **lst);
+int		stack_len(t_stack *lst);
 int		*convert_str(char **str);
 int		size_new_str(char **new_str);
 int		*char_to_int(char **new_str);
