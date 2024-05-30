@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:21:36 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/30 12:19:12 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:11:33 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void set_target_node_a(t_stack *a, t_stack *b)
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->nbr < a->nbr && current_b->nbr > best_match_index)
+			if (current_b->nbr < a->nbr 
+				&& current_b->nbr > best_match_index)
 			{
 				best_match_index = current_b->nbr;
 				target_node = current_b;
@@ -51,13 +52,10 @@ void set_price_a(t_stack *a, t_stack *b)
 		a->push_price = a->index;
 		if (!(a->above_median))
 			a->push_price = len_a - (a->index);
-		if (a->target_node != NULL)
-		{
-			if (a->target_node->above_median)
-				a->push_price += a->target_node->index;
-			else 
-				a->push_price += len_b - (a->target_node->index);
-		}
+		if (a->target_node->above_median)
+			a->push_price += a->target_node->index;
+		else 
+			a->push_price += len_b - (a->target_node->index);
 		// printf("Nmobre = %d cible = %d prix = %d median = %d\n",a->nbr,a->target_node->nbr,a->push_price,a->above_median);
 		a = a->next;
 	}

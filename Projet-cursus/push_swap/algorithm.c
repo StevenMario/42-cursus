@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:56:53 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/30 12:25:09 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:20:36 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,10 @@ void	sort_all(t_stack **a, t_stack **b)
 		push_b(b,a);
 	if  (len_a-- > 3 && !is_sort(a))
 		push_b(b,a);
-	while (len_a > 3 && !is_sort(a))
+	while (len_a-- > 3 && !is_sort(a))
 	{
 		init_stack_a((*a),(*b));
 		move_a_to_b(a, b);
-		len_a--;
 	}
 	sort_three(a);
 	while ((*b))
@@ -58,7 +57,6 @@ void	sort_all(t_stack **a, t_stack **b)
 	set_index_and_median((*a));
 	min_on_top(a);
 	ft_lstclear(a);
-	ft_lstclear(b);
 }
 
 void	push_swap(t_stack **a, t_stack **b)

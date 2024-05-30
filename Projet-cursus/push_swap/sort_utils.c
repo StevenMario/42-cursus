@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:33:38 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/30 12:13:11 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:59:56 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void set_index_and_median(t_stack *stack)
 			stack->above_median = 1;
 		else 
 			stack->above_median = 0;
-		i++;
 		stack = stack->next;	
+		i++;
 	}
 }
 
