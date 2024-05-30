@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/30 12:11:39 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/30 21:45:11 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void set_target_node_b(t_stack *a, t_stack *b);
 void set_target_node_a(t_stack *a, t_stack *b);
 void set_index_and_median(t_stack *stack);
 void set_price_a(t_stack *a, t_stack *b);
+t_stack *find_biggest(t_stack *stack);
 void min_on_top(t_stack **a);
 void set_cheapest(t_stack *b);
 void init_stack_a(t_stack *a, t_stack *b);

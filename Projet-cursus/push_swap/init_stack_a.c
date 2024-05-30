@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:21:36 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/30 14:11:33 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/30 21:55:07 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void set_target_node_a(t_stack *a, t_stack *b)
 			current_b = current_b->next;
 		}
 		if (best_match_index == -2147483648)
-			a->target_node = find_smallest(b);
+			a->target_node = find_biggest(b);
 		else 
 			a->target_node = target_node;
 		a = a->next;
