@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/28 22:51:31 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/30 12:11:39 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	reverse_rotate_a_b(t_stack **a, t_stack **b);
 void rotate_both(t_stack **a, t_stack **b, t_stack *cheapest);
 void reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest);
 void min_on_top(t_stack **a);
-void prep_for_push(t_stack *stack, t_stack *top_stack, char stack_name);
+void prep_for_push(t_stack **stack, t_stack *top_stack, char stack_name);
 char	**check_arg(char **argv);
 t_stack	*ft_double_lstnew(int nbr);
 t_stack	*ft_lstlast(t_stack **lst);

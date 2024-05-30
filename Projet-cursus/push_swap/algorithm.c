@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:56:53 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/29 22:08:56 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/30 12:25:09 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	sort_all(t_stack **a, t_stack **b)
 {
 	int len_a;
 
+
 	len_a = stack_len((*a));
 	if  (len_a-- > 3 && !is_sort(a))
 		push_b(b,a);
@@ -49,12 +50,13 @@ void	sort_all(t_stack **a, t_stack **b)
 		len_a--;
 	}
 	sort_three(a);
-	// while ((*b))
-	// {
-	// 	init_stack_b((*a),(*b));
-	// 	//move_b_to_a(a, b);
-	// }
-	// set_index_and_median((*a));
+	while ((*b))
+	{
+		init_stack_b((*a),(*b));
+		move_b_to_a(a, b);
+	}
+	set_index_and_median((*a));
+	min_on_top(a);
 	ft_lstclear(a);
 	ft_lstclear(b);
 }

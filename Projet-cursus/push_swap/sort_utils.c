@@ -3,32 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:33:38 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/29 21:03:42 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/30 12:13:11 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void prep_for_push(t_stack *stack, t_stack *top_stack, char stack_name)
+void prep_for_push(t_stack **stack, t_stack *top_stack, char stack_name)
 {
-	while (stack != top_stack)
+	while ((*stack) != top_stack)
 	{
 		if (stack_name == 'a')
 		{
 			if (top_stack->above_median)
-				rotate_a(&stack);
+				rotate_a(stack);
 			else
-				reverse_rotate_a(&stack);
+				reverse_rotate_a(stack);
 		}
 		else if (stack_name == 'b')
 		{
 			if (top_stack->above_median)
-				rotate_b(&stack);
+				rotate_b(stack);
 			else
-				reverse_rotate_b(&stack);
+				reverse_rotate_b(stack);
 		}
 	}
 }
