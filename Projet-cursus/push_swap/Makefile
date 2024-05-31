@@ -23,18 +23,14 @@ OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-makelibft :
+# %.o: %.c
+# 	$(CC) $(CFLAGS) -c $^ -o $@
+	
+$(NAME) : 
 	make -C $(LIBFT_D)
 	cp $(LIBFT_D)/$(LIBFT_N) .
 	mv $(LIBFT_N) $(NAME)
-	
-%.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
-	
-$(NAME) : makelibft $(OBJ) 
-	$(CC) $(CFLAGS) $(OBJ) -L $(LIBFT_D) -l ft -o $(NAME)
-# $(NAME) : makelibft $(SRC) 
-# 	$(CC) $(CFLAGS) $(SRC) -L $(LIBFT_D) -l ft -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) -L $(LIBFT_D) -l ft -o $(NAME)
 
 clean:
 	make clean -C $(LIBFT_D)

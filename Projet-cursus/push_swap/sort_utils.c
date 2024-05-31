@@ -6,31 +6,36 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:33:38 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/30 15:59:56 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:21:16 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void prep_for_push(t_stack **stack, t_stack *top_stack, char stack_name)
-{
+{	
 	while ((*stack) != top_stack)
 	{
 		if (stack_name == 'a')
 		{
 			if (top_stack->above_median)
+			{
 				rotate_a(stack);
-			else
+			}
+			else if (!top_stack->above_median)
+			{
 				reverse_rotate_a(stack);
+			}
 		}
 		else if (stack_name == 'b')
 		{
 			if (top_stack->above_median)
 				rotate_b(stack);
-			else
+			else if (!top_stack->above_median)
 				reverse_rotate_b(stack);
 		}
 	}
+	set_index_and_median(*stack);
 }
 
 void min_on_top(t_stack **a)

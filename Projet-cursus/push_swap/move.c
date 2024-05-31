@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:23:38 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/30 21:45:20 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/31 13:20:13 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ void move_a_to_b(t_stack **a, t_stack **b)
 		reverse_rotate_both(a, b, cheapest_stack);
 	prep_for_push(a, cheapest_stack, 'a');
 	prep_for_push(b, cheapest_stack->target_node, 'b');
-	// init_stack_a((*a), (*b));
-	// init_stack_b((*a), (*b));
-	//move_a_to_b(a, b);
 	push_b(b,a);
 }
 
@@ -35,5 +32,4 @@ void move_b_to_a(t_stack **a, t_stack **b)
 {
 	prep_for_push(a, (*b)->target_node,'a');
 	push_a(a,b);
-
 }

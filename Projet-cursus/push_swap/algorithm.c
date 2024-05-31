@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:56:53 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/30 22:04:31 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/05/31 13:23:24 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,39 @@
 
 void	sort_three(t_stack **lst)
 {
-	// t_stack	*tmp;
-	// t_stack	*next_lst;
-	// t_stack	*next_next_lst;
+	t_stack	*tmp;
+	t_stack	*next_lst;
+	t_stack	*next_next_lst;
 
-	// if (!*lst)
-	// 	return ;
-	// tmp = *lst;
-	// next_lst = (*lst)->next;
-	// next_next_lst = next_lst->next;
-	// if (tmp->nbr > next_lst->nbr && tmp->nbr > next_next_lst->nbr)
-	// 	rotate_a(lst);
-	// else if (tmp->nbr < next_lst->nbr && tmp->nbr < next_next_lst->nbr)
-	// 	swap_a(lst);
-	// else if (tmp->nbr > next_lst->nbr && tmp->nbr < next_next_lst->nbr)
-	// 	swap_a(lst);
-	// else if (tmp->nbr < next_lst->nbr && tmp->nbr > next_next_lst->nbr)
-	// 	reverse_rotate_a(lst);
-	t_stack *biggest;
-
-	biggest = find_biggest(*lst);
-	if (biggest == *lst)
+	if (!*lst)
+		return ;
+	tmp = *lst;
+	next_lst = (*lst)->next;
+	next_next_lst = next_lst->next;
+	if (tmp->nbr > next_lst->nbr && tmp->nbr > next_next_lst->nbr)
 		rotate_a(lst);
-	else if ((*lst)->next == biggest)
-		reverse_rotate_a(lst);
-	if ((*lst)->nbr > (*lst)->next->nbr)
+	else if (tmp->nbr < next_lst->nbr && tmp->nbr < next_next_lst->nbr)
 		swap_a(lst);
+	else if (tmp->nbr > next_lst->nbr && tmp->nbr < next_next_lst->nbr)
+		swap_a(lst);
+	else if (tmp->nbr < next_lst->nbr && tmp->nbr > next_next_lst->nbr)
+		reverse_rotate_a(lst);
+	
+	// t_stack *biggest;
+
+	// biggest = find_biggest(*lst);
+	// if (biggest == *lst)
+	// 	rotate_a(lst);
+	// else if ((*lst)->next == biggest)
+	// 	reverse_rotate_a(lst);
+	// if ((*lst)->nbr > (*lst)->next->nbr)
+	// 	swap_a(lst);
+	// set_index_and_median(*lst);
 }
 
 void	sort_all(t_stack **a, t_stack **b)
 {
 	int len_a;
-
 
 	len_a = stack_len((*a));
 	if  (len_a-- > 3 && !is_sort(a))
