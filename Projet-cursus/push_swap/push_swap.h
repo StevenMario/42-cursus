@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:47:04 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/30 21:45:11 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/06/01 11:09:17 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,28 +56,28 @@ void	push_b(t_stack **b, t_stack **a);
 void	swap_a_b(t_stack **a, t_stack **b);
 void	push(t_stack **lst, t_stack **new);
 void	rotate_a_b(t_stack **a, t_stack **b);
-void move_a_to_b(t_stack **a, t_stack **b);
-void move_b_to_a(t_stack **a, t_stack **b);
-void set_target_node_b(t_stack *a, t_stack *b);
-void set_target_node_a(t_stack *a, t_stack *b);
-void set_index_and_median(t_stack *stack);
-void set_price_a(t_stack *a, t_stack *b);
-t_stack *find_biggest(t_stack *stack);
-void min_on_top(t_stack **a);
-void set_cheapest(t_stack *b);
-void init_stack_a(t_stack *a, t_stack *b);
-void init_stack_b(t_stack *a, t_stack *b);
+void	move_a_to_b(t_stack **a, t_stack **b);
+void	move_b_to_a(t_stack **a, t_stack **b);
+void	set_target_node_b(t_stack *a, t_stack *b);
+void	set_target_node_a(t_stack *a, t_stack *b);
+void	set_index_and_median(t_stack *stack);
+void	set_price_a(t_stack *a, t_stack *b);
+void	min_on_top(t_stack **a);
+void	set_cheapest(t_stack *b);
+void	init_stack_a(t_stack *a, t_stack *b);
+void	init_stack_b(t_stack *a, t_stack *b);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	reverse_rotate_a_b(t_stack **a, t_stack **b);
-void rotate_both(t_stack **a, t_stack **b, t_stack *cheapest);
-void reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest);
-void min_on_top(t_stack **a);
-void prep_for_push(t_stack **stack, t_stack *top_stack, char stack_name);
+void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest);
+void	reverse_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest);
+void	min_on_top(t_stack **a);
+void	prep_for_push(t_stack **stack, t_stack *top_stack, char stack_name);
 char	**check_arg(char **argv);
 t_stack	*ft_double_lstnew(int nbr);
 t_stack	*ft_lstlast(t_stack **lst);
-t_stack *get_cheapest(t_stack *stack);
-t_stack *find_smallest(t_stack *stack);
+t_stack	*find_biggest(t_stack *stack);
+t_stack	*get_cheapest(t_stack *stack);
+t_stack	*find_smallest(t_stack *stack);
 t_stack	*check_valid(char **argv, int argc);
 t_stack	*fill_stack_a(int *new_arg, char **argv);
 

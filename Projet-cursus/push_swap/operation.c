@@ -3,38 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   operation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 19:20:25 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/31 13:19:35 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/06/01 11:00:59 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(t_stack **a)
+void	swap(t_stack **a)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (*a == NULL || (*a)->next == NULL)
-		return;
+		return ;
 	temp = (*a)->next;
 	(*a)->next = temp->next;
 	(*a)->prev = temp;
 	(*a)->next->prev = (*a);
 	temp->prev = NULL;
 	temp->next = (*a);
-	
-
 	(*a) = temp;
 }
 
-void push(t_stack **lst, t_stack **new)
+void	push(t_stack **lst, t_stack **new)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!(*new))
-		return;
+		return ;
 	temp = (*new);
 	(*new) = temp->next;
 	if ((*lst) == NULL)
@@ -54,13 +52,13 @@ void push(t_stack **lst, t_stack **new)
 		(*new)->prev = NULL;
 }
 
-void rotate(t_stack **lst)
+void	rotate(t_stack **lst)
 {
-	t_stack *temp;
-	t_stack *last;
+	t_stack	*temp;
+	t_stack	*last;
 
 	if (!(*lst))
-		return;
+		return ;
 	last = ft_lstlast(lst);
 	*lst = (*lst)->next;
 	last->next = (*lst)->prev;
@@ -70,19 +68,16 @@ void rotate(t_stack **lst)
 	(*lst)->prev = NULL;
 }
 
-void reverse_rotate(t_stack **lst)
+void	reverse_rotate(t_stack **lst)
 {
-	t_stack *last;
-	
+	t_stack	*last;
+
 	if (!(*lst) || !(*lst)->next)
-		return;
+		return ;
 	last = ft_lstlast(lst);
 	last->prev->next = NULL;
 	last->next = (*lst);
 	last->prev = NULL;
-	// if (stack_len((*lst)) == 3)
-	// 	(*lst)->next = temp;
 	*lst = last;
 	last->next->prev = last;
-	
 }

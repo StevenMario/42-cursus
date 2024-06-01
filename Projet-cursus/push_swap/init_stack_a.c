@@ -6,16 +6,16 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 09:21:36 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/30 21:55:07 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/06/01 11:04:41 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void set_target_node_a(t_stack *a, t_stack *b)
+void	set_target_node_a(t_stack *a, t_stack *b)
 {
-	t_stack *current_b;
-	t_stack *target_node;
+	t_stack		*current_b;
+	t_stack		*target_node;
 	long		best_match_index;
 
 	while (a)
@@ -24,7 +24,7 @@ void set_target_node_a(t_stack *a, t_stack *b)
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->nbr < a->nbr 
+			if (current_b->nbr < a->nbr
 				&& current_b->nbr > best_match_index)
 			{
 				best_match_index = current_b->nbr;
@@ -34,13 +34,13 @@ void set_target_node_a(t_stack *a, t_stack *b)
 		}
 		if (best_match_index == -2147483648)
 			a->target_node = find_biggest(b);
-		else 
+		else
 			a->target_node = target_node;
 		a = a->next;
 	}
 }
 
-void set_price_a(t_stack *a, t_stack *b)
+void	set_price_a(t_stack *a, t_stack *b)
 {
 	int	len_a;
 	int	len_b;
@@ -54,18 +54,17 @@ void set_price_a(t_stack *a, t_stack *b)
 			a->push_price = len_a - (a->index);
 		if (a->target_node->above_median)
 			a->push_price += a->target_node->index;
-		else 
+		else
 			a->push_price += len_b - (a->target_node->index);
-		// printf("Nmobre = %d cible = %d prix = %d median = %d\n",a->nbr,a->target_node->nbr,a->push_price,a->above_median);
 		a = a->next;
 	}
 }
 
-void init_stack_a(t_stack *a, t_stack *b)
+void	init_stack_a(t_stack *a, t_stack *b)
 {
 	set_index_and_median(a);
 	set_index_and_median(b);
-	set_target_node_a(a,b);
-	set_price_a(a,b);
+	set_target_node_a(a, b);
+	set_price_a(a, b);
 	set_cheapest(a);
 }

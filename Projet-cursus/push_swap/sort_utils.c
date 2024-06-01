@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:33:38 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/05/31 13:21:16 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/06/01 11:02:54 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void prep_for_push(t_stack **stack, t_stack *top_stack, char stack_name)
-{	
+void	prep_for_push(t_stack **stack, t_stack *top_stack, char stack_name)
+{
 	while ((*stack) != top_stack)
 	{
 		if (stack_name == 'a')
@@ -38,18 +38,18 @@ void prep_for_push(t_stack **stack, t_stack *top_stack, char stack_name)
 	set_index_and_median(*stack);
 }
 
-void min_on_top(t_stack **a)
+void	min_on_top(t_stack **a)
 {
 	while ((*a)->nbr != find_smallest((*a))->nbr)
 	{
 		if (find_smallest((*a))->above_median)
 			rotate_a(a);
-		else 
+		else
 			reverse_rotate_a(a);
 	}
 }
 
-void set_index_and_median(t_stack *stack)
+void	set_index_and_median(t_stack *stack)
 {
 	int	i;
 	int	median;
@@ -63,14 +63,14 @@ void set_index_and_median(t_stack *stack)
 		stack->index = i;
 		if (i <= median)
 			stack->above_median = 1;
-		else 
+		else
 			stack->above_median = 0;
-		stack = stack->next;	
+		stack = stack->next;
 		i++;
 	}
 }
 
-void set_cheapest(t_stack *stack)
+void	set_cheapest(t_stack *stack)
 {
 	long	best_match_value;
 	t_stack	*best_match_node;
@@ -90,14 +90,14 @@ void set_cheapest(t_stack *stack)
 	best_match_node->cheapest = 1;
 }
 
-t_stack *get_cheapest(t_stack *stack)
+t_stack	*get_cheapest(t_stack *stack)
 {
-	while(stack != NULL)
+	while (stack != NULL)
 	{
 		if (stack->cheapest == 1)
 			break ;
 		else
-			stack = stack->next; 
+			stack = stack->next;
 	}
 	return (stack);
 }

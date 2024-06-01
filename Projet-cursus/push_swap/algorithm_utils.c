@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 21:12:39 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/05/30 21:45:00 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/06/01 11:07:47 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int	stack_len(t_stack *lst)
 	return (i);
 }
 
-t_stack *find_smallest(t_stack *stack)
+t_stack	*find_smallest(t_stack *stack)
 {
-	t_stack *smallest;
-	t_stack *current;
+	t_stack	*smallest;
+	t_stack	*current;
 
 	smallest = stack;
 	current = stack->next;
@@ -59,14 +59,14 @@ t_stack *find_smallest(t_stack *stack)
 		else
 			current = current->next;
 	}
-	return smallest;
+	return (smallest);
 }
 
-t_stack *find_biggest(t_stack *stack)
+t_stack	*find_biggest(t_stack *stack)
 {
 	long	max;
 	t_stack	*big;
-	
+
 	if (!stack)
 		return (NULL);
 	max = -2147483648;
