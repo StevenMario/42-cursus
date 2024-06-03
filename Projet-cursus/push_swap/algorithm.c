@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:56:53 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/01 10:55:30 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/06/03 09:52:01 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,21 @@ void	sort_all(t_stack **a, t_stack **b)
 
 void	push_swap(t_stack **a, t_stack **b)
 {
-	if (is_sort(a) == 1)
-		printf("OK pour le trie");
+	if (is_sort(a) == 1 || stack_len((*a)) == 1)
+	{
+		ft_lstclear(a);
+		return ;
+	}
 	else
 	{
 		if (stack_len((*a)) == 2)
 		{
 			if (is_sort(a) != 1)
-				swap_a(a);
+			{
+				rotate_a(a);
+				ft_lstclear(a);
+				return ;
+			}
 		}
 		else if (stack_len((*a)) == 3)
 		{
