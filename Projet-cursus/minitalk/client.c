@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 10:17:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/09 13:36:10 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/06/09 15:36:24 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,15 @@ int main(int argc , char **argv)
 		pid = ft_atoi(argv[1]);
 		if (pid < 1)
 		{
-			ft_printf("[Erreur]. Veillez verifier votre PID!\n");
+			write(1,"[Erreur]. Veillez verifier votre PID!",37);
+			write(1,"\n",1);
 			return (1);
 		}
 		message = argv[2];
-		if (message[0] = '\0')
+		if (message[0] == '\0')
 		{
-			ft_printf("[Erreur]. Aucun message n'a ete entrer!\n");
+			write(1,"[Erreur]. Aucun message n'a ete entrer!",39);
+			write(1,"\n",1);
 			return (1);
 		}
 		else
@@ -65,8 +67,11 @@ int main(int argc , char **argv)
 	}	
 	else
 	{
-		ft_printf("[Erreur]. Veuillez verifier le nombre d'argument!\n");
-		ft_printf("Vous devez entrer quelque chose comme ceci :./client <PID> <MESSAGE>\n");
+		write(1,"[Erreur]. Veuillez verifier le nombre d'argument!",49);
+		write(1,"\n",1);
+		write(1,"Vous devez entrer quelque chose comme ceci :./client <PID> <MESSAGE>",68);
+		write(1,"\n",1);
+		return (1);
 	}
 	return 0;
 }
