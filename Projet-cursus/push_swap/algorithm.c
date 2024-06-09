@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:56:53 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/03 09:52:01 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/06/03 10:57:28 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,7 @@ void	sort_all(t_stack **a, t_stack **b)
 void	push_swap(t_stack **a, t_stack **b)
 {
 	if (is_sort(a) == 1 || stack_len((*a)) == 1)
-	{
 		ft_lstclear(a);
-		return ;
-	}
 	else
 	{
 		if (stack_len((*a)) == 2)
@@ -66,13 +63,13 @@ void	push_swap(t_stack **a, t_stack **b)
 			{
 				rotate_a(a);
 				ft_lstclear(a);
-				return ;
 			}
 		}
 		else if (stack_len((*a)) == 3)
 		{
 			while (is_sort(a) != 1)
 				sort_three(a);
+			ft_lstclear(a);
 		}
 		if (stack_len((*a)) > 3)
 		{

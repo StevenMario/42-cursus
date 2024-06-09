@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:33:38 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/01 11:02:54 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/06/03 10:39:03 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	set_cheapest(t_stack *stack)
 			best_match_value = stack->push_price;
 			best_match_node = stack;
 		}
+		else
+			stack->cheapest = 0;
 		stack = stack->next;
 	}
 	best_match_node->cheapest = 1;
