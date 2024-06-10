@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 10:17:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/09 15:36:24 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/06/10 10:24:37 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,56 @@ void send_message(int pid,char *str)
 	send_to_server(pid, str[i]);
 }
 
-int main(int argc , char **argv)
+int check_pid(char *str)
 {
-	int pid;
-	char *message;
-	if (argc == 3)
+	int i;
+	
+	i = 0;
+	while (str[i] != '\0')
 	{
-		pid = ft_atoi(argv[1]);
-		if (pid < 1)
+		if (str[i] >= '0' && str[i] <= '9')
+			i++;
+		else 
+			return (0);
+	}
+	return (1);
+}
+
+int check_arg_and_send_message(char **str)
+{
+		int		pid;
+		char	*message;
+		
+
+		pid = ft_atoi(str[1]);
+		if (pid < 1 || check_pid(str[1]) == 0)
 		{
 			write(1,"[Erreur]. Veillez verifier votre PID!",37);
 			write(1,"\n",1);
-			return (1);
+			return (0);
 		}
-		message = argv[2];
+		message = str[2];
 		if (message[0] == '\0')
 		{
 			write(1,"[Erreur]. Aucun message n'a ete entrer!",39);
 			write(1,"\n",1);
-			return (1);
+			return (0);
 		}
 		else
+		{
 			send_message(pid,message);
+			return (1);
+		}
+}
+
+int main(int argc , char **argv)
+{
+	if (argc == 3)
+	{
+			if (check_arg_and_send_message(argv) == 0)
+				return (1);
+			else
+				return (0);
 	}	
 	else
 	{
