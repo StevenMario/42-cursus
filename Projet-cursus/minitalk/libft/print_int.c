@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 10:51:39 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/12 09:13:02 by mrambelo         ###   ########.fr       */
+/*   Created: 2024/03/07 10:26:02 by mrambelo          #+#    #+#             */
+/*   Updated: 2024/04/30 19:19:37 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <signal.h>
-# include "libft/libft.h"
-# include <stdlib.h>
+int	print_int(int nbr)
+{
+	int		len;
+	char	*str;
 
-#endif
+	str = ft_itoa(nbr);
+	print_str(str);
+	len = ft_strlen(str);
+	free(str);
+	return (len);
+}

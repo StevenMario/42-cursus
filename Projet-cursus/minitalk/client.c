@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 10:17:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/10 10:24:37 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/06/12 09:54:17 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,13 @@ int check_arg_and_send_message(char **str)
 		pid = ft_atoi(str[1]);
 		if (pid < 1 || check_pid(str[1]) == 0)
 		{
-			write(1,"[Erreur]. Veillez verifier votre PID!",37);
-			write(1,"\n",1);
+			ft_printf("[Erreur]. Veillez verifier votre PID!\n");
 			return (0);
 		}
 		message = str[2];
 		if (message[0] == '\0')
 		{
-			write(1,"[Erreur]. Aucun message n'a ete entrer!",39);
-			write(1,"\n",1);
+			ft_printf("[Erreur]. Aucun message n'a ete entrer!\n");
 			return (0);
 		}
 		else
@@ -95,10 +93,8 @@ int main(int argc , char **argv)
 	}	
 	else
 	{
-		write(1,"[Erreur]. Veuillez verifier le nombre d'argument!",49);
-		write(1,"\n",1);
-		write(1,"Vous devez entrer quelque chose comme ceci :./client <PID> <MESSAGE>",68);
-		write(1,"\n",1);
+		ft_printf("[Erreur]. Veuillez verifier le nombre d'argument!\n");
+		ft_printf("Vous devez entrer quelque chose comme ceci :./client <PID> <MESSAGE>\n");
 		return (1);
 	}
 	return 0;
