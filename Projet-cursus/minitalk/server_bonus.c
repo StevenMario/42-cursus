@@ -34,7 +34,6 @@ void signal_handler(int signum, siginfo_t *info,void *context)
 	i++;
 	if ( i > 7)
 	{
-		printf("PID client_ato amini server %d\n",info->si_pid);
 		stock_char(c,info->si_pid);
 		i = 0;
 		c = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 10:17:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/17 19:29:52 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/06/18 09:45:11 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sighandler(int sig)
 {
 	if (sig == SIGUSR1)
-	    ft_printf("TONGA");
+	    ft_printf("Message receved succesfully !");
 }
 
 void send_to_server(int pid, char c)
@@ -46,8 +46,8 @@ void send_message(int pid,char *str)
 		send_to_server(pid, str[i]);
 		i++;
 	}
+	signal(SIGUSR1, sighandler);
 	send_to_server(pid, str[i]);
-	
 }
 
 int check_pid(char *str)
@@ -96,12 +96,7 @@ int main(int argc , char **argv)
 {
     if (argc == 3)
 	{
-			if (check_arg_and_send_message(argv) == 1)	
-			{
-				printf("PID client = %d\n",getpid());
-				signal(SIGUSR1, sighandler);
-			}
-			else
+			if (check_arg_and_send_message(argv) == 0)	
                 return (1);
 	}	
 	else
@@ -110,5 +105,6 @@ int main(int argc , char **argv)
 		ft_printf("Vous devez entrer quelque chose comme ceci :./client <PID> <MESSAGE>\n");
 		return (1);
 	}
+	
 	return 0;
 }
