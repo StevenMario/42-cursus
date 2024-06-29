@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:15:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/29 12:31:11 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/06/29 12:54:22 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_smap
 }	t_map;
 
 char *init_map(int fd);
-int map_is_valid(char *str);
+int is_solvable(t_map *fullmap);
 int check_map_name(char *map);
 int check_width_and_fill(t_map *full_map);
 int check_border_is_wall(char **str);

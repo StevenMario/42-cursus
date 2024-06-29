@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:16:04 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/29 12:30:44 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/06/29 12:55:06 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int check_map(char *str,t_map *full_map)
 	{
 		full_map->map = init_map(fd);
 		full_map->vmap = ft_split(full_map->map,'\n');
-		if (!check_width_and_fill(full_map) || !map_is_valid(full_map->map))
+		if (!check_width_and_fill(full_map))
 		{
 			ft_printf("[Error].Please check your map !\n");
 			ft_free(full_map);

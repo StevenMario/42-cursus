@@ -18,7 +18,7 @@ int main(int argc,char **argv)
 		}
 		else if (!check_map(argv[1],&map))
 			return (1);
-		else if (!map_is_solvable(&map))
+		else if (!is_solvable(&map))
 			return (1);
 			
 	}
