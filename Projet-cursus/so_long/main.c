@@ -18,8 +18,8 @@ int main(int argc,char **argv)
 		}
 		else if (!check_map(argv[1],&map))
 			return (1);
-		else if (!is_solvable(&map))
-			return (1);
+		printf("map is solvable %d\n",is_solvable(&map));
+		ft_free(&map);
 			
 	}
 	return (0);

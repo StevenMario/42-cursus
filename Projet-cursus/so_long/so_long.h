@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:15:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/29 12:54:22 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:53:03 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_smap
 {
 	char *map;
 	char **vmap;
+	char **map_copy;
 	char wall;
 	char player;
 	char collecte;
