@@ -16,10 +16,13 @@ int main(int argc,char **argv)
 			ft_printf("[Error].Please check mapname !\n");
 			return (1);
 		}
-		else if (!check_map(argv[1],&map))
+		if (!check_map(argv[1],&map))
 			return (1);
-		printf("map is solvable %d\n",is_solvable(&map));
-		ft_free(&map);
+		if (!is_solvable(&map))
+			printf("map is not solvable\n");
+		else 
+			printf("map is  solvable");	
+		//ft_free(&map);
 			
 	}
 	return (0);
