@@ -22,8 +22,8 @@ int is_wall(t_map *fullmap ,unsigned int x, unsigned int y)
 
 void ft_fill(t_map *fullmap, unsigned int x, unsigned int y)
 {
-	if (y < 1 || y >= fullmap->heigth - 1 || x < 1 || x >= fullmap->width - 1 
-	|| is_wall(fullmap,x,y))
+	if (y < 1 || y >= fullmap->heigth - 1 || x < 1 
+		|| x >= fullmap->width - 1 || is_wall(fullmap,x,y))
 		return;
 	fullmap->map_copy[y][x] = 'F';
 	ft_fill(fullmap, x - 1, y);
