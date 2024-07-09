@@ -12,7 +12,6 @@
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# define PXL 60
 # include "minilibx-linux/mlx.h"
 # include "libft/libft.h"
 # include <stddef.h>
@@ -34,6 +33,8 @@ typedef struct s_smap
 
 typedef struct s_data
 {
+	int			img_width;
+	int 		img_height;
 	void		*mlx_ptr;
 	void		*win_ptr;
 	void		*img;
