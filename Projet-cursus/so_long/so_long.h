@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:15:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/01 13:14:49 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/09 11:50:48 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ typedef struct s_data
 {
 	void		*mlx_ptr; // MLX pointer
 	void		*win_ptr; // MLX window pointer
-	void		*textures[5]; // MLX image pointers (on the stack)
-	t_map		*map; // Map pointer (contains map details - preferably kept on the stack)
+	void		*img;// Map pointer (contains map details - preferably kept on the stack)
 }	t_data;
 
 char *init_map(int fd);

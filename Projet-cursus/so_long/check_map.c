@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:16:04 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/01 13:14:20 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/09 11:48:20 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int check_map_name(char *map)
 	if (map[i] == 'r' && map[i - 1] == 'e'
 		&& map[i - 2] == 'b' && map[i - 3] == '.')
 		return (1);
+	ft_printf("[Error].Please check mapname !\n");
 	return 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 12:38:57 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/01 13:01:53 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/09 11:47:48 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int is_solvable(t_map *fullmap)
 			if (fullmap->map_copy[i][j] == 'C' || fullmap->map_copy[i][j] == 'P'
 				|| fullmap->map_copy[i][j] == 'E')
 			{
+				ft_printf("map is not solvable\n");
 				ft_free(fullmap);
 				return (0);
 			}
