@@ -1,5 +1,18 @@
 #include "so_long.h"
 
+int ft_put_image(t_data *game)
+{
+	int x;
+	int y;
+	int width = 64 , height = 64;
+
+	x = 0;
+	y = 0;
+	game->img =  mlx_xpm_file_to_image(game->mlx_ptr, "img_xpm/mur.xpm", &width, &height);
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,game->img,x,y);
+	return 1;
+}
+
 int 	ft_start_game(t_map *map)
 {
 	t_data *win_game;
@@ -19,7 +32,8 @@ int 	ft_start_game(t_map *map)
 		ft_free(map);
 		return (0);
 	}
-	
+	ft_put_image(win_game);
+	mlx_loop(win_game->mlx_ptr);
 	return 1;
 }
 

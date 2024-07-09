@@ -34,9 +34,9 @@ typedef struct s_smap
 
 typedef struct s_data
 {
-	void		*mlx_ptr; // MLX pointer
-	void		*win_ptr; // MLX window pointer
-	void		*img;// Map pointer (contains map details - preferably kept on the stack)
+	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*img;
 }	t_data;
 
 char *init_map(int fd);
