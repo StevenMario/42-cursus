@@ -13,7 +13,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # define PXL 60
-# include "mlx_linux/mlx.h"
+# include "minilibx-linux/mlx.h"
 # include "libft/libft.h"
 # include <stddef.h>
 

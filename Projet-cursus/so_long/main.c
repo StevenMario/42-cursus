@@ -19,7 +19,7 @@ int 	ft_start_game(t_map *map)
 		ft_free(map);
 		return (0);
 	}
-
+	
 	return 1;
 }
 
