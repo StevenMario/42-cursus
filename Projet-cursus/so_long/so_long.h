@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:15:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/09 11:50:48 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/10 12:36:25 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_data
 	int 		img_height;
 	void		*mlx_ptr;
 	void		*win_ptr;
-	void		*img;
+	void		*img_wall[5];
 }	t_data;
 
 char *init_map(int fd);
