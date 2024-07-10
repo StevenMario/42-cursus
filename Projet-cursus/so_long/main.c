@@ -1,34 +1,104 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/10 20:11:55 by mariosteven       #+#    #+#             */
+/*   Updated: 2024/07/10 21:39:20 by mariosteven      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
+
+void put_wall_to_window(char map, int x, int y,t_data *game)
+{
+	if (map == '1' && ((y == 0 && x == 0) || (y == 0 && x == game->map_width - 1)
+	|| (y == game->map_height - 1 && x == game->map_width - 1) 
+	|| (y == game->map_height - 1 && x == 0)))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+		game->wall[0], x * 64, y *64);
+	}
+	else if (map == '1' && ( y == 0 ))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->wall[4], x * 64, y * 64);
+	}
+	else if (map == '1' && ( y == game->map_height - 1))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->wall[1], x * 64, y * 64);
+	}
+	else if (map == '1' && ( x == 0))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->wall[2], x * 64, y * 64);
+	}
+	else if (map == '1' && ( x == game->map_width - 1))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->wall[3], x * 64, y * 64);
+	}
+}
+
+
+
+
+void put_ground_and_collecte(char map, int x, int y,t_data *game)
+{
+	if (map == '0')
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->ground, x * 64, y * 64);
+	}
+	if (map == 'C')
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->collect, x * 64, y * 64);
+	}
+}
+
+void put_player_to_window(char map, int x, int y,t_data *game)
+{
+	if (map == 'P')
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->player, x * 64, y * 64);
+	}
+}
+
+void put_obstacle_to_window(char map, int x, int y,t_data *game)
+{
+	static int i;
+	if (map == '1' && ((y >= 1 && y < game->map_height - 1)
+	&& (x >= 1 && x < game->map_width - 1)))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->obstacle[i], x * 64, y * 64);
+		i++;
+		if (i == 4)
+			i = 0;
+	}
+}
+
+void put_door_to_window(char map, int x, int y,t_data *game)
+{
+	if (map == 'E')
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->door, x * 64, y * 64);
+	}
+}
 
 void fill_window(char map, int x, int y,t_data *game)
 {
-	
-	if (map == '1')
-	{
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->img, x * 64, y *64);
-	}
-	else if (map == '0')
-	{
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->img, x * 64, y * 64);
-	}
-	else if (map == 'E')
-	{
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->img, x * 64, y * 64);
-	}
-	else if (map == 'C')
-	{
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->img, x * 64, y * 64);
-	}
-	else if (map == 'P')
-	{
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->img, x * 64, y * 64);
-	}
-	//return 1;
+	put_wall_to_window(map,x,y,game);
+	put_ground_and_collecte(map,x,y,game);
+	put_player_to_window(map,x,y,game);
+	put_obstacle_to_window(map,x,y,game);
+	put_door_to_window(map,x,y,game);
 }
 
 void ft_put_image(t_map *map,t_data *game)
@@ -37,8 +107,11 @@ void ft_put_image(t_map *map,t_data *game)
 	int y;
 
 	y = 0;
-	game->img = mlx_xpm_file_to_image(game->mlx_ptr, "img_xpm/mur/wall.xpm", \
-	&game->img_height, &game->img_width);
+	init_wall_image(game);
+	init_ground_and_collect_image(game);
+	init_player(game);
+	init_obstacle(game);
+	init_door(game);
 	while (map->vmap[y])
 	{
 		x = 0;
@@ -58,6 +131,8 @@ int 	ft_start_game(t_map *map)
 
 	win_game = malloc (sizeof(t_data));
 	win_game->mlx_ptr = mlx_init();
+	win_game->map_height = map->heigth;
+	win_game->map_width = map->width;
 	if (!win_game->mlx_ptr)
 	{
 		ft_free(map);
