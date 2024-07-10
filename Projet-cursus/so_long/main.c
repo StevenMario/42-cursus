@@ -37,7 +37,7 @@ void ft_put_image(t_map *map,t_data *game)
 	int y;
 
 	y = 0;
-	game->img = mlx_xpm_file_to_image(game->mlx_ptr, "img_xpm/mur/ice_wall.xpm", \
+	game->img = mlx_xpm_file_to_image(game->mlx_ptr, "img_xpm/mur/wall.xpm", \
 	&game->img_height, &game->img_width);
 	while (map->vmap[y])
 	{
