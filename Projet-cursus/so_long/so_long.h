@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:15:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/10 21:39:59 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/07/11 10:55:47 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ typedef struct s_data
 	int 		map_height;
 	void		*mlx_ptr;
 	void		*win_ptr;
-	void		*wall[5];
+	void		*wall[4];
+	void		*mur_coter[4];
 	void		*player;
 	void		*obstacle[4];
 	void		*collect;

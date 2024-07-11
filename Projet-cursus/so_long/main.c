@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 20:11:55 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/07/10 21:39:20 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/07/11 10:55:41 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,51 @@
 
 void put_wall_to_window(char map, int x, int y,t_data *game)
 {
-	if (map == '1' && ((y == 0 && x == 0) || (y == 0 && x == game->map_width - 1)
-	|| (y == game->map_height - 1 && x == game->map_width - 1) 
-	|| (y == game->map_height - 1 && x == 0)))
-	{
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->wall[0], x * 64, y *64);
-	}
-	else if (map == '1' && ( y == 0 ))
-	{
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
-		game->wall[4], x * 64, y * 64);
-	}
-	else if (map == '1' && ( y == game->map_height - 1))
-	{
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
-		game->wall[1], x * 64, y * 64);
-	}
-	else if (map == '1' && ( x == 0))
-	{
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
-		game->wall[2], x * 64, y * 64);
-	}
-	else if (map == '1' && ( x == game->map_width - 1))
+	if (map == '1' && ( y == 0 ))
 	{
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
 		game->wall[3], x * 64, y * 64);
 	}
+	else if (map == '1' && ( y == game->map_height - 1))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->wall[0], x * 64, y * 64);
+	}
+	else if (map == '1' && ( x == 0))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->wall[1], x * 64, y * 64);
+	}
+	else if (map == '1' && ( x == game->map_width - 1))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
+		game->wall[2], x * 64, y * 64);
+	}
 }
-
+  
+void put_side_wall_to_window(char map, int x, int y,t_data *game)
+{
+	if (map == '1' && (y == 0 && x == 0))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+		game->mur_coter[0], x * 64, y *64);
+	}
+	else if (map == '1' && (y == 0 && x == game->map_width - 1))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+		game->mur_coter[1], x * 64, y *64);
+	}
+	else if (map == '1' && (y == game->map_height - 1 && x == 0))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+		game->mur_coter[2], x * 64, y *64);
+	}
+	else if (map == '1' && (y == game->map_height - 1 && x == game->map_width - 1))
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+		game->mur_coter[3], x * 64, y *64);
+	}
+}
 
 
 
@@ -95,6 +111,7 @@ void put_door_to_window(char map, int x, int y,t_data *game)
 void fill_window(char map, int x, int y,t_data *game)
 {
 	put_wall_to_window(map,x,y,game);
+	put_side_wall_to_window(map,x,y,game);
 	put_ground_and_collecte(map,x,y,game);
 	put_player_to_window(map,x,y,game);
 	put_obstacle_to_window(map,x,y,game);
