@@ -6,13 +6,13 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 20:11:55 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/07/11 12:46:06 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/07/11 22:27:00 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
+#include <X11/keysym.h>
 
 void fill_window(char map, int x, int y,t_data *game)
 {
@@ -48,6 +48,13 @@ void ft_put_image(t_map *map,t_data *game)
 	//return 1;
 }
 
+int	handle_input(int keysym, t_data *data)
+{
+    if (keysym == XK_Escape)
+        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+    return (0);
+}
+
 int 	ft_start_game(t_map *map)
 {
 	t_data *win_game;
@@ -71,7 +78,10 @@ int 	ft_start_game(t_map *map)
 		return (0);
 	}
 	ft_put_image(map,win_game);
+	mlx_key_hook(win_game->win_ptr, &handle_input, win_game);
 	mlx_loop(win_game->mlx_ptr);
+	mlx_destroy_display(win_game->win_ptr);
+	free(win_game);
 	return 1;
 }
 
