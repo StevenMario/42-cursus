@@ -9,6 +9,7 @@ SRC = 	utils.c\
 		check_map.c\
 		is_solvable.c\
 		init_image.c\
+		put_to_window.c\
 		main.c
 %.o: %.c
 	$(CC) $(FLAGS) -I/usr/include -I$(MLX_D) -O3 -c $< -o $@

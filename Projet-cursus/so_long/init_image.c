@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 20:11:59 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/07/11 10:55:51 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/07/11 19:29:17 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,18 @@ void init_ground_and_collect_image(t_data *game)
 {
 	game->ground = mlx_xpm_file_to_image(game->mlx_ptr, "img_xpm/mur/ground.xpm", 
 	&game->img_height, &game->img_width);
-	game->collect = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/collecte/collecte.xpm",
-	&game->img_height, &game->img_width);
+	// game->collect[0] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/collecte/collect1.xpm",
+	// &game->img_height, &game->img_width);
+	// game->collect[1] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/collecte/collect2.xpm",
+	// &game->img_height, &game->img_width);
+	// game->collect[2] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/collecte/collect3.xpm",
+	// &game->img_height, &game->img_width);
+	// game->collect[3] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/collecte/collect4.xpm",
+	// &game->img_height, &game->img_width);
+	// game->collect[4] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/collecte/collect5.xpm",
+	// &game->img_height, &game->img_width);
+	// game->collect[5] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/collecte/collect6.xpm",
+	// &game->img_height, &game->img_width);
 }
 
 void init_player(t_data *game)
@@ -50,18 +60,16 @@ void init_player(t_data *game)
 }
 void init_obstacle(t_data *game)
 {
-    game->obstacle[0] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/obstacle/brown_rock.xpm",
+    game->obstacle[0] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/obstacle/obstacle1.xpm",
 	&game->img_height, &game->img_width);
-    game->obstacle[1] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/obstacle/red_rock.xpm",
+    game->obstacle[1] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/obstacle/obstacle2.xpm",
 	&game->img_height, &game->img_width);
-    game->obstacle[2] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/obstacle/rock_green.xpm",
-	&game->img_height, &game->img_width);
-    game->obstacle[3] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/obstacle/rock_purple.xpm",
+    game->obstacle[2] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/obstacle/obstacle3.xpm",
 	&game->img_height, &game->img_width);
 }
 
 void init_door(t_data *game)
 {
-    game->door = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/door/door_off.xpm",
+    game->door = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/door/exit.xpm",
 	&game->img_height, &game->img_width);
 }
