@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 13:36:05 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/12 14:46:43 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:16:49 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@ void init_player_top(t_data *game)
 	game->player_top[2] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/perso_top/perso_top3.xpm",
 	&game->img_height, &game->img_width);
 	game->player_top[3] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/perso_top/perso_top4.xpm",
+	&game->img_height, &game->img_width);
+}
+
+void init_player_right(t_data *game)
+{
+	game->player_right[0] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/perso_right/perso_right1.xpm",
+	&game->img_height, &game->img_width);
+	game->player_right[1] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/perso_right/perso_right2.xpm",
+	&game->img_height, &game->img_width);
+	game->player_right[2] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/perso_right/perso_right3.xpm",
+	&game->img_height, &game->img_width);
+	game->player_right[3] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/perso_right/perso_right4.xpm",
 	&game->img_height, &game->img_width);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 13:03:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/12 14:45:24 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:14:07 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	handle_input(int keysym, t_data *data)
 	int x;
 	x = get_pos_x(data->map, 'P');
 	y = get_pos_y(data->map, 'P');
-	 printf("keysym = %d\n",keysym);
+	printf("keysym = %d\n",keysym);
 	if (keysym == 65307)
 	{
 		free_all(data);
@@ -26,6 +26,8 @@ int	handle_input(int keysym, t_data *data)
 	}
 	else if (keysym == 119 && data->map->vmap[y - 1][x] != '1')
 		moov_top(data,x,y);
+	else if (keysym == 100 && data->map->vmap[y][x + 1] != '1')
+		moov_right(data,x,y);
     return (0);
 }
 
