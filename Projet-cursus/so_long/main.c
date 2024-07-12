@@ -3,63 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 20:11:55 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/07/11 22:27:00 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/07/12 13:04:10 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-#include <X11/keysym.h>
 
-void fill_window(char map, int x, int y,t_data *game)
-{
-	put_wall_to_window(map,x,y,game);
-	put_side_wall_to_window(map,x,y,game);
-	put_ground_and_collecte(map,x,y,game);
-	put_player_to_window(map,x,y,game);
-	put_obstacle_to_window(map,x,y,game);
-	put_door_to_window(map,x,y,game);
-}
 
-void ft_put_image(t_map *map,t_data *game)
-{
-	int x;
-	int y;
 
-	y = 0;
-	init_wall_image(game);
-	init_ground_and_collect_image(game);
-	init_player(game);
-	init_obstacle(game);
-	init_door(game);
-	while (map->vmap[y])
-	{
-		x = 0;
-		while (map->vmap[y][x])
-		{
-			fill_window(map->vmap[y][x],x,y,game);
-			x++;
-		}
-		y++;
-	}
-	//return 1;
-}
 
-int	handle_input(int keysym, t_data *data)
-{
-    if (keysym == XK_Escape)
-        mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-    return (0);
-}
+
 
 int 	ft_start_game(t_map *map)
 {
 	t_data *win_game;
 
 	win_game = malloc (sizeof(t_data));
+	win_game->map = map;
 	win_game->mlx_ptr = mlx_init();
 	win_game->map_height = map->heigth;
 	win_game->map_width = map->width;
@@ -77,11 +41,7 @@ int 	ft_start_game(t_map *map)
 		ft_free(map);
 		return (0);
 	}
-	ft_put_image(map,win_game);
-	mlx_key_hook(win_game->win_ptr, &handle_input, win_game);
-	mlx_loop(win_game->mlx_ptr);
-	mlx_destroy_display(win_game->win_ptr);
-	free(win_game);
+	loop_game(win_game);
 	return 1;
 }
 

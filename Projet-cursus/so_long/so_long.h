@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:15:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/11 14:42:26 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/07/12 13:04:25 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ typedef struct s_data
 	void		*mur_coter[4];
 	void		*player;
 	void		*obstacle[3];
-	void		*collect[6];
+	void		*collect;
 	void		*door;
 	void		*ground;
+	t_map		*map;
 }	t_data;
 
 char *init_map(int fd);
@@ -61,6 +62,10 @@ void init_wall_image(t_data *game);
 void init_player(t_data *game);
 void init_obstacle(t_data *game);
 void init_door(t_data *game);
+void ft_put_image(t_data *game);
+void free_image(t_data *win);
+void free_all(t_data *win);
+void loop_game(t_data *win_game);
 void init_ground_and_collect_image(t_data *game);
 void put_door_to_window(char map, int x, int y,t_data *game);
 void put_obstacle_to_window(char map, int x, int y,t_data *game);
@@ -68,4 +73,5 @@ void put_player_to_window(char map, int x, int y,t_data *game);
 void put_ground_and_collecte(char map, int x, int y,t_data *game);
 void put_side_wall_to_window(char map, int x, int y,t_data *game);
 void put_wall_to_window(char map, int x, int y,t_data *game);
+void destroy(t_data *win,void **image,int len);
 #endif

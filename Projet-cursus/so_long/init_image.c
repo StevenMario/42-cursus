@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 20:11:59 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/07/11 22:13:19 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/07/12 11:52:44 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void init_ground_and_collect_image(t_data *game)
 {
 	game->ground = mlx_xpm_file_to_image(game->mlx_ptr, "img_xpm/mur/ground.xpm", 
 	&game->img_height, &game->img_width);
-	game->collect[0] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/collecte/collect1.xpm",
+	game->collect = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/collecte/collect1.xpm",
 	&game->img_height, &game->img_width);
 	// game->collect[1] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/collecte/collect2.xpm",
 	// &game->img_height, &game->img_width);
