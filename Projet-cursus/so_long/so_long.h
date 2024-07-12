@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:15:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/12 13:04:25 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:42:24 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_data
 	void		*wall[4];
 	void		*mur_coter[4];
 	void		*player;
+	void		*player_top[4];
 	void		*obstacle[3];
 	void		*collect;
 	void		*door;
@@ -58,9 +59,13 @@ int check_border_is_wall(char **str);
 int check_map(char *str,t_map *full_map);
 void ft_free(t_map *map);
 void load_map(t_map *full_map);
+void init_player_top(t_data *game);
 void init_wall_image(t_data *game);
+void moov_top(t_data *game,int x,int y);
 void init_player(t_data *game);
 void init_obstacle(t_data *game);
+int get_pos_x(t_map *map,char c);
+int get_pos_y(t_map *map,char c);
 void init_door(t_data *game);
 void ft_put_image(t_data *game);
 void free_image(t_data *win);

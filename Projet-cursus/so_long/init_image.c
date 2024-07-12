@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 20:11:59 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/07/12 11:52:44 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 13:37:58 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,7 @@ void init_ground_and_collect_image(t_data *game)
 	// &game->img_height, &game->img_width);
 }
 
-void init_player(t_data *game)
-{
-    game->player = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/perso_down/perso_down1.xpm",
-	&game->img_height, &game->img_width);
-}
+
 void init_obstacle(t_data *game)
 {
     game->obstacle[0] = mlx_xpm_file_to_image(game->mlx_ptr,"img_xpm/obstacle/obstacle1.xpm",

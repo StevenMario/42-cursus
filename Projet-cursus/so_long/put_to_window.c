@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:45:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/07/12 13:01:10 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:45:20 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void ft_put_image(t_data *game)
 	init_ground_and_collect_image(game);
 	init_player(game);
 	init_obstacle(game);
+	init_player_top(game);
 	init_door(game);
 	while (game->map->vmap[y])
 	{

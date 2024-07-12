@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 12:14:50 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/12 12:57:12 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:07:29 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,46 @@ void free_image(t_data *win)
 	mlx_destroy_image(win->mlx_ptr,win->door);
 	mlx_destroy_image(win->mlx_ptr,win->ground);
 	mlx_destroy_image(win->mlx_ptr,win->collect);
+}
+
+int get_pos_x(t_map *map,char c)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while(map->vmap[y])
+	{
+		x = 0;
+		while (map->vmap[y][x])
+		{
+			if (map->vmap[y][x] == c)
+				return (x);
+			x++;
+		}
+		y++;
+	}
+	return (x);
+}
+
+int get_pos_y(t_map *map,char c)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while(map->vmap[y])
+	{
+		x = 0;
+		while (map->vmap[y][x])
+		{
+			if (map->vmap[y][x] == c)
+				return (y);
+			x++;
+		}
+		y++;
+	}
+	return (y);
 }
 
 void destroy(t_data *win,void **image,int len)

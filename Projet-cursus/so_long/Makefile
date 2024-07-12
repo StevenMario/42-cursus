@@ -11,6 +11,8 @@ SRC = 	utils.c\
 		init_image.c\
 		put_to_window_utils.c\
 		put_to_window.c\
+		init_player.c\
+		moov.c\
 		loop_game.c\
 		main.c
 %.o: %.c
