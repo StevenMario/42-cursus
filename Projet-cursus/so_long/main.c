@@ -6,17 +6,11 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 20:11:55 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/07/12 13:04:10 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 13:10:52 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-
-
-
-
-
 
 int 	ft_start_game(t_map *map)
 {

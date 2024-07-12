@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:16:04 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/09 11:48:20 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 13:15:33 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,12 @@ int check_map(char *str,t_map *full_map)
 		if (!map_is_valid(full_map->map) || !check_width_and_fill(full_map))
 		{
 			ft_printf("[Error].Please check your map !\n");
+			ft_free(full_map);
+			return (0);
+		}
+		if (full_map->width * 64 > 1920 || full_map->heigth * 64 > 1080)
+		{
+			ft_printf("[Error].Your map is too big !\n");
 			ft_free(full_map);
 			return (0);
 		}
