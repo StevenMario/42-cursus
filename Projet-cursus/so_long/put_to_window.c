@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_to_window.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:45:34 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/07/12 15:17:27 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 18:27:25 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,26 @@ void fill_window(char map, int x, int y,t_data *game)
 	put_door_to_window(map,x,y,game);
 }
 
-void ft_put_image(t_data *game)
+void init_image(t_data *game)
 {
-	int x;
-	int y;
-
-	y = 0;
 	init_wall_image(game);
 	init_ground_and_collect_image(game);
 	init_player(game);
 	init_obstacle(game);
 	init_player_top(game);
 	init_player_right(game);
+	init_player_left(game);
+	init_player_down(game);
 	init_door(game);
+}
+
+void ft_put_image(t_data *game)
+{
+	int x;
+	int y;
+
+	y = 0;
+	init_image(game);
 	while (game->map->vmap[y])
 	{
 		x = 0;

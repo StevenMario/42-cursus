@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:15:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/12 15:19:00 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 19:01:45 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ typedef struct s_data
 	void		*player;
 	void		*player_top[4];
 	void		*player_right[4];
-	// void		*player_top[4];
-	// void		*player_top[4];
+	void		*player_left[4];
+	void		*player_down[4];
 	void		*obstacle[3];
 	void		*collect;
 	void		*door;
@@ -72,6 +72,10 @@ void init_obstacle(t_data *game);
 int get_pos_x(t_map *map,char c);
 int get_pos_y(t_map *map,char c);
 void init_door(t_data *game);
+void init_player_left(t_data *game);
+void moov_left(t_data *game,int x,int y);
+void moov_down(t_data *game,int x,int y);
+void init_player_down(t_data *game);
 void ft_put_image(t_data *game);
 void free_image(t_data *win);
 void free_all(t_data *win);

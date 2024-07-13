@@ -3,31 +3,71 @@
 /*                                                        :::      ::::::::   */
 /*   loop_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 13:03:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/12 15:14:07 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/13 14:43:28 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void count_step(void)
+{
+	static int i;
+	ft_printf("Step = %d\n",i);
+	i++;
+}
+
+
 int	handle_input(int keysym, t_data *data)
 {
     int y;
 	int x;
+
 	x = get_pos_x(data->map, 'P');
 	y = get_pos_y(data->map, 'P');
-	printf("keysym = %d\n",keysym);
 	if (keysym == 65307)
 	{
 		free_all(data);
 		exit(1);
 	}
-	else if (keysym == 119 && data->map->vmap[y - 1][x] != '1')
+	else if (keysym == 122 && data->map->vmap[y - 1][x] != '1')
+	{
+		if ((data->map->vmap[y - 1][x] == 'E' && data->map->nb_colecte > 0))
+			return (0);
+		if (data->map->vmap[y - 1][x] == 'C')
+			data->map->nb_colecte--;
 		moov_top(data,x,y);
+		count_step();
+	}	
 	else if (keysym == 100 && data->map->vmap[y][x + 1] != '1')
+	{
+		if ((data->map->vmap[y][x + 1] == 'E' && data->map->nb_colecte > 0))
+			return (0);
+		if (data->map->vmap[y][x + 1] == 'C')
+			data->map->nb_colecte--;
 		moov_right(data,x,y);
+		count_step();
+	}
+	else if (keysym == 113 && data->map->vmap[y][x - 1] != '1' )
+	{
+		if ((data->map->vmap[y][x - 1] == 'E' && data->map->nb_colecte > 0))
+			return (0);
+		if (data->map->vmap[y][x - 1] == 'C')
+			data->map->nb_colecte--;
+		moov_left(data,x,y);
+		count_step();
+	}
+	else if (keysym == 115 && data->map->vmap[y + 1][x] != '1')
+	{
+		if (data->map->vmap[y + 1][x] == 'E' && data->map->nb_colecte > 0)
+			return (0);
+		if (data->map->vmap[y + 1][x] == 'C')
+			data->map->nb_colecte--;
+		moov_down(data,x,y);
+		count_step();
+	}
     return (0);
 }
 

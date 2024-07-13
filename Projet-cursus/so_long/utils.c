@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 12:14:50 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/12 14:07:29 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/12 18:25:33 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void free_image(t_data *win)
 	destroy(win,win->wall,4);
 	destroy(win,win->mur_coter,4);
  	destroy(win,win->obstacle,3);
+	destroy(win,win->player_down,4);
+	destroy(win,win->player_left,4);
+	destroy(win,win->player_right,4);
+	destroy(win,win->player_top,4);
 	mlx_destroy_image(win->mlx_ptr,win->player);
 	mlx_destroy_image(win->mlx_ptr,win->door);
 	mlx_destroy_image(win->mlx_ptr,win->ground);
