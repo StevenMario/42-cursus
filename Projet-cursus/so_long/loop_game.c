@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 13:03:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/13 14:43:28 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/07/15 12:29:29 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	handle_input(int keysym, t_data *data)
 		free_all(data);
 		exit(1);
 	}
-	else if (keysym == 122 && data->map->vmap[y - 1][x] != '1')
+	else if (keysym == 119 && data->map->vmap[y - 1][x] != '1')
 	{
 		if ((data->map->vmap[y - 1][x] == 'E' && data->map->nb_colecte > 0))
 			return (0);
@@ -50,7 +50,7 @@ int	handle_input(int keysym, t_data *data)
 		moov_right(data,x,y);
 		count_step();
 	}
-	else if (keysym == 113 && data->map->vmap[y][x - 1] != '1' )
+	else if (keysym == 97 && data->map->vmap[y][x - 1] != '1' )
 	{
 		if ((data->map->vmap[y][x - 1] == 'E' && data->map->nb_colecte > 0))
 			return (0);

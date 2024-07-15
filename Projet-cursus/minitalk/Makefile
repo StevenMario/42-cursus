@@ -15,7 +15,7 @@ bonus : $(CLIENT_BONUS)  $(SERVER_BONUS)
 $(CLIENT) : client.c 
 			make -C $(LIBFT_D)
 			test -e $(LIBFT_D)/$(LIBFT_N) || cp $(LIBFT_D)/$(LIBFT_N) $(LIBFT_D)
-			$(CC) $(CFLAGS) client.c -L $(LIBFT_D) -l ft -o $(CLIENT)
+			$(CC) $(CFLAGS)  client.c -L $(LIBFT_D) -l ft -o $(CLIENT)
 $(SERVER) : server.c 
 			make -C $(LIBFT_D)
 			test -e $(LIBFT_D)/$(LIBFT_N) || cp $(LIBFT_D)/$(LIBFT_N) $(LIBFT_D)
@@ -23,7 +23,7 @@ $(SERVER) : server.c
 $(CLIENT_BONUS) : client_bonus.c 
 			make -C $(LIBFT_D)
 			test -e $(LIBFT_D)/$(LIBFT_N) || cp $(LIBFT_D)/$(LIBFT_N) $(LIBFT_D)
-			$(CC) $(CFLAGS) client_bonus.c -L $(LIBFT_D) -l ft -o $(CLIENT_BONUS)
+			$(CC) $(CFLAGS) utils_bonus.c client_bonus.c -L $(LIBFT_D) -l ft -o $(CLIENT_BONUS)
 $(SERVER_BONUS) : server_bonus.c 
 			make -C $(LIBFT_D)
 			test -e $(LIBFT_D)/$(LIBFT_N) || cp $(LIBFT_D)/$(LIBFT_N) $(LIBFT_D)

@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 10:51:39 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/15 11:26:22 by mrambelo         ###   ########.fr       */
+/*   Created: 2024/07/15 11:21:51 by mrambelo          #+#    #+#             */
+/*   Updated: 2024/07/15 11:31:44 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "minitalk.h"
 
-# include <unistd.h>
-# include <signal.h>
-# include "libft/libft.h"
-# include <stdlib.h>
+int	check_pid(char *str)
+{
+	int	i;
 
-void	sighandler(int sig);
-int		check_pid(char *str);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
 
-#endif
+void	sighandler(int sig)
+{
+	if (sig == SIGUSR1)
+		ft_printf("Message receved succesfully !");
+}

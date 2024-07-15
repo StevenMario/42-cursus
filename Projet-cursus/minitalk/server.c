@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 10:17:43 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/13 09:11:05 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/15 12:19:02 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@ void	stock_char(char c)
 
 	tmp[0] = c;
 	tmp[1] = '\0';
-	if (str == NULL)
-		str = ft_strdup("");
-	str = ft_strjoin(str, tmp);
 	if (c == '\0')
 	{
 		ft_printf("%s\n", str);
 		free(str);
 		str = NULL;
+	}
+	else
+	{
+		if (str == NULL)
+			str = ft_strdup("");
+		str = ft_strjoin(str, tmp);
 	}
 }
 
