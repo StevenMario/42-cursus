@@ -5,6 +5,7 @@ LIBFT_D = ./libft
 MLX_D = minilibx-linux
 NAME = so_long
 SRC = 	utils.c\
+		ft_free.c\
 		check_map_utils.c\
 		check_map.c\
 		is_solvable.c\
@@ -13,6 +14,7 @@ SRC = 	utils.c\
 		put_to_window.c\
 		init_player.c\
 		moov.c\
+		moove_utils.c\
 		loop_game.c\
 		main.c
 %.o: %.c
