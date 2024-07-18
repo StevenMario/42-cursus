@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: steven <steven@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:50:40 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/03/05 10:17:35 by steven           ###   ########.fr       */
+/*   Updated: 2024/07/18 11:55:01 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ char	*check_and_fill_new_line(char *line_static, int len)
 	char	*new_line;
 
 	i = 0;
-	new_line = (char *)malloc(sizeof(char) *(ft_strlen_g(line_static) - len + 1));
+	new_line = (char *)malloc(sizeof(char)
+			*(ft_strlen_g(line_static) - len + 1));
 	if (!new_line)
 	{
 		free(line_static);

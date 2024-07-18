@@ -6,16 +6,16 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 12:16:53 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/29 12:23:30 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:54:18 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_free_str(char **str)
+void	ft_free_str(char **str)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (str[i])
 	{

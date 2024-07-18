@@ -6,48 +6,34 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:15:56 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/06/29 12:35:55 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:51:12 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char *init_map(int fd)
+char	*init_map(int fd)
 {
-	char *map;
-	char *buf;
+	char	*map;
+	char	*buf;
 
 	map = ft_strdup("");
 	while (1)
 	{
 		buf = get_next_line(fd);
 		if (buf == NULL)
-			break;
+			break ;
 		map = ft_strjoin(map, buf);
 		free(buf);
 	}
 	return (map);
 }
 
-void load_map(t_map *full_map)
+int	check_width_and_fill(t_map *fullmap)
 {
-	full_map->map = NULL;
-	full_map->vmap = NULL;
-	full_map->wall = '1';
-	full_map->player = 'P';
-	full_map->collecte = 'C';
-	full_map->floor = '0';
-	full_map->exit = 'E';
-	full_map->nb_colecte = 0;
-	full_map->heigth = 0;
-	full_map->width = 0;
-}
-
-int check_width_and_fill(t_map *fullmap)
-{
-	int i;
-	size_t j;
-	size_t k;
+	int		i;
+	size_t	j;
+	size_t	k;
 
 	i = 0;
 	j = 0;
@@ -65,51 +51,63 @@ int check_width_and_fill(t_map *fullmap)
 	return (1);
 }
 
-int map_is_valid(char *str)
+int	map_is_valid(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == '1' || str[i] == 'P' || str[i] == 'C' 
+		if (str[i] == '1' || str[i] == 'P' || str[i] == 'C'
 			|| str[i] == '0' || str[i] == 'E' || str[i] == '\n')
 			i++;
-		else 
+		else
 			return (0);
 	}
 	return (1);
 }
 
-int check_border_is_wall(char **str)
+int	check_border_left_and_right(char **str)
 {
-	int	i;
+	int	k;
 	int	j;
-	int k;
+	int	i;
 
 	i = 0;
 	j = 0;
-	while (str[i][j])
-	{
-		if (str[i][j] != '1')
-			return 0;
-		j++;
-	}
 	k = ft_strlen(str[i]) - 1;
-	j = 0;
 	while (str[i])
 	{
 		if (str[i][j] != '1' || str[i][k] != '1')
 			return (0);
 		i++;
 	}
-	i--;
+	return (i);
+}
+
+int	check_border_is_wall(char **str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
 	while (str[i][j])
 	{
 		if (str[i][j] != '1')
-			return 0;
+			return (0);
+		j++;
+	}
+	j = 0;
+	if (check_border_left_and_right(str))
+		i = check_border_left_and_right(str) - 1;
+	else
+		return (0);
+	while (str[i][j])
+	{
+		if (str[i][j] != '1')
+			return (0);
 		j++;
 	}
 	return (1);
 }
-

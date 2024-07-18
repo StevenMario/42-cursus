@@ -6,11 +6,12 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:56:23 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/16 09:57:01 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:01:37 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 void	ft_free(t_map *map)
 {
 	free(map->map);

@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 11:15:52 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/16 11:09:46 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:52:49 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_free(t_map *map);
 void	load_map(t_map *full_map);
 void	init_player_top(t_data *game);
 void	init_wall_image(t_data *game);
+void	load_map(t_map *full_map);
 void	moov_top(t_data *game, int x, int y);
 void	init_player_right(t_data *game);
 void	moov_right(t_data *game, int x, int y);
@@ -47,8 +48,8 @@ void	loop_game(t_data *win_game);
 void	init_ground_and_collect_image(t_data *game);
 void	put_door_to_window(char map, int x, int y, t_data *game);
 void	put_obstacle_to_window(char map, int x, int y, t_data *game);
-void	moove_top_and_down(t_data *data,int key, int *x,int *y);
-void	moove_left_and_right(t_data *data,int key, int *x,int *y);
+void	moove_top_and_down(t_data *data, int key, int *x, int *y);
+void	moove_left_and_right(t_data *data, int key, int *x, int *y);
 void	put_player_to_window(char map, int x, int y, t_data *game);
 void	put_ground_and_collecte(char map, int x, int y, t_data *game);
 void	put_side_wall_to_window(char map, int x, int y, t_data *game);

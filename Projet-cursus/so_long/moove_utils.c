@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 11:06:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/16 11:12:29 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:51:35 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	count_step(void)
 {
 	static int	i;
 
-	ft_printf("Step = %d\n", i);
+	ft_printf("Step = %d\n", i + 1);
 	i++;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 12:14:50 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/16 10:00:54 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:50:59 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,18 @@ void	destroy(t_data *win, void **image, int len)
 		mlx_destroy_image(win->mlx_ptr, image[i]);
 		i++;
 	}
+}
+
+void	load_map(t_map *full_map)
+{
+	full_map->map = NULL;
+	full_map->vmap = NULL;
+	full_map->wall = '1';
+	full_map->player = 'P';
+	full_map->collecte = 'C';
+	full_map->floor = '0';
+	full_map->exit = 'E';
+	full_map->nb_colecte = 0;
+	full_map->heigth = 0;
+	full_map->width = 0;
 }
