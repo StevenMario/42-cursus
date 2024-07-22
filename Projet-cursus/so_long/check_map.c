@@ -46,7 +46,7 @@ int	check_exit_player_and_collecte(t_map *full_map)
 			full_map->nb_colecte++;
 		i++;
 	}
-	if (exit > 1 || player > 1 || full_map->nb_colecte == 0)
+	if (exit > 1 || player != 1 || full_map->nb_colecte == 0)
 		return (0);
 	return (1);
 }
