@@ -1,29 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 11:14:01 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/25 12:35:32 by mrambelo         ###   ########.fr       */
+/*   Created: 2024/07/25 12:35:12 by mrambelo          #+#    #+#             */
+/*   Updated: 2024/07/25 12:37:52 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	main(int argc, char **argv)
+int	is_number(char *str)
 {
-	if (argc == 5 || argc == 6)
+	int i;
+
+	i = 0;
+	while (str[i])
 	{
-		if (!check_arg(argv))
-			printf("[Error].Please check the arguments!\n");
-		else 
-			printf("Arg OK!\n");
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			i++;
+		}
+		else
+			return (0);
 	}
-	else
+	return (1);
+}
+
+int	check_arg(char **argv)
+{
+	int	i;
+
+	i = 1;
+	while(argv[i])
 	{
-		printf("[Error].Please check the number of arguments!\n");
-		return (1);
+		if (!is_number(argv[i]))
+			return (0);
+		i++;
 	}
+	return (1);
 }
