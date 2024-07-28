@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 11:14:01 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/27 22:05:50 by mariosteven      ###   ########.fr       */
+/*   Created: 2024/07/27 22:05:27 by mariosteven       #+#    #+#             */
+/*   Updated: 2024/07/27 22:05:46 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	main(int argc, char **argv)
+int	ft_atoi(const char *str)
 {
-	if (argc == 5 || argc == 6)
+	int	i;
+	int	sign;
+	int	result;
+
+	i = 0;
+	result = 0;
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		if (!check_arg(argv))
-			printf("[Error].Please check the arguments!\n");
-		else 
-		{
-			
-		}
+		if (str[i + 1] == '-' || str[i + 1] == '+')
+			return (0);
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	else
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		printf("[Error].Please check the number of arguments!\n");
-		return (1);
+		result = result * 10 + (str[i] - '0');
+		i++;
 	}
+	return (sign * result);
 }
