@@ -28,6 +28,7 @@ typedef struct s_philo
 
 int	is_number(char *str);
 int	check_arg(char **argv);
+int	ft_atoi(const char *str);
 long	ft_atol(const char *str);
 
 #endif
