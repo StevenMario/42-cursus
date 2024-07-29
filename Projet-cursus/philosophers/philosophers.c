@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:14:01 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/29 11:31:44 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/07/29 13:06:01 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 		else 
 		{
 			init_struct(argv,&philo);
-
+			 
 		}
 	}
 	else
