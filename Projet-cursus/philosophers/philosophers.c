@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:14:01 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/27 22:05:50 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/07/29 11:10:01 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+int init_struct(char **argv)
+{
+	
+}
 
 int	main(int argc, char **argv)
 {
@@ -20,7 +25,7 @@ int	main(int argc, char **argv)
 			printf("[Error].Please check the arguments!\n");
 		else 
 		{
-			
+			init_struct(argv);
 		}
 	}
 	else
