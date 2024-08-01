@@ -3,6 +3,7 @@ FLAGS = -Wall -Wextra -Werror
 NAME = philo
 SRC =	check_arg.c\
 		utils.c\
+		init_all.c\
 		philosophers.c\
 
 all: $(NAME)
