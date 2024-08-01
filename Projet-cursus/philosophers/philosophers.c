@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:14:01 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/07/31 15:18:22 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/01 11:40:23 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,45 @@ int init_struct(char **argv,t_info **info)
 	return (1);
 }
 
-int init_mutex(t_info **info)
+int init__fork_mutex(t_info **info)
 {
 	int i;
-
+	int error;
+	
 	i = 0;
+	(*info)->fork = malloc(sizeof(pthread_mutex_t) * (*info)->nb_philo);
+	if (!(*info)->fork)
+		return (0);
 	while (i <= (*info)->nb_philo)
 	{
-		(*info)->fork[i]; 
+		error = pthread_mutex_init(&(*info)->fork[i],NULL);
+		if (error != 0 && i - 1 >= 0)
+		{
+			while (--i >= 0)
+			{
+				pthread_mutex_destroy(&(*info)->fork[i])
+			}
+			return (0);
+		}
+		i++;
 	}
+	return 1;
+}
+
+int init_other_mutex(t_info **info)
+{
+	(*info)->print_lock = malloc(sizeof(pthread_mutex_t));
+	(*info)->dead_lock = malloc(sizeof(pthread_mutex_t));
+	if (!(*info)->print_lock || !(*info)->dead_lock)
+		return (0);
+	if (pthread_mutex_init(&(*info)->print_lock,NULL))
+		return (0);
+	if (pthread_mutex_init(&(*info)->dead_lock,NULL))
+	{
+		pthread_mutex_destroy(&(*info)->print_lock);
+		return (0);
+	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -51,16 +81,16 @@ int	main(int argc, char **argv)
 			if (!init_struct(argv,&info))
 			{
 				free(info);
-				printf("Allocation error!");
+				printf("Allocation error!\n");
 				return (1);
 			}
-			if (!init_mutex(&info))
+			if (!init_fork_mutex(&info))
 			{
 				free(info);
-				printf("Allocation error!");
+				printf("Mutex error !\n");
 				return (1);
 			}
-			
+			init_other_mutex(&info);
 		}	
 	}
 	else
