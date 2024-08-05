@@ -32,6 +32,7 @@ struct s_info
 	long	time_to_sleep;
 	int		nb_of_philo_must_eat;
 	pthread_mutex_t	*fork;
+	pthread_mutex_t	eat_lock;
 	t_philo *philosophe;
 };
 

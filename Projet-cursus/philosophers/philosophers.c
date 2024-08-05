@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:14:01 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/05 15:18:51 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/05 20:24:58 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void ft_eat(t_philo *philo)
 		ft_printf_status(TAKE_FORK,philo);
 	}
 	ft_printf_status(EAT,philo);
-	//pthread_mutex_unlock(&philo->info->print_lock);
+	philo->nb_eat++;
+	if (nb)
+	printf("id_philo = %d,  nb_eat = %d\n",philo->id_philo,philo->nb_eat);
 	ft_usleep(philo->info->time_to_eat);
 	pthread_mutex_unlock(&philo->info->fork[l_fork]);
 	pthread_mutex_unlock(&philo->info->fork[r_fork]);

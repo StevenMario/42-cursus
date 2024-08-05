@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:56:46 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/05 15:21:20 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/05 20:31:19 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int init_struct(char **argv,t_info **info)
 	(*info)->time_to_eat = ft_atol(argv[3]);
 	(*info)->time_to_sleep = ft_atol(argv[4]);
 	if (argv[5])
-		(*info)->nb_of_philo_msut_eat = ft_atoi(argv[5]);
+		(*info)->nb_of_philo_must_eat = ft_atoi(argv[5]);
 	(*info)->status = 0;
 	return (1);
 }
@@ -47,9 +47,15 @@ int init_fork_mutex(t_info **info)
 		}
 		i++;
 	}
-	return 1;
+	return (1);
 }
 
+int	init_other_mutex( t_info **info)
+{
+	if (pthread_mutex_init(&(*info)->eat_lock,NULL) != 0)
+		return (0);
+	return (1);
+}
 
 int init_all(char **argv,t_info **info)
 {
