@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:56:46 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/01 12:57:16 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/05 15:21:20 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,6 @@ int init_fork_mutex(t_info **info)
 	return 1;
 }
 
-int init_other_mutex(t_info **info)
-{
-	if (pthread_mutex_init(&(*info)->print_lock,NULL))
-		return (0);
-	if (pthread_mutex_init(&(*info)->dead_lock,NULL))
-	{
-		pthread_mutex_destroy(&(*info)->print_lock);
-		return (0);
-	}
-	return (1);
-}
 
 int init_all(char **argv,t_info **info)
 {
