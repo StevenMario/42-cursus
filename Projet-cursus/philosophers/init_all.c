@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:56:46 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/06 10:49:42 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:12:47 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ int init_struct(char **argv,t_info **info)
 	(*info)->time_to_eat = ft_atol(argv[3]);
 	(*info)->time_to_sleep = ft_atol(argv[4]);
 	if (argv[5])
+	{
 		(*info)->nb_of_philo_must_eat = ft_atoi(argv[5]);
+		(*info)->all_eat = 0;
+	}
+	else
+		(*info)->nb_of_philo_must_eat = -1; 
 	(*info)->status = 0;
 	return (1);
 }

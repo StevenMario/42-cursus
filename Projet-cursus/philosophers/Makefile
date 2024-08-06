@@ -1,5 +1,5 @@
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 NAME = philo
 SRC =	check_arg.c\
 		utils.c\

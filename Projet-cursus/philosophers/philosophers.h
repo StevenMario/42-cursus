@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:04:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/06 11:47:23 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:50:45 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ struct s_info
 {
 	int		nb_philo;
 	int		status;
+	int		all_eat;
 	long	start_time;
 	long	time_to_die;
 	long	time_to_eat;
