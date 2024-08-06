@@ -5,6 +5,7 @@ SRC =	check_arg.c\
 		utils.c\
 		init_all.c\
 		routine.c\
+		check_death.c\
 		philosophers.c\
 
 all: $(NAME)

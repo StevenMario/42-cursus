@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:20:50 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/06 11:21:19 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:43:43 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void *check_death(void *arg)
 			pthread_mutex_unlock(&info->eat_lock);
 			i++;
 		}
-		usleep(1000);
+		usleep(100);
 	}
 	return NULL;
 }

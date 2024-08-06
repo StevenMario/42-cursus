@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:16:12 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/06 11:16:49 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/06 11:46:09 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	ft_eat(t_philo *philo)
 	ft_take_fork(philo,l_fork,r_fork);
 	pthread_mutex_lock(&philo->info->eat_lock);
 	philo->last_eat = ft_get_current_time();
+	if (philo->info->nb_of_philo_must_eat)
+		philo->nb_eat++;
 	pthread_mutex_unlock(&philo->info->eat_lock);
 	ft_printf_status(EAT,philo);
 	ft_usleep(philo->info->time_to_eat);
