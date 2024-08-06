@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:14:01 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/06 12:39:53 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:43:12 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int ft_start(t_info **info)
 		(*info)->philosophe[i].id_philo = i + 1;
 		(*info)->philosophe[i].info = (*info);
 		(*info)->philosophe[i].nb_eat = 0;
+		(*info)->philosophe[i].flag = 0;
 		(*info)->philosophe[i].last_eat = (*info)->start_time;
 		i++;
 	}

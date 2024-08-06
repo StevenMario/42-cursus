@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:04:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/06 11:50:45 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:42:53 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_philo
 {
 	int id_philo;
 	int	nb_eat;
+	int flag;
 	long last_eat;
 	pthread_t  	philo;
 	t_info		*info;

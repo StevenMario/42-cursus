@@ -6,7 +6,7 @@
 /*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:20:50 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/06 13:14:10 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:47:14 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ int	check_if_all_eat(t_info *info,int *i)
 {
 	if (info->nb_of_philo_must_eat >= 0)
 	{
-		
-		//printf("id  = %d  nb eat = %d\n",info->philosophe[*i].id_philo,info->philosophe[*i].nb_eat);
-		if (info->philosophe[*i].nb_eat == info->nb_of_philo_must_eat)
+		if (info->philosophe[*i].nb_eat == info->nb_of_philo_must_eat
+		&& !info->philosophe[*i].flag )
+		{
+			info->philosophe[*i].flag = 1;
 			info->all_eat++;
-		//printf("all_eat = %d \n",info->all_eat);
+		}
 		if (info->all_eat == info->nb_philo)
 			return (1);
 	}
