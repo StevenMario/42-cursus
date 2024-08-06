@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:56:46 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/05 20:31:19 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/06 10:49:42 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int init_struct(char **argv,t_info **info)
 	if (!*info)
 		return (0);
 	(*info)->nb_philo = ft_atoi(argv[1]);
+	if (!(*info)->nb_philo)
+		return (0);
 	(*info)->time_to_die = ft_atol(argv[2]);
 	(*info)->time_to_eat = ft_atol(argv[3]);
 	(*info)->time_to_sleep = ft_atol(argv[4]);

@@ -1,9 +1,10 @@
 CC = cc
-FLAGS = -Wall -Wextra -Werror -fsanitize=thread -g
+FLAGS = -Wall -Wextra -Werror
 NAME = philo
 SRC =	check_arg.c\
 		utils.c\
 		init_all.c\
+		routine.c\
 		philosophers.c\
 
 all: $(NAME)
