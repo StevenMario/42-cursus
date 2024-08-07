@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:14:01 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/07 09:11:09 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/07 09:17:03 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@ void *routine(void *arg)
 	}
 	return NULL;
 }
-
-
-
-
-
-
 
 int ft_start(t_info **info)
 {

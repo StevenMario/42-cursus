@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:56:46 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/07 09:11:19 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/07 09:24:44 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,6 @@ int init_fork_mutex(t_info **info)
 	return (1);
 }
 
-int	init_other_mutex( t_info **info)
-{
-	if (pthread_mutex_init(&(*info)->eat_lock,NULL) != 0)
-		return (0);
-	return (1);
-}
 
 int init_all(char **argv,t_info **info)
 {
@@ -78,11 +72,11 @@ int init_all(char **argv,t_info **info)
 		printf("Mutex error !\n");
 		return (0);
 	}
-	if (!init_other_mutex(info))
+	if (pthread_mutex_init(&(*info)->eat_lock,NULL) != 0)
 	{
 		free(info);
 		printf("Mutex error !\n");
-		return (0);
+		return (0);	
 	}
 	return (1);
 }

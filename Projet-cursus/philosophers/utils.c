@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 22:05:27 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/06 10:41:27 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/07 11:33:01 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,13 @@ void	ft_printf_status(int status,t_philo *philo)
 	if (!is_dead(philo))
 	{
 		if (status == TAKE_FORK)
-			printf("%ld  %d has taken a fork\n",current_time,philo->id_philo);
+			printf("\033[38;5;245m%ld  %d has taken a fork\n",current_time,philo->id_philo);
 		else if (status == EAT)
-			printf("%ld  %d is eating\n",current_time,philo->id_philo);
+			printf("\033[34m%ld  %d is eating\n",current_time,philo->id_philo);
 		else if (status == SLEEP)
-			printf("%ld  %d is sleeping\n",current_time,philo->id_philo);
+			printf("\033[32m%ld  %d is sleeping\n",current_time,philo->id_philo);
 		else if (status == THINK)
-			printf("%ld  %d is thinking\n",current_time,philo->id_philo);
+			printf("\033[38;5;213m%ld  %d is thinking\n",current_time,philo->id_philo);
 	}
 	// else if (status == DEAD)
 	// 	printf("%ld  %d died\n",current_time,philo->id_philo);

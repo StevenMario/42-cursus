@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_death.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:20:50 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/06 13:47:14 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/07 10:49:00 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void *check_death(void *arg)
 			if (ft_get_current_time() - info->philosophe[i].last_eat > info->time_to_die)
 			{
 				info->status = 1;
-				printf("%ld  %d is died\n",current_time, info->philosophe[i].id_philo);
+				printf("\033[38;5;196m%ld  %d is died\n",current_time, info->philosophe[i].id_philo);
 				pthread_mutex_unlock(&info->eat_lock);
 				break ;
 			}
