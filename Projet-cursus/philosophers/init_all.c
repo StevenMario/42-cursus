@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:56:46 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/06 13:12:47 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/07 09:11:19 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,19 @@ int init_all(char **argv,t_info **info)
 		return (0);
 	}
 	return (1);
+}
+void init_all_philo(t_info **info)
+{
+	int i;
+	
+	i = 0;	
+	while (i < (*info)->nb_philo)
+	{
+		(*info)->philosophe[i].id_philo = i + 1;
+		(*info)->philosophe[i].info = (*info);
+		(*info)->philosophe[i].nb_eat = 0;
+		(*info)->philosophe[i].flag = 0;
+		(*info)->philosophe[i].last_eat = (*info)->start_time;
+		i++;
+	}
 }

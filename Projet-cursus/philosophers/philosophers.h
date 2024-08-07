@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:04:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/06 13:42:53 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/07 09:11:56 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,13 @@ int	init_all(char **argv,t_info **info);
 int	init_struct(char **argv,t_info **info);
 long	ft_atol(const char *str);
 long	ft_get_current_time(void);
-void	*check_death(void *arg);
+void free_all(t_info **info);
 void	ft_eat(t_philo *philo);
+void	*check_death(void *arg);
 void	ft_think(t_philo *philo);
 void	ft_sleep(t_philo *philo);
+void init_all_philo(t_info **info);
+void destroy_all_mutex(t_info **info);
 void	ft_printf_status(int status,t_philo *philo);
 void	ft_take_fork(t_philo *philo, int l_fork, int r_fork);
 #endif

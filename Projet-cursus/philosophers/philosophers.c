@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:14:01 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/06 13:43:12 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/07 09:11:09 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,11 @@ void *routine(void *arg)
 	return NULL;
 }
 
-void destroy_all_mutex(t_info **info)
-{
-	int i;
 
-	i = 0;
-	while (i < (*info)->nb_philo)
-	{
-		pthread_mutex_destroy(&(*info)->fork[i]);
-		i++;
-	}
-	pthread_mutex_destroy(&(*info)->eat_lock);
-}
+
+
+
+
 
 int ft_start(t_info **info)
 {
@@ -50,18 +43,9 @@ int ft_start(t_info **info)
 	i = 0;
 	(*info)->philosophe = malloc(sizeof(t_philo) * (*info)->nb_philo);
 	(*info)->start_time = ft_get_current_time();
-	while (i < (*info)->nb_philo)
-	{
-		(*info)->philosophe[i].id_philo = i + 1;
-		(*info)->philosophe[i].info = (*info);
-		(*info)->philosophe[i].nb_eat = 0;
-		(*info)->philosophe[i].flag = 0;
-		(*info)->philosophe[i].last_eat = (*info)->start_time;
-		i++;
-	}
+	init_all_philo(info);
 	if (pthread_create(&(*info)->check_death,NULL,&check_death, *info) != 0)
 			return (0);
-	i = 0;
 	while (i < (*info)->nb_philo)
 	{
 		if (pthread_create(&(*info)->philosophe[i].philo,NULL,&routine, &(*info)->philosophe[i]) != 0)
@@ -77,11 +61,7 @@ int ft_start(t_info **info)
 			return (0);
 		i++;
 	}
-	destroy_all_mutex(info);
-	free((*info)->fork);
-	free((*info)->philosophe);
-	free(*info);
-	return (1);	
+	return (free_all(info),1);	
 }
 
 int	main(int argc, char **argv)
