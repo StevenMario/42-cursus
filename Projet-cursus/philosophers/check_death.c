@@ -37,9 +37,28 @@ int	check_if_all_eat(t_info *info, int *i)
 	return (0);
 }
 
-int is_dead_or_all_eat(t_info *info,int *i)
+int	is_dead_or_all_eat(t_info *info, int *i, long current_time)
 {
-	
+	pthread_mutex_lock(&info->eat_lock);
+	if (check_if_all_eat(info, i))
+	{
+		info->status = 1;
+		pthread_mutex_unlock(&info->eat_lock);
+		return (0);
+	}
+	pthread_mutex_unlock(&info->eat_lock);
+	pthread_mutex_lock(&info->eat_lock);
+	if (ft_get_current_time() - info->philosophe[*i].last_eat
+		> info->time_to_die)
+	{
+		info->status = 1;
+		printf("\033[38;5;196m%ld  %d is died\n",
+			current_time, info->philosophe[*i].id_philo);
+		pthread_mutex_unlock(&info->eat_lock);
+		return (0);
+	}
+	pthread_mutex_unlock(&info->eat_lock);
+	return (1);
 }
 
 void	*check_death(void *arg)
@@ -55,25 +74,8 @@ void	*check_death(void *arg)
 		current_time = ft_get_current_time() - info->start_time;
 		while (i < info->nb_philo)
 		{
-			pthread_mutex_lock(&info->eat_lock);
-			if (check_if_all_eat(info, &i))
-			{
-				info->status = 1;
-				pthread_mutex_unlock(&info->eat_lock);
+			if (!is_dead_or_all_eat(info, &i, current_time))
 				break ;
-			}
-			pthread_mutex_unlock(&info->eat_lock);
-			pthread_mutex_lock(&info->eat_lock);
-			if (ft_get_current_time() - info->philosophe[i].last_eat
-				> info->time_to_die)
-			{
-				info->status = 1;
-				printf("\033[38;5;196m%ld  %d is died\n",
-					current_time, info->philosophe[i].id_philo);
-				pthread_mutex_unlock(&info->eat_lock);
-				break ;
-			}
-			pthread_mutex_unlock(&info->eat_lock);
 			i++;
 		}
 		usleep(100);
