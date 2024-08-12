@@ -19,7 +19,7 @@ void *routine(void *arg)
 	philo = (t_philo *)arg;
 	if (philo->id_philo % 2 == 0)
 		usleep(1000);
-	while (!is_dead(philo))
+	while (!check_status(philo))
 	{
 		ft_think(philo);
 		if (philo->info->nb_philo != 1)

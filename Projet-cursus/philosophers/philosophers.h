@@ -56,7 +56,7 @@ int	is_number(char *str);
 int	check_arg(char **argv);
 int	ft_atoi(const char *str);
 int	ft_usleep (long millisecondes);
-int	is_dead(t_philo *philo);
+int	check_status(t_philo *philo);
 int	init_fork_mutex(t_info **info);
 int	init_all(char **argv,t_info **info);
 int	init_struct(char **argv,t_info **info);

@@ -70,7 +70,7 @@ void	ft_printf_status(int status,t_philo *philo)
 	
 	long current_time;
 	current_time =  ft_get_current_time() - philo->info->start_time;
-	if (!is_dead(philo))
+	if (!check_status(philo))
 	{
 		if (status == TAKE_FORK)
 			printf("\033[38;5;245m%ld  %d has taken a fork\n",current_time,philo->id_philo);

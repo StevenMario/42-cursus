@@ -14,7 +14,7 @@
 
 int	is_number(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -34,7 +34,7 @@ int	check_arg(char **argv)
 	int	i;
 
 	i = 1;
-	while(argv[i])
+	while (argv[i])
 	{
 		if (!is_number(argv[i]))
 			return (0);
