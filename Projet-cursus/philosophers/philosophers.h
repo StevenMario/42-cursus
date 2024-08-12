@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:04:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/07 09:11:56 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/12 19:54:17 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ struct s_info
 	pthread_t  	check_death;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	eat_lock;
+	pthread_mutex_t	mutex;
 	t_philo *philosophe;
 };
 

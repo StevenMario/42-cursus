@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 22:05:27 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/07 11:33:01 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/12 20:13:30 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,9 @@ int	ft_usleep (long millisecondes)
 
 void	ft_printf_status(int status,t_philo *philo)
 {
-	
 	long current_time;
+	
+	pthread_mutex_lock(&philo->info->mutex);
 	current_time =  ft_get_current_time() - philo->info->start_time;
 	if (!check_status(philo))
 	{
@@ -81,6 +82,7 @@ void	ft_printf_status(int status,t_philo *philo)
 		else if (status == THINK)
 			printf("\033[38;5;213m%ld  %d is thinking\n",current_time,philo->id_philo);
 	}
+	pthread_mutex_unlock(&philo->info->mutex);
 	// else if (status == DEAD)
 	// 	printf("%ld  %d died\n",current_time,philo->id_philo);
 	

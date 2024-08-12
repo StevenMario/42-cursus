@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:56:46 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/07 09:24:44 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/12 20:02:41 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ int init_all(char **argv,t_info **info)
 		printf("Mutex error !\n");
 		return (0);
 	}
-	if (pthread_mutex_init(&(*info)->eat_lock,NULL) != 0)
+	if (pthread_mutex_init(&(*info)->eat_lock,NULL) != 0
+		|| pthread_mutex_init(&(*info)->mutex,NULL) != 0)
 	{
 		free(info);
 		printf("Mutex error !\n");

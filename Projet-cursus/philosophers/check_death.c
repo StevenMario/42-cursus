@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:20:50 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/07 10:49:00 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/12 20:19:41 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ void	*check_death(void *arg)
 	while (info->status == 0)
 	{
 		i = 0;
+		pthread_mutex_lock(&info->mutex);
 		current_time = ft_get_current_time() - info->start_time;
+		pthread_mutex_unlock(&info->mutex);
 		while (i < info->nb_philo)
 		{
 			if (!is_dead_or_all_eat(info, &i, current_time))
