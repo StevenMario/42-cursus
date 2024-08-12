@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 22:05:27 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/12 20:13:30 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/12 20:36:52 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,4 @@ void	ft_printf_status(int status,t_philo *philo)
 			printf("\033[38;5;213m%ld  %d is thinking\n",current_time,philo->id_philo);
 	}
 	pthread_mutex_unlock(&philo->info->mutex);
-	// else if (status == DEAD)
-	// 	printf("%ld  %d died\n",current_time,philo->id_philo);
-	
 }

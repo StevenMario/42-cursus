@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 09:08:16 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/07 09:09:03 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/12 20:37:22 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ void destroy_all_mutex(t_info **info)
 		i++;
 	}
 	pthread_mutex_destroy(&(*info)->eat_lock);
+	pthread_mutex_destroy(&(*info)->mutex);
 }
