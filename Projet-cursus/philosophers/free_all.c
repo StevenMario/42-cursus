@@ -6,13 +6,13 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 09:08:16 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/12 20:37:22 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/12 21:33:00 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-void free_all(t_info **info)
+void	free_all(t_info **info)
 {
 	destroy_all_mutex(info);
 	free((*info)->fork);
@@ -20,9 +20,9 @@ void free_all(t_info **info)
 	free(*info);
 }
 
-void destroy_all_mutex(t_info **info)
+void	destroy_all_mutex(t_info **info)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < (*info)->nb_philo)

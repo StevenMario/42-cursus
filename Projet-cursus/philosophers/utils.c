@@ -6,7 +6,7 @@
 /*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 22:05:27 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/12 20:36:52 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/12 21:36:27 by mariosteven      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,41 +46,45 @@ int	ft_atoi(const char *str)
 	return (result);
 }
 
-long ft_get_current_time(void)
+long	ft_get_current_time(void)
 {
-	struct timeval tv;
+	struct timeval	tv;
 
-	if (gettimeofday(&tv, NULL ) == -1 )
+	if (gettimeofday(&tv, NULL) == -1)
 		printf("gettimeofday() error\n");
-	return ((tv.tv_sec  * 1000) + (tv.tv_usec / 1000));
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
-int	ft_usleep (long millisecondes)
- { 
-	long 	start; 
-
-	start = ft_get_current_time(); 
-	while ((ft_get_current_time() - start) < millisecondes) 
-		usleep(1); 
-	return (0); 
-}
-
-void	ft_printf_status(int status,t_philo *philo)
+int	ft_usleep(long millisecondes)
 {
-	long current_time;
-	
+	long	start;
+
+	start = ft_get_current_time();
+	while ((ft_get_current_time() - start) < millisecondes)
+		usleep(1);
+	return (0);
+}
+
+void	ft_printf_status(int status, t_philo *philo)
+{
+	long	current_time;
+
 	pthread_mutex_lock(&philo->info->mutex);
-	current_time =  ft_get_current_time() - philo->info->start_time;
+	current_time = ft_get_current_time() - philo->info->start_time;
 	if (!check_status(philo))
 	{
 		if (status == TAKE_FORK)
-			printf("\033[38;5;245m%ld  %d has taken a fork\n",current_time,philo->id_philo);
+			printf("\033[38;5;245m%ld  %d has taken a fork\n", current_time,
+				philo->id_philo);
 		else if (status == EAT)
-			printf("\033[34m%ld  %d is eating\n",current_time,philo->id_philo);
+			printf("\033[34m%ld  %d is eating\n", current_time,
+				philo->id_philo);
 		else if (status == SLEEP)
-			printf("\033[32m%ld  %d is sleeping\n",current_time,philo->id_philo);
+			printf("\033[32m%ld  %d is sleeping\n", current_time,
+				philo->id_philo);
 		else if (status == THINK)
-			printf("\033[38;5;213m%ld  %d is thinking\n",current_time,philo->id_philo);
+			printf("\033[38;5;213m%ld  %d is thinking\n", current_time,
+				philo->id_philo);
 	}
 	pthread_mutex_unlock(&philo->info->mutex);
 }
