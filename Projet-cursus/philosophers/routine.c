@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:16:12 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/12 21:38:13 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/14 09:28:48 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_eat(t_philo *philo)
 		philo->nb_eat++;
 	pthread_mutex_unlock(&philo->info->eat_lock);
 	ft_printf_status(EAT, philo);
-	ft_usleep(philo->info->time_to_eat);
+	ft_usleep(philo->info->time_to_eat, philo);
 	pthread_mutex_unlock(&philo->info->fork[l_fork]);
 	pthread_mutex_unlock(&philo->info->fork[r_fork]);
 }
@@ -52,7 +52,7 @@ void	ft_eat(t_philo *philo)
 void	ft_sleep(t_philo *philo)
 {
 	ft_printf_status(SLEEP, philo);
-	ft_usleep(philo->info->time_to_sleep);
+	ft_usleep(philo->info->time_to_sleep,philo);
 }
 
 void	ft_think(t_philo *philo)

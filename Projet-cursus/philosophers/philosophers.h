@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:04:32 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/12 21:26:58 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/14 09:29:09 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ struct s_info
 int		is_number(char *str);
 int		check_arg(char **argv);
 int		ft_atoi(const char *str);
-int		ft_usleep(long millisecondes);
+int	ft_usleep(long millisecondes,t_philo *philo);
 int		check_status(t_philo *philo);
 int		init_fork_mutex(t_info **info);
 int		init_all(char **argv, t_info **info);

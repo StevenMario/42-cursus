@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 22:05:27 by mariosteven       #+#    #+#             */
-/*   Updated: 2024/08/12 21:36:27 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/14 09:28:08 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,17 @@ long	ft_get_current_time(void)
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
-int	ft_usleep(long millisecondes)
+int	ft_usleep(long millisecondes,t_philo *philo)
 {
 	long	start;
 
 	start = ft_get_current_time();
 	while ((ft_get_current_time() - start) < millisecondes)
+	{
+		if (check_status(philo) == 1)
+			break ;
 		usleep(1);
+	}	
 	return (0);
 }
 
