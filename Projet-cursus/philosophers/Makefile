@@ -14,7 +14,8 @@ all: $(NAME)
 $(NAME): $(SRC)
 		@ $(CC) $(FLAGS) $(SRC) -o $(NAME)
 		@ echo "Make[OK]"
-	
+clen:
+
 fclean:
 	@rm -f $(NAME)
 	@ echo "Make fclean [OK]"

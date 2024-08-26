@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrambelo <mrambelo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:16:12 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/14 09:28:48 by mrambelo         ###   ########.fr       */
+/*   Updated: 2024/08/26 09:29:30 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_eat(t_philo *philo)
 void	ft_sleep(t_philo *philo)
 {
 	ft_printf_status(SLEEP, philo);
-	ft_usleep(philo->info->time_to_sleep,philo);
+	ft_usleep(philo->info->time_to_sleep, philo);
 }
 
 void	ft_think(t_philo *philo)
