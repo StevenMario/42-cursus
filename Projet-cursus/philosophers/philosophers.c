@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:14:01 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/12 21:29:53 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/15 20:34:14 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

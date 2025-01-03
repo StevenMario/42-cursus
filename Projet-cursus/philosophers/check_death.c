@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_death.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariosteven <mariosteven@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mrambelo <mrambelo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:20:50 by mrambelo          #+#    #+#             */
-/*   Updated: 2024/08/12 20:19:41 by mariosteven      ###   ########.fr       */
+/*   Updated: 2024/08/15 20:36:48 by mrambelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
